@@ -449,12 +449,12 @@ def _paradiag_wave_spectrum(nx, nt, dt, alpha, gamma):
 
 def _paradiag_wave_case(quick=False):
     """Wave-equation part of paper Figure 3.15(e,f)."""
-    nx = 48 if quick else 128
-    dt = 1 / 8 if quick else 1 / 16
-    t_final = 6.0 if quick else 20.0
+    nx = 50 if quick else 100
+    dt = 1 / 25 if quick else 1 / 50
+    t_final = 2.0
     nt = int(round(t_final / dt)) - 1
-    alpha = 0.02
-    gamma = 1 / 120.01
+    alpha = 1.0
+    gamma = 1 / 100
     dx = 1 / nx
 
     laplacian = linear_ade_operator(nx, dx, -1.0, periodic=False).tocsc()
