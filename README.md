@@ -1,5 +1,7 @@
 # ActaPinT-Python
 
+[![tests](https://github.com/freezeng123456/ActaPinT-Python/actions/workflows/tests.yml/badge.svg)](https://github.com/freezeng123456/ActaPinT-Python/actions/workflows/tests.yml)
+
 Python conversion, verification, and extension of the numerical experiments in
 [`wushulin/ActaPinT`](https://github.com/wushulin/ActaPinT), the companion
 MATLAB repository for:
@@ -28,6 +30,23 @@ The paper-focused suite validates Figures 3.15, 4.5, 4.9–4.10, and 4.19–4.20
 See [`UPSTREAM.md`](UPSTREAM.md) for the source mapping and
 [`PAPER_VALIDATION_REPORT.md`](PAPER_VALIDATION_REPORT.md) for the current
 quantitative comparison.
+
+## Reproduced paper results
+
+The paper-scale suite was rerun with Python 3.11 on a clean Linux environment:
+
+| Paper figure | Reproduced result |
+|---|---|
+| Figure 3.15 | Heat: 2 GMRES iterations; ADE: 3 at $\nu=10^{-3}$ and 13 at $\nu=10^{-6}$; wave: 89 iterations to preconditioned residual $10^{-11}$ |
+| Figure 4.5 | ADE: 14, 24, 35 iterations; Burgers: 14, 21, 25 for $\nu=1,0.1,0.02$ |
+| Figures 4.9–4.10 | Long-time factors agree to the displayed precision, including $1.4211/1.2812$ for Parareal/MGRiT at $\nu=0.002$ |
+| Figures 4.19–4.20 | Best sampled damping $\eta=0.500$ for heat and $\eta=0.372$ for ADE at $\nu=0.01$ |
+
+The wave run takes 103 SciPy iterations to satisfy its true-residual stopping
+test, while its preconditioned residual first falls below $10^{-11}$ at
+iteration 89. The paper curve ends near iteration 88; this is consistent at the
+level expected when MATLAB and SciPy use different GMRES residual and stopping
+conventions.
 
 ## Installation
 

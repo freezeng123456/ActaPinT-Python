@@ -24,6 +24,7 @@ root so numerical choices can be checked against the original scripts.
 | `mgrit_heat_ade` | `MGRiT_Heat_ADE.m` | Figures 4.9–4.10 |
 | `iterative_paradiag_ade` | `Iterative_ParaDiag_ADE.m` | Figure 3.15(c,d) |
 | `stmg_heat_ade` | `STMG_Heat_ADE.m` | Figures 4.19–4.20 |
+| `paper_validation` wave case | `Iterative_ParaDiag_Wave.m`, adjusted to the paper parameters | Figure 3.15(e,f) |
 
 The unified paper-validation entry point combines matched parameter sweeps and
 fair-cost comparisons:
