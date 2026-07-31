@@ -1,0 +1,209 @@
+{
+  "figure": "Burgers' equation: nonlinear steepening generates high-frequency shocks that travel far in space and time",
+  "panels": [
+    {
+      "label": "a",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 1.0,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 2,
+        "newton_iterations_mean": 1.9391666666666667
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 0.17842920696031314,
+      "final_time_linf": 2.513934459147885e-05,
+      "final_time_mean": 1.596421103566509e-05,
+      "peak_time": 1.8900000000000001
+    },
+    {
+      "label": "b",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.01,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 3,
+        "newton_iterations_mean": 2.754166666666667
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 0.9014157267454841,
+      "final_time_linf": 0.23912147979661885,
+      "final_time_mean": 0.10133197988997959,
+      "peak_time": 1.9175
+    },
+    {
+      "label": "c",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.0005,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 4,
+        "newton_iterations_mean": 3.2891666666666666
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.0984577752741376,
+      "final_time_linf": 0.26928384544498557,
+      "final_time_mean": 0.08625340981478138,
+      "peak_time": 1.475
+    },
+    {
+      "label": "d",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.0005,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": false,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 4,
+        "newton_iterations_mean": 2.3275
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.2051956196973685,
+      "final_time_linf": 0.16360342012733112,
+      "final_time_mean": 0.0820353992296053,
+      "peak_time": 0.09
+    },
+    {
+      "label": "e",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 1.0,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "periodic",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 2,
+        "newton_iterations_mean": 1.6558333333333333
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 0.6591977667264934,
+      "final_time_linf": 0.6231887288913197,
+      "final_time_mean": 0.6231827453999128,
+      "peak_time": 1.9025
+    },
+    {
+      "label": "f",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.01,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "periodic",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 3,
+        "newton_iterations_mean": 2.995
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.080869328000931,
+      "final_time_linf": 0.7680279616630507,
+      "final_time_mean": 0.6231834561545637,
+      "peak_time": 1.9100000000000001
+    },
+    {
+      "label": "g",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.0005,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "periodic",
+        "source": true,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 4,
+        "newton_iterations_mean": 3.9491666666666667
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.2863898640689388,
+      "final_time_linf": 0.9046000226673042,
+      "final_time_mean": 0.6231834561545637,
+      "peak_time": 2.1025
+    },
+    {
+      "label": "h",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "crank-nicolson-newton",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "nu": 0.0005,
+        "flux_coefficient": 1.0,
+        "boundary_condition": "periodic",
+        "source": false,
+        "newton_tolerance": 6.25e-07,
+        "newton_iterations_max": 4,
+        "newton_iterations_mean": 3.1533333333333333
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.2051956196973683,
+      "final_time_linf": 0.4937116882264896,
+      "final_time_mean": 0.4547184295329815,
+      "peak_time": 0.09
+    }
+  ],
+  "artifacts": {
+    "png": "results/section2/figure_2_3_burgers.png",
+    "svg": "results/section2/figure_2_3_burgers.svg"
+  }
+}

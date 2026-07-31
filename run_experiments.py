@@ -15,9 +15,21 @@ from actapint.experiments import (
     run_wave_solution,
 )
 from actapint.paper_validation import run_paper_validation
+from actapint.section2 import (
+    run_figure_2_1,
+    run_figure_2_2,
+    run_figure_2_3,
+    run_figure_2_4,
+    run_section2,
+)
 
 
 EXPERIMENTS = {
+    "section2": run_section2,
+    "figure_2_1": run_figure_2_1,
+    "figure_2_2": run_figure_2_2,
+    "figure_2_3": run_figure_2_3,
+    "figure_2_4": run_figure_2_4,
     "solution_heat_ade": run_linear_solution,
     "solution_burgers": run_burgers_solution,
     "solution_wave": run_wave_solution,

@@ -27,6 +27,10 @@ py-modules = ["run_experiments"]
 [tool.setuptools.packages.find]
 include = ["actapint*"]
 
+[tool.setuptools.package-data]
+actapint = ["data/*.csv"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+markers = ["slow: runs a full figure suite rather than a single panel"]

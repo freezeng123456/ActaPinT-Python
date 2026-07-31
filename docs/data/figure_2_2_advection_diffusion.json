@@ -1,0 +1,185 @@
+{
+  "figure": "Advection-diffusion equation: fine information travels far in time once the diffusion parameter is small and the boundary is periodic",
+  "panels": [
+    {
+      "label": "a",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.17684117699377416,
+      "final_time_linf": 3.31155589254041e-06,
+      "final_time_mean": 2.09175391864724e-06,
+      "peak_time": 1.8880000000000001
+    },
+    {
+      "label": "b",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.01,
+        "advection": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.764961699102879,
+      "final_time_linf": 4.325550025144078e-05,
+      "final_time_mean": 2.7318868156880116e-06,
+      "peak_time": 1.925
+    },
+    {
+      "label": "c",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.0005,
+        "advection": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": -2.2501721708321407e-41,
+      "max": 0.8862986903329328,
+      "final_time_linf": 1.4089584711205003e-19,
+      "final_time_mean": 1.0280543270191679e-21,
+      "peak_time": 1.848
+    },
+    {
+      "label": "d",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.0005,
+        "advection": 1.0,
+        "boundary_condition": "dirichlet",
+        "source": false
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": -0.15048275659473376,
+      "max": 1.0,
+      "final_time_linf": 7.021866368904101e-99,
+      "final_time_mean": 3.754849606365108e-102,
+      "peak_time": 0.0
+    },
+    {
+      "label": "e",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 1.0,
+        "boundary_condition": "periodic",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.6603694782049728,
+      "final_time_linf": 0.6240355385678987,
+      "final_time_mean": 0.6240355385670954,
+      "peak_time": 1.9020000000000001
+    },
+    {
+      "label": "f",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.01,
+        "advection": 1.0,
+        "boundary_condition": "periodic",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 1.0290404297129203,
+      "final_time_linf": 0.7041062380317201,
+      "final_time_mean": 0.6240355386080334,
+      "peak_time": 1.925
+    },
+    {
+      "label": "g",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.0005,
+        "advection": 1.0,
+        "boundary_condition": "periodic",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.8896596555780107,
+      "final_time_linf": 0.8895980921273774,
+      "final_time_mean": 0.6240355386095596,
+      "peak_time": 1.526
+    },
+    {
+      "label": "h",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 0.0005,
+        "advection": 1.0,
+        "boundary_condition": "periodic",
+        "source": false
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": -0.30218113778137684,
+      "max": 1.0,
+      "final_time_linf": 0.9949674619247625,
+      "final_time_mean": 0.45539982658600664,
+      "peak_time": 0.0
+    }
+  ],
+  "artifacts": {
+    "png": "results/section2/figure_2_2_advection_diffusion.png",
+    "svg": "results/section2/figure_2_2_advection_diffusion.svg"
+  }
+}

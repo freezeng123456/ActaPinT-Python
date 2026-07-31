@@ -1,0 +1,97 @@
+{
+  "figure": "Heat equation: locality in time under Dirichlet versus accumulation under Neumann and periodic boundary conditions",
+  "panels": [
+    {
+      "label": "a",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 0.0,
+        "boundary_condition": "dirichlet",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.17826447461916936,
+      "final_time_linf": 4.344981942393127e-06,
+      "final_time_mean": 2.7633358042760363e-06,
+      "peak_time": 1.889
+    },
+    {
+      "label": "b",
+      "title": "Neumann BCs",
+      "parameters": {
+        "scheme": "trapezoidal",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 0.0,
+        "boundary_condition": "neumann",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.6611264026086101,
+      "final_time_linf": 0.624120262756036,
+      "final_time_mean": 0.6241202627540445,
+      "peak_time": 1.9020000000000001
+    },
+    {
+      "label": "c",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 0.0,
+        "boundary_condition": "periodic",
+        "source": true
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 0.6612234592446434,
+      "final_time_linf": 0.6240355385678659,
+      "final_time_mean": 0.6240355385670523,
+      "peak_time": 1.9020000000000001
+    },
+    {
+      "label": "d",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "imex-euler",
+        "dt": 0.001,
+        "dx": 0.001,
+        "nu": 1.0,
+        "advection": 0.0,
+        "boundary_condition": "periodic",
+        "source": false
+      },
+      "grid": {
+        "nx": 1001,
+        "nt": 3001
+      },
+      "min": 0.0,
+      "max": 1.0,
+      "final_time_linf": 0.45539982654117506,
+      "final_time_mean": 0.4553998265405795,
+      "peak_time": 0.0
+    }
+  ],
+  "artifacts": {
+    "png": "results/section2/figure_2_1_heat.png",
+    "svg": "results/section2/figure_2_1_heat.svg"
+  }
+}

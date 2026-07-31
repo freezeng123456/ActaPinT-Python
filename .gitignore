@@ -6,3 +6,8 @@ build/
 dist/
 *.egg-info/
 results/
+
+# Rendered pages and extracted text of the article, used only as a local
+# comparison baseline.  Regenerate with scripts/compare_with_paper.py.
+paper/
+*.pdf

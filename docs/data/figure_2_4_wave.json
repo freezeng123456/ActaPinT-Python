@@ -1,0 +1,93 @@
+{
+  "figure": "Second-order wave equation: detailed long-time propagation for every boundary condition",
+  "panels": [
+    {
+      "label": "a",
+      "title": "Dirichlet BCs",
+      "parameters": {
+        "scheme": "trapezoidal-first-order-system",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "wave_speed_squared": 0.2,
+        "boundary_condition": "dirichlet",
+        "source": true
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 0.6829021676849908,
+      "final_time_linf": 0.16635500717658286,
+      "final_time_mean": 0.12426076311950443,
+      "peak_time": 2.095
+    },
+    {
+      "label": "b",
+      "title": "Neumann BCs",
+      "parameters": {
+        "scheme": "trapezoidal-first-order-system",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "wave_speed_squared": 0.2,
+        "boundary_condition": "neumann",
+        "source": true
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.3586305503616583,
+      "final_time_linf": 1.3586305503616583,
+      "final_time_mean": 1.2584008123632529,
+      "peak_time": 3.0
+    },
+    {
+      "label": "c",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "trapezoidal-first-order-system",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "wave_speed_squared": 0.2,
+        "boundary_condition": "periodic",
+        "source": true
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": 0.0,
+      "max": 1.358630550361771,
+      "final_time_linf": 1.358630550361771,
+      "final_time_mean": 1.258400812363356,
+      "peak_time": 3.0
+    },
+    {
+      "label": "d",
+      "title": "Periodic BCs",
+      "parameters": {
+        "scheme": "trapezoidal-first-order-system",
+        "dt": 0.0025,
+        "dx": 0.0025,
+        "wave_speed_squared": 0.2,
+        "boundary_condition": "periodic",
+        "source": false
+      },
+      "grid": {
+        "nx": 401,
+        "nt": 1201
+      },
+      "min": -0.07811789858176241,
+      "max": 1.0074699341395064,
+      "final_time_linf": 0.9836735052411593,
+      "final_time_mean": 0.4547184295329808,
+      "peak_time": 1.4425000000000001
+    }
+  ],
+  "artifacts": {
+    "png": "results/section2/figure_2_4_wave.png",
+    "svg": "results/section2/figure_2_4_wave.svg"
+  }
+}

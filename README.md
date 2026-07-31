@@ -26,6 +26,10 @@ time-parallel algorithm families:
 - iterative ParaDiag with FFT-based circulant preconditioning;
 - two-grid space-time multigrid (STMG).
 
+Section 2 is reproduced in full: all 24 space-time panels of Figures 2.1–2.4,
+checked pixel by pixel against the published rasters rather than by eye. See
+[`docs/SECTION2_REPRODUCTION.md`](docs/SECTION2_REPRODUCTION.md).
+
 The paper-focused suite validates Figures 3.15, 4.5, 4.9–4.10, and 4.19–4.20.
 See [`UPSTREAM.md`](UPSTREAM.md) for the source mapping and
 [`PAPER_VALIDATION_REPORT.md`](PAPER_VALIDATION_REPORT.md) for the current
@@ -40,6 +44,7 @@ The paper-scale suite was rerun with Python 3.11 on a clean Linux environment:
 
 | Paper figure | Reproduced result |
 |---|---|
+| Figures 2.1–2.4 | All 24 panels; median smoothed correlation with the published rasters 0.996, median decile mismatch 0.0026 |
 | Figure 3.15 | Heat: 2 GMRES iterations; ADE: 3 at $\nu=10^{-3}$ and 13 at $\nu=10^{-6}$; wave: 89 iterations to preconditioned residual $10^{-11}$ |
 | Figure 4.5 | ADE: 14, 24, 35 iterations; Burgers: 14, 21, 25 for $\nu=1,0.1,0.02$ |
 | Figures 4.9–4.10 | Long-time factors agree to the displayed precision, including $1.4211/1.2812$ for Parareal/MGRiT at $\nu=0.002$ |
@@ -76,6 +81,20 @@ Run the paper-scale validation:
 actapint paper_validation --output-dir results/paper
 ```
 
+Reproduce every Section 2 panel, about 30 seconds on one core:
+
+```bash
+actapint section2 --output-dir results/section2
+```
+
+Individual figures are available as `figure_2_1` through `figure_2_4`. To check
+them against the article rather than by eye:
+
+```bash
+python scripts/compare_with_paper.py paper.pdf \
+  --output docs/data/section2_paper_comparison.json
+```
+
 On a CUDA 12 server, install the optional CuPy backend and batch the independent
 Burgers fine propagators on the GPU:
 
@@ -107,6 +126,13 @@ JSON metrics file. Random initial states use fixed NumPy seeds.
 - `MGRiT_Heat_ADE.m` contains the invalid statement `nu=0.002max;`; the Python
   implementation uses `nu=0.002`, consistent with the paper and surrounding
   branches.
+- `Solution_Bergers.m` and equation (2.6) both specify the flux `0.5*(u^2)_x`,
+  but the published panels of Figure 2.3 are only reproduced with `(u^2)_x`. Grid
+  refinement, upwinding, extra diffusion and a source amplitude change were ruled
+  out first; see
+  [`docs/SECTION2_REPRODUCTION.md`](docs/SECTION2_REPRODUCTION.md).
+- `Solution_Wave.m` references an undefined `nu` in its Neumann branch, so that
+  branch cannot run as committed; the port uses `c^2`.
 - MATLAB and NumPy use different random-number generators. Initial errors need
   not match bit-for-bit, while convergence factors, trends, and final states are
   directly comparable.

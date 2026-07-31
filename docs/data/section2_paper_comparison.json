@@ -1,0 +1,498 @@
+{
+  "figure_2_1": [
+    {
+      "panel": "a",
+      "boundary_condition": "dirichlet",
+      "nu": null,
+      "source": true,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        0.1782532942543268
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9970428542920554,
+      "rms": 0.016397363293814284,
+      "pearson_smoothed": 0.9972815497300399,
+      "rms_smoothed": 0.015389158331242136,
+      "decile_mad": 0.0023541563836720785,
+      "median_abs": 0.0031273903311757434,
+      "within_2_steps": 0.6681929800847076,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "b",
+      "boundary_condition": "neumann",
+      "nu": null,
+      "source": true,
+      "pixels": 178648,
+      "reproduced_range": [
+        0.0,
+        0.6611264026086101
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.999916513564218,
+      "rms": 0.004160932859773038,
+      "pearson_smoothed": 0.999934594932436,
+      "rms_smoothed": 0.003779513615901354,
+      "decile_mad": 0.0015990482784491043,
+      "median_abs": 0.0010724217748528941,
+      "within_2_steps": 0.9392492499216336,
+      "palette_residual_median": 4.4693778952633365e-07
+    },
+    {
+      "panel": "c",
+      "boundary_condition": "periodic",
+      "nu": null,
+      "source": true,
+      "pixels": 178200,
+      "reproduced_range": [
+        0.0,
+        0.6612234592446434
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9999354842127265,
+      "rms": 0.003585911073447297,
+      "pearson_smoothed": 0.9999511479556279,
+      "rms_smoothed": 0.0031993300664924437,
+      "decile_mad": 0.0016031896482877309,
+      "median_abs": 0.0013391180165526761,
+      "within_2_steps": 0.9509708193041526,
+      "palette_residual_median": 4.4693778952633365e-07
+    },
+    {
+      "panel": "d",
+      "boundary_condition": "periodic",
+      "nu": null,
+      "source": false,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        1.0
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.40272836115812183,
+      "rms": 0.05233955873685477,
+      "pearson_smoothed": 0.7871232259651829,
+      "rms_smoothed": 0.05066599147040884,
+      "decile_mad": 0.05048252638177538,
+      "median_abs": 0.05048252638254572,
+      "within_2_steps": 0.00010701090384788681,
+      "palette_residual_median": 0.003921512143474705
+    }
+  ],
+  "figure_2_2": [
+    {
+      "panel": "a",
+      "boundary_condition": "dirichlet",
+      "nu": 1.0,
+      "source": true,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        0.17683917545078226
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9969390895135224,
+      "rms": 0.016687258191618967,
+      "pearson_smoothed": 0.9971808663596188,
+      "rms_smoothed": 0.015672046300339332,
+      "decile_mad": 0.0015916949003125088,
+      "median_abs": 0.0030648327811693007,
+      "within_2_steps": 0.6746361629269172,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "b",
+      "boundary_condition": "dirichlet",
+      "nu": 0.01,
+      "source": true,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        0.7649563640135074
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9904001017981309,
+      "rms": 0.03377404718897357,
+      "pearson_smoothed": 0.9927597192398414,
+      "rms_smoothed": 0.028772480145069782,
+      "decile_mad": 0.0024223631100946208,
+      "median_abs": 0.000501222164889018,
+      "within_2_steps": 0.6863454086690096,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "c",
+      "boundary_condition": "dirichlet",
+      "nu": 0.0005,
+      "source": true,
+      "pixels": 178200,
+      "reproduced_range": [
+        -2.2501721708321407e-41,
+        0.8862986903329328
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9882821857634624,
+      "rms": 0.03982257996323433,
+      "pearson_smoothed": 0.993107994944112,
+      "rms_smoothed": 0.029733040271649754,
+      "decile_mad": 0.0026695106261737335,
+      "median_abs": 3.5934245699838714e-06,
+      "within_2_steps": 0.7528282828282828,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "d",
+      "boundary_condition": "dirichlet",
+      "nu": 0.0005,
+      "source": false,
+      "pixels": 177552,
+      "reproduced_range": [
+        -0.15048275659473376,
+        1.0
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.7776443469826717,
+      "rms": 0.19628487871353648,
+      "pearson_smoothed": 0.9572287693777326,
+      "rms_smoothed": 0.1523180540923029,
+      "decile_mad": 0.15361041618871457,
+      "median_abs": 0.1307996627782075,
+      "within_2_steps": 0.002579525998017482,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "e",
+      "boundary_condition": "periodic",
+      "nu": 1.0,
+      "source": true,
+      "pixels": 177826,
+      "reproduced_range": [
+        0.0,
+        0.6603671608606091
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9999338757986609,
+      "rms": 0.0036188873176563633,
+      "pearson_smoothed": 0.9999508045256239,
+      "rms_smoothed": 0.0032032519856980573,
+      "decile_mad": 0.0012217991184341932,
+      "median_abs": 0.0008553634808559085,
+      "within_2_steps": 0.9491019311011888,
+      "palette_residual_median": 4.4693778952633365e-07
+    },
+    {
+      "panel": "f",
+      "boundary_condition": "periodic",
+      "nu": 0.01,
+      "source": true,
+      "pixels": 177826,
+      "reproduced_range": [
+        0.0,
+        1.0290155287811342
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9969849310200354,
+      "rms": 0.0187583461150404,
+      "pearson_smoothed": 0.997252301465863,
+      "rms_smoothed": 0.017686043487375423,
+      "decile_mad": 0.0038073287753339576,
+      "median_abs": 0.008382997777343693,
+      "within_2_steps": 0.4741938749114303,
+      "palette_residual_median": 0.005545280038178591
+    },
+    {
+      "panel": "g",
+      "boundary_condition": "periodic",
+      "nu": 0.0005,
+      "source": true,
+      "pixels": 178475,
+      "reproduced_range": [
+        0.0,
+        0.8896596555780107
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9599700082858077,
+      "rms": 0.13298738706846333,
+      "pearson_smoothed": 0.9651744691228835,
+      "rms_smoothed": 0.12446337053670534,
+      "decile_mad": 0.0981568801428928,
+      "median_abs": 0.06229591293552875,
+      "within_2_steps": 0.20908250455245833,
+      "palette_residual_median": 0.005546102571950339
+    },
+    {
+      "panel": "h",
+      "boundary_condition": "periodic",
+      "nu": 0.0005,
+      "source": false,
+      "pixels": 177826,
+      "reproduced_range": [
+        -0.30218113778137684,
+        1.0
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.8137706781988875,
+      "rms": 0.33225523336157226,
+      "pearson_smoothed": 0.9229585798362326,
+      "rms_smoothed": 0.2766412499611656,
+      "decile_mad": 0.28294599836585604,
+      "median_abs": 0.26542842608486894,
+      "within_2_steps": 0.018714923576979743,
+      "palette_residual_median": 0.011764940863792869
+    }
+  ],
+  "figure_2_3": [
+    {
+      "panel": "a",
+      "boundary_condition": "dirichlet",
+      "nu": 1.0,
+      "source": true,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        0.17842920696031314
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9968663562738017,
+      "rms": 0.016857691751699336,
+      "pearson_smoothed": 0.9971471720007946,
+      "rms_smoothed": 0.015753874819389578,
+      "decile_mad": 0.00245276797479904,
+      "median_abs": 0.002871360254142355,
+      "within_2_steps": 0.685568171577904,
+      "palette_residual_median": 6.707090600974152e-07
+    },
+    {
+      "panel": "b",
+      "boundary_condition": "dirichlet",
+      "nu": 0.01,
+      "source": true,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        0.9014157267454841
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.978233571155905,
+      "rms": 0.052447786861034795,
+      "pearson_smoothed": 0.9843722936792677,
+      "rms_smoothed": 0.044024461905999804,
+      "decile_mad": 0.006475798814971555,
+      "median_abs": 0.00451357211410635,
+      "within_2_steps": 0.6630620888528431,
+      "palette_residual_median": 0.003921744711197991
+    },
+    {
+      "panel": "c",
+      "boundary_condition": "dirichlet",
+      "nu": 0.0005,
+      "source": true,
+      "pixels": 178200,
+      "reproduced_range": [
+        0.0,
+        1.0984577752741376
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9777770401906594,
+      "rms": 0.04600241892099093,
+      "pearson_smoothed": 0.9950650245014385,
+      "rms_smoothed": 0.02105164422645577,
+      "decile_mad": 0.00208562824051548,
+      "median_abs": 0.0038336970403814903,
+      "within_2_steps": 0.6684062850729517,
+      "palette_residual_median": 0.003921182657368854
+    },
+    {
+      "panel": "d",
+      "boundary_condition": "dirichlet",
+      "nu": 0.0005,
+      "source": false,
+      "pixels": 177552,
+      "reproduced_range": [
+        0.0,
+        1.2051956196973685
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9538536411960591,
+      "rms": 0.04265732045302125,
+      "pearson_smoothed": 0.9901271971127849,
+      "rms_smoothed": 0.019283353635231943,
+      "decile_mad": 0.004444281761271491,
+      "median_abs": 0.006652064568180252,
+      "within_2_steps": 0.603445751103902,
+      "palette_residual_median": 0.003921905720709198
+    },
+    {
+      "panel": "e",
+      "boundary_condition": "periodic",
+      "nu": 1.0,
+      "source": true,
+      "pixels": 177826,
+      "reproduced_range": [
+        0.0,
+        0.6591977667264934
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9999289516416953,
+      "rms": 0.003943396666116719,
+      "pearson_smoothed": 0.9999448646726778,
+      "rms_smoothed": 0.0035861993770795846,
+      "decile_mad": 0.0025546417441802785,
+      "median_abs": 0.0022964028017881527,
+      "within_2_steps": 0.9520767491817844,
+      "palette_residual_median": 5.446173800519214e-07
+    },
+    {
+      "panel": "f",
+      "boundary_condition": "periodic",
+      "nu": 0.01,
+      "source": true,
+      "pixels": 177826,
+      "reproduced_range": [
+        0.0,
+        1.080869328000931
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9966768487209606,
+      "rms": 0.019822635308742377,
+      "pearson_smoothed": 0.9974502951011054,
+      "rms_smoothed": 0.017136682654672122,
+      "decile_mad": 0.001886155979103154,
+      "median_abs": 0.00639137800900496,
+      "within_2_steps": 0.5738362219248029,
+      "palette_residual_median": 0.003921519205074176
+    },
+    {
+      "panel": "g",
+      "boundary_condition": "periodic",
+      "nu": 0.0005,
+      "source": true,
+      "pixels": 178475,
+      "reproduced_range": [
+        0.0,
+        1.2863898640689388
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9796569453830156,
+      "rms": 0.04416011551830118,
+      "pearson_smoothed": 0.9952848469677409,
+      "rms_smoothed": 0.020689793470476232,
+      "decile_mad": 0.003972540896888681,
+      "median_abs": 0.005255269459692791,
+      "within_2_steps": 0.6218910211514218,
+      "palette_residual_median": 0.003921771511382836
+    },
+    {
+      "panel": "h",
+      "boundary_condition": "periodic",
+      "nu": 0.0005,
+      "source": false,
+      "pixels": 177826,
+      "reproduced_range": [
+        0.0,
+        1.2051956196973683
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.8336857983497313,
+      "rms": 0.03812456312113029,
+      "pearson_smoothed": 0.9511782105652354,
+      "rms_smoothed": 0.017490087016274854,
+      "decile_mad": 0.004972032290630929,
+      "median_abs": 0.006662253495935105,
+      "within_2_steps": 0.5979665515728858,
+      "palette_residual_median": 0.003921823341650208
+    }
+  ],
+  "figure_2_4": [
+    {
+      "panel": "a",
+      "boundary_condition": "dirichlet",
+      "nu": null,
+      "source": true,
+      "pixels": 179300,
+      "reproduced_range": [
+        0.0,
+        0.6829021676849908
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9993393126921575,
+      "rms": 0.0109938730126758,
+      "pearson_smoothed": 0.9994110431657437,
+      "rms_smoothed": 0.010568237609484747,
+      "decile_mad": 0.006643122757459712,
+      "median_abs": 0.004355960509422038,
+      "within_2_steps": 0.6560011154489682,
+      "palette_residual_median": 0.003921762978613239
+    },
+    {
+      "panel": "b",
+      "boundary_condition": "neumann",
+      "nu": null,
+      "source": true,
+      "pixels": 178648,
+      "reproduced_range": [
+        0.0,
+        1.3586305503616583
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9998671169189529,
+      "rms": 0.005051295224745293,
+      "pearson_smoothed": 0.9998892479941313,
+      "rms_smoothed": 0.004675946737060028,
+      "decile_mad": 0.002309230834059551,
+      "median_abs": 0.003261279826652974,
+      "within_2_steps": 0.8829653844431508,
+      "palette_residual_median": 0.003921203511603408
+    },
+    {
+      "panel": "c",
+      "boundary_condition": "periodic",
+      "nu": null,
+      "source": true,
+      "pixels": 179300,
+      "reproduced_range": [
+        0.0,
+        1.358630550361771
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.9998676606223907,
+      "rms": 0.0050517199715132315,
+      "pearson_smoothed": 0.9998897054404914,
+      "rms_smoothed": 0.004677914444758347,
+      "decile_mad": 0.0023088815851172004,
+      "median_abs": 0.0032710840686666076,
+      "within_2_steps": 0.8826770775237033,
+      "palette_residual_median": 0.003921203511603408
+    },
+    {
+      "panel": "d",
+      "boundary_condition": "periodic",
+      "nu": null,
+      "source": false,
+      "pixels": 179300,
+      "reproduced_range": [
+        -0.07811789858176241,
+        1.0074699341395064
+      ],
+      "reproduced_is_constant": false,
+      "pearson": 0.8984817552515002,
+      "rms": 0.10679997877706844,
+      "pearson_smoothed": 0.9465256718277052,
+      "rms_smoothed": 0.05726551962574013,
+      "decile_mad": 0.008071839476717755,
+      "median_abs": 0.05982052236408694,
+      "within_2_steps": 0.09168432794199666,
+      "palette_residual_median": 0.008768848671891115
+    }
+  ],
+  "summary": {
+    "panels": 24,
+    "pearson_smoothed_min": 0.7871232259651829,
+    "pearson_smoothed_median": 0.9962160094842678,
+    "decile_mad_max": 0.28294599836585604,
+    "decile_mad_median": 0.002612076185177006,
+    "note": "Colour inversion is quantised to 256 palette entries and some panels are stored as JPEG in the PDF, so a perfect reproduction still shows a small non-zero rms. Panels whose stripes approach the raster pixel pitch are aliased in the published figure; for those, read pearson_smoothed and decile_mad rather than the pointwise values."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "figure_2_1": {
+    "figure": "Heat equation: locality in time under Dirichlet versus accumulation under Neumann and periodic boundary conditions",
+    "panels": 4,
+    "metrics": "results/section2/figure_2_1_heat.json"
+  },
+  "figure_2_2": {
+    "figure": "Advection-diffusion equation: fine information travels far in time once the diffusion parameter is small and the boundary is periodic",
+    "panels": 8,
+    "metrics": "results/section2/figure_2_2_advection_diffusion.json"
+  },
+  "figure_2_3": {
+    "figure": "Burgers' equation: nonlinear steepening generates high-frequency shocks that travel far in space and time",
+    "panels": 8,
+    "metrics": "results/section2/figure_2_3_burgers.json"
+  },
+  "figure_2_4": {
+    "figure": "Second-order wave equation: detailed long-time propagation for every boundary condition",
+    "panels": 4,
+    "metrics": "results/section2/figure_2_4_wave.json"
+  },
+  "panels_total": 24,
+  "quick": false
+}
