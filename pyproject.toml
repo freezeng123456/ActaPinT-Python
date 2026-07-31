@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "actapint-python"
+version = "0.1.0"
+description = "Python reproduction and extension of the ActaPinT MATLAB experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+actapint = "run_experiments:main"
+
+[tool.setuptools]
+py-modules = ["run_experiments"]
+
+[tool.setuptools.packages.find]
+include = ["actapint*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
