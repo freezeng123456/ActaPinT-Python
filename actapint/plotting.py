@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+from html import escape
 from pathlib import Path
 
 import matplotlib
@@ -80,6 +82,72 @@ def style_axis(ax, *, grid: bool = True) -> None:
         ax.set_axisbelow(True)
 
 
+def _figure_accessible_text(fig, fallback: str) -> tuple[str, str]:
+    """Return concise accessible text derived from visible figure titles."""
+    titles: list[str] = []
+    if fig._suptitle is not None:
+        text = fig._suptitle.get_text().strip()
+        if text:
+            titles.append(text)
+    for ax in fig.axes:
+        text = ax.get_title().strip()
+        if text and text not in titles:
+            titles.append(text)
+
+    title = titles[0] if titles else fallback
+    if len(titles) > 1:
+        description = "Numerical experiment with panels: " + "; ".join(titles)
+    else:
+        description = (
+            f"Numerical experiment plot titled {title}. "
+            "Quantitative values are provided in the accompanying JSON and report."
+        )
+    return title, description
+
+
+def normalize_svg(
+    svg_path: str | Path,
+    *,
+    title: str,
+    description: str,
+) -> None:
+    """Make a Matplotlib SVG responsive and accessible in web documents."""
+    svg_path = Path(svg_path)
+    source = svg_path.read_text(encoding="utf-8")
+    match = re.search(r"<svg\b[^>]*>", source)
+    if match is None:
+        raise ValueError(f"SVG root element not found in {svg_path}")
+
+    root = match.group(0)
+    root = re.sub(r'width="([0-9.]+)pt"', r'width="\1"', root)
+    root = re.sub(r'height="([0-9.]+)pt"', r'height="\1"', root)
+    root = re.sub(r'\srole="[^"]*"', "", root)
+    root = re.sub(r'\saria-labelledby="[^"]*"', "", root)
+    root = root[:-1] + ' role="img" aria-labelledby="figure-title figure-description">'
+
+    source = re.sub(
+        r'\s*<title id="figure-title">.*?</title>',
+        "",
+        source,
+        flags=re.DOTALL,
+    )
+    source = re.sub(
+        r'\s*<desc id="figure-description">.*?</desc>',
+        "",
+        source,
+        flags=re.DOTALL,
+    )
+    match = re.search(r"<svg\b[^>]*>", source)
+    if match is None:
+        raise ValueError(f"SVG root element not found in {svg_path}")
+    accessible_text = (
+        f'\n <title id="figure-title">{escape(title)}</title>'
+        f'\n <desc id="figure-description">{escape(description)}</desc>'
+    )
+    source = source[: match.start()] + root + accessible_text + source[match.end() :]
+    svg_path.write_text(source, encoding="utf-8")
+
+
 def save_figure(fig, output_path, *, dpi: int = 240) -> dict[str, str]:
     """Save both a web PNG and an editable, resolution-independent SVG."""
     output_path = Path(output_path)
@@ -89,6 +157,8 @@ def save_figure(fig, output_path, *, dpi: int = 240) -> dict[str, str]:
     svg_path = stem.with_suffix(".svg")
     fig.savefig(png_path, dpi=dpi, bbox_inches="tight", pad_inches=0.08)
     fig.savefig(svg_path, bbox_inches="tight", pad_inches=0.08)
+    title, description = _figure_accessible_text(fig, stem.name.replace("_", " "))
+    normalize_svg(svg_path, title=title, description=description)
     plt.close(fig)
     return {"png": str(png_path), "svg": str(svg_path)}
 

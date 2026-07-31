@@ -31,6 +31,9 @@ See [`UPSTREAM.md`](UPSTREAM.md) for the source mapping and
 [`PAPER_VALIDATION_REPORT.md`](PAPER_VALIDATION_REPORT.md) for the current
 quantitative comparison.
 
+The committed plots and machine-readable outputs are collected in
+[`docs/RESULTS.md`](docs/RESULTS.md).
+
 ## Reproduced paper results
 
 The paper-scale suite was rerun with Python 3.11 on a clean Linux environment:
