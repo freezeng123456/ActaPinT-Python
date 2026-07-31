@@ -22,6 +22,7 @@ from actapint.section2 import (
     run_figure_2_4,
     run_section2,
 )
+from actapint.section3 import run_figure_3_1
 
 
 EXPERIMENTS = {
@@ -30,6 +31,7 @@ EXPERIMENTS = {
     "figure_2_2": run_figure_2_2,
     "figure_2_3": run_figure_2_3,
     "figure_2_4": run_figure_2_4,
+    "figure_3_1": run_figure_3_1,
     "solution_heat_ade": run_linear_solution,
     "solution_burgers": run_burgers_solution,
     "solution_wave": run_wave_solution,

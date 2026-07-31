@@ -1,0 +1,147 @@
+{
+  "figure": "OSWR for the advection-diffusion equation: both the theoretical convergence factor and the measured four-subdomain iteration count fall as the diffusion parameter shrinks",
+  "artifacts": {
+    "png": "results/section3/figure_3_1_oswr.png",
+    "svg": "results/section3/figure_3_1_oswr.svg"
+  },
+  "parameters": {
+    "domain_length": 8.2,
+    "t_final": 5.0,
+    "dt": 0.01,
+    "dx": 0.02,
+    "subdomains": 4,
+    "overlap": 0.04,
+    "tolerance": 1e-08,
+    "robin_scaling": "upstream"
+  },
+  "nu": [
+    1.0,
+    0.5,
+    0.25,
+    0.125,
+    0.0625,
+    0.03125,
+    0.015625,
+    0.0078125
+  ],
+  "theory": [
+    {
+      "nu": 1.0,
+      "dirichlet": 0.975180456784443,
+      "robin": 0.33162387812514765,
+      "robin_interval_max": 0.48989852623507907,
+      "p_star": 3.848499406668151,
+      "p_tilde": 0.15393997626672604,
+      "y0": 0.04,
+      "y_min": 0.025132741228718346,
+      "y_max": 12.566370614359172,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.5,
+      "dirichlet": 0.9509769232943149,
+      "robin": 0.2455612482638935,
+      "robin_interval_max": 0.39767430442352436,
+      "p_star": 3.1302242847527326,
+      "p_tilde": 0.2504179427802186,
+      "y0": 0.08,
+      "y_min": 0.05026548245743669,
+      "y_max": 25.132741228718345,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.25,
+      "dirichlet": 0.9043571086383213,
+      "robin": 0.16582281677372465,
+      "robin_interval_max": 0.29884463894434293,
+      "p_star": 2.5786439781296457,
+      "p_tilde": 0.4125830365007433,
+      "y0": 0.16,
+      "y_min": 0.10053096491487339,
+      "y_max": 50.26548245743669,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.125,
+      "dirichlet": 0.8178617799446645,
+      "robin": 0.0981903691384707,
+      "robin_interval_max": 0.19920378363863425,
+      "p_star": 2.1631738294116545,
+      "p_tilde": 0.6922156254117294,
+      "y0": 0.32,
+      "y_min": 0.20106192982974677,
+      "y_max": 100.53096491487338,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.0625,
+      "dirichlet": 0.6688978910942548,
+      "robin": 0.04766104951220598,
+      "robin_interval_max": 0.10913388565205202,
+      "p_star": 1.8597837396236667,
+      "p_tilde": 1.1902615933591467,
+      "y0": 0.64,
+      "y_min": 0.40212385965949354,
+      "y_max": 201.06192982974676,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.03125,
+      "dirichlet": 0.44742438871034146,
+      "robin": 0.016702395593945207,
+      "robin_interval_max": 0.042694842702817995,
+      "p_star": 1.6493467165094498,
+      "p_tilde": 2.111163797132096,
+      "y0": 1.28,
+      "y_min": 0.8042477193189871,
+      "y_max": 402.1238596594935,
+      "branch": "equioscillation"
+    },
+    {
+      "nu": 0.015625,
+      "dirichlet": 0.20018858361282274,
+      "robin": 0.0031289068249475394,
+      "robin_interval_max": 0.003190550162320588,
+      "p_star": 1.4431552559420677,
+      "p_tilde": 3.6944774552116937,
+      "y0": 2.56,
+      "y_min": 1.6084954386379742,
+      "y_max": 804.247719318987,
+      "branch": "pinned"
+    },
+    {
+      "nu": 0.0078125,
+      "dirichlet": 0.04007546900890813,
+      "robin": 0.0001512462978099585,
+      "robin_interval_max": 0.002570485723201265,
+      "p_star": 1.2707463144997515,
+      "p_tilde": 6.506221130238728,
+      "y0": 5.12,
+      "y_min": 3.2169908772759483,
+      "y_max": 1608.495438637974,
+      "branch": "pinned"
+    }
+  ],
+  "iterations": {
+    "dirichlet": [
+      402,
+      272,
+      179,
+      110,
+      61,
+      32,
+      16,
+      13
+    ],
+    "robin": [
+      28,
+      26,
+      29,
+      29,
+      26,
+      20,
+      14,
+      12
+    ]
+  }
+}

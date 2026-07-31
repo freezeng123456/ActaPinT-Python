@@ -133,6 +133,12 @@ JSON metrics file. Random initial states use fixed NumPy seeds.
   [`docs/SECTION2_REPRODUCTION.md`](docs/SECTION2_REPRODUCTION.md).
 - `Solution_Wave.m` references an undefined `nu` in its Neumann branch, so that
   branch cannot run as committed; the port uses `c^2`.
+- `SWR_for_ADE.m` scales a centred first difference by `dt/dx` rather than
+  `dt/(2*dx)`, so it transports at speed 2; Figure 3.1(b) is reproduced by the
+  consistent coefficient. The same script computes the Robin parameter as
+  `p_tilde*nu/l`, not the `p_tilde*s/nu` printed in Theorem 3.1, and only its
+  version reproduces the figure; see
+  [`docs/SECTION3_REPRODUCTION.md`](docs/SECTION3_REPRODUCTION.md).
 - MATLAB and NumPy use different random-number generators. Initial errors need
   not match bit-for-bit, while convergence factors, trends, and final states are
   directly comparable.

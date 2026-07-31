@@ -52,14 +52,16 @@ BURGERS_FLUX_COEFFICIENT_UPSTREAM = 0.5
 T_FINAL = 3.0
 
 
-def source_term(nodes, t):
-    """Evaluate g(x, t) of equation (2.4) on ``nodes``."""
-    envelope = SOURCE_AMPLITUDE * np.exp(
-        -SOURCE_SHARPNESS * (nodes - SOURCE_CENTRE) ** 2
-    )
-    pulses = sum(
-        np.exp(-SOURCE_SHARPNESS * (t - centre) ** 2) for centre in SOURCE_TIMES
-    )
+def source_term(nodes, t, sharpness=SOURCE_SHARPNESS):
+    """Evaluate g(x, t) of equation (2.4) on ``nodes``.
+
+    Equation (2.4) is a sum of isotropic Gaussians, which factors into a fixed
+    spatial envelope times a sum of pulses in time.  ``sharpness`` is the sigma
+    of that equation: Section 2 uses 200, while Section 3 uses 1000 for a
+    low-regularity solution and 5 for a smooth one.
+    """
+    envelope = SOURCE_AMPLITUDE * np.exp(-sharpness * (nodes - SOURCE_CENTRE) ** 2)
+    pulses = sum(np.exp(-sharpness * (t - centre) ** 2) for centre in SOURCE_TIMES)
     return envelope * pulses
 
 

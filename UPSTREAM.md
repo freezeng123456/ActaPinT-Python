@@ -21,6 +21,7 @@ root so numerical choices can be checked against the original scripts.
 | `figure_2_3` | `Solution_Bergers.m`, `g.m` | Figure 2.3(a–h), all 8 panels |
 | `figure_2_4` | `Solution_Wave.m`, `g.m` | Figure 2.4(a–d), all 4 panels |
 | `section2` | the four scripts above | every Section 2 panel in one run |
+| `figure_3_1` | no upstream script | Figure 3.1(a–b), OSWR theory and four-subdomain counts |
 | `solution_heat_ade` | `Solution_Heat_ADE.m` | the committed script defaults, i.e. Figure 2.2(d) alone |
 | `solution_burgers` | `Solution_Bergers.m` | the committed script defaults, i.e. Figure 2.3(d) alone |
 | `solution_wave` | `Solution_Wave.m` | source-free Dirichlet wave; no published panel uses this combination |
