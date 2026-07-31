@@ -1,0 +1,37 @@
+{
+  "date": "2026-07-31",
+  "hardware": {
+    "gpu": "Tesla T4",
+    "memory_bytes": 15655829504,
+    "compute_capability": "7.5",
+    "cpu": "AMD EPYC 7K62",
+    "logical_cpus_available": 90
+  },
+  "software": {
+    "cuda_runtime": "12.2",
+    "cupy": "13.6.0",
+    "python": "3.11",
+    "precision": "float64",
+    "blas_threads": 1
+  },
+  "burgers_fine_batch": {
+    "space_points": 128,
+    "time_slices": 40,
+    "sdirk22_substeps": 32,
+    "viscosity": 0.1,
+    "cpu_seconds": 2.892877019941807,
+    "gpu_seconds": 0.24600352719426155,
+    "speedup": 11.759494072852823,
+    "max_abs_difference": 2.3314683517128287e-15
+  },
+  "paper_validation_suite": {
+    "cpu_wall_seconds": 263.57,
+    "gpu_wall_seconds": 67.92,
+    "end_to_end_speedup": 3.880594817432273
+  },
+  "correctness": {
+    "figure_4_5_ade_iterations_to_1e-10": [14, 24, 35],
+    "figure_4_5_burgers_iterations_to_1e-10": [14, 21, 25],
+    "stopping_iterations_match_cpu": true
+  }
+}

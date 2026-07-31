@@ -9,6 +9,7 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import LinearOperator, gmres, splu
 
+from .gpu import CupyBurgersFineStepper, backend_metadata, resolve_backend
 from .integrators import burgers_fine_step, burgers_ie_step, linear_step_matrix, repeated_linear_step
 from .operators import burgers_operators, linear_ade_operator
 from .plotting import COLORS, save_figure, style_axis
@@ -111,10 +112,11 @@ def _mgrit_fcf(fine, coarse, reference, initial, iterations):
     return errors
 
 
-def validate_figure_45(output_dir, quick=False):
+def validate_figure_45(output_dir, quick=False, backend="auto"):
     """Parareal diffusion-parameter sweep for ADE and Burgers (paper Figure 4.5)."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    selected_backend = resolve_backend(backend)
     n = 64 if quick else 128
     nt = 20 if quick else 40
     substeps = 8 if quick else 32
@@ -144,6 +146,17 @@ def validate_figure_45(output_dir, quick=False):
         fine_b = lambda y: burgers_fine_step(
             a1, a2, y, coarse_dt / substeps, substeps, "sdirk22", 1e-12
         )
+        fine_b_batch = (
+            CupyBurgersFineStepper(
+                a1,
+                a2,
+                coarse_dt / substeps,
+                substeps,
+                tol=1e-14,
+            )
+            if selected_backend == "gpu"
+            else None
+        )
         coarse_b = lambda y: burgers_ie_step(a1, a2, coarse_dt, y, 1e-12)
         ref_b = np.zeros((n, nt + 1))
         ref_b[:, 0] = u0
@@ -153,11 +166,15 @@ def validate_figure_45(output_dir, quick=False):
         coarse_old = current.copy()
         errors_b = [float(np.max(np.abs(current - ref_b)))]
         for _ in range(nt + 1):
-            fvals = [fine_b(current[:, j]) for j in range(nt)]
+            fvals = (
+                fine_b_batch(current[:, :nt])
+                if fine_b_batch is not None
+                else np.column_stack([fine_b(current[:, j]) for j in range(nt)])
+            )
             updated = current.copy()
             for j in range(nt):
                 cg = coarse_b(updated[:, j])
-                updated[:, j + 1] = cg + fvals[j] - coarse_old[:, j + 1]
+                updated[:, j + 1] = cg + fvals[:, j] - coarse_old[:, j + 1]
                 coarse_old[:, j + 1] = cg
             current = updated
             errors_b.append(float(np.max(np.abs(current - ref_b))))
@@ -198,6 +215,7 @@ def validate_figure_45(output_dir, quick=False):
     data = {
         "paper_figure": "4.5",
         "parameters": {"Nx": n, "Nt": nt, "J": substeps, "T": t_final, "dx": dx},
+        "compute": backend_metadata(selected_backend),
         "ade": linear_results,
         "burgers": burgers_results,
         "expected": "Convergence deteriorates as nu decreases.",
@@ -882,16 +900,17 @@ def validate_figures_419_420(output_dir, quick=False):
     return data
 
 
-def run_paper_validation(output_dir, quick=False):
+def run_paper_validation(output_dir, quick=False, backend="auto"):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     results = {
         "figure_3_15": validate_figure_315(output_dir, quick),
-        "figure_4_5": validate_figure_45(output_dir, quick),
+        "figure_4_5": validate_figure_45(output_dir, quick, backend),
         "figure_4_10": validate_figure_410(output_dir, quick),
         "figures_4_19_4_20": validate_figures_419_420(output_dir, quick),
     }
     summary = {
+        "compute": results["figure_4_5"]["compute"],
         "figure_3_15": {
             nu: case["iterations"] for nu, case in results["figure_3_15"]["results"].items()
         },

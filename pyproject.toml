@@ -16,6 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
+gpu = ["cupy-cuda12x>=13,<14"]
 
 [project.scripts]
 actapint = "run_experiments:main"

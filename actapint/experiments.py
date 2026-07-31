@@ -8,6 +8,7 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import LinearOperator, gmres, splu
 
+from .gpu import CupyBurgersFineStepper, backend_metadata, resolve_backend
 from .integrators import (
     burgers_fine_step,
     burgers_ie_step,
@@ -194,8 +195,9 @@ def run_parareal_linear(output_dir, quick=False):
     })
 
 
-def run_parareal_burgers(output_dir, quick=False):
+def run_parareal_burgers(output_dir, quick=False, backend="auto"):
     output_dir = _prepare(output_dir)
+    selected_backend = resolve_backend(backend)
     n = 48 if quick else 128
     nt = 16 if quick else 40
     substeps = 4 if quick else 32
@@ -206,6 +208,11 @@ def run_parareal_burgers(output_dir, quick=False):
     x = np.linspace(0, 1, n)
     u0 = np.sin(2 * np.pi * x) ** 2
     fine = lambda y: burgers_fine_step(a1, a2, y, fine_dt, substeps, "sdirk22", 1e-12)
+    fine_batch = (
+        CupyBurgersFineStepper(a1, a2, fine_dt, substeps, tol=1e-14)
+        if selected_backend == "gpu"
+        else None
+    )
     coarse = lambda y: burgers_ie_step(a1, a2, coarse_dt, y, 1e-12)
     reference = np.zeros((n, nt + 1))
     reference[:, 0] = u0
@@ -215,11 +222,17 @@ def run_parareal_burgers(output_dir, quick=False):
     coarse_old = current.copy()
     errors = [float(np.max(np.abs(current - reference)))]
     for _ in range(nt):
-        fine_values = [fine(current[:, j]) for j in range(nt)]
+        fine_values = (
+            fine_batch(current[:, :nt])
+            if fine_batch is not None
+            else np.column_stack([fine(current[:, j]) for j in range(nt)])
+        )
         updated = current.copy()
         for j in range(nt):
             new_coarse = coarse(updated[:, j])
-            updated[:, j + 1] = new_coarse + fine_values[j] - coarse_old[:, j + 1]
+            updated[:, j + 1] = (
+                new_coarse + fine_values[:, j] - coarse_old[:, j + 1]
+            )
             coarse_old[:, j + 1] = new_coarse
         current = updated
         errors.append(float(np.max(np.abs(current - reference))))
@@ -228,6 +241,7 @@ def run_parareal_burgers(output_dir, quick=False):
     _plot_errors({"Parareal": errors}, "Parareal for Burgers", output_dir / "parareal_burgers.png")
     return _save_metrics(output_dir, "parareal_burgers", {
         "parameters": {"Nx": n, "Nt": nt, "J": substeps, "nu": nu},
+        "compute": backend_metadata(selected_backend),
         "errors": errors, "iterations": len(errors) - 1,
         "final_error": errors[-1],
     })

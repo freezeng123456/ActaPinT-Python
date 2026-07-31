@@ -76,6 +76,23 @@ Run the paper-scale validation:
 actapint paper_validation --output-dir results/paper
 ```
 
+On a CUDA 12 server, install the optional CuPy backend and batch the independent
+Burgers fine propagators on the GPU:
+
+```bash
+python -m pip install -e ".[gpu,test]"
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  actapint paper_validation --backend gpu \
+  --output-dir results/paper-gpu
+```
+
+`--backend auto` is the default: it selects the GPU when CUDA-capable CuPy is
+available and otherwise uses the CPU. The implementation is hybrid. It keeps
+the causal coarse Parareal sweep and the other paper experiments on the CPU,
+while one GPU batch advances all independent Burgers time slices. See
+[`docs/GPU_ACCELERATION.md`](docs/GPU_ACCELERATION.md) for measured speedups,
+correctness checks, and the remaining optimization opportunities.
+
 Run every converted experiment:
 
 ```bash
@@ -94,7 +111,8 @@ JSON metrics file. Random initial states use fixed NumPy seeds.
   not match bit-for-bit, while convergence factors, trends, and final states are
   directly comparable.
 - These examples are dominated by sparse CPU linear algebra and FFTs. A GPU is
-  not required by the current implementation.
+  not required; the optional backend accelerates the independent nonlinear fine
+  propagators that dominate the paper suite.
 
 ## Rights and attribution
 

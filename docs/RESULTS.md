@@ -59,3 +59,12 @@ $10^{-10}$.
 The best sampled damping after 15 cycles is $\eta=0.500$ for heat and
 $\eta=0.372$ for ADE with $\nu=0.01$. Three pre/post smoothing steps reduce
 the error in fewer cycles than one, while each cycle costs more.
+
+## GPU performance
+
+The optional CuPy backend batches the independent Burgers fine propagators in
+Figure 4.5. On a Tesla T4, the paper-scale batch is 11.76x faster than the
+single-thread CPU path, and the complete paper suite falls from 263.57 to 67.92
+seconds without changing any reported stopping iteration. Profiling,
+correctness details, and remaining CUDA opportunities are documented in
+[`GPU_ACCELERATION.md`](GPU_ACCELERATION.md).
