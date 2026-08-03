@@ -123,9 +123,13 @@ The following were ruled out before concluding that the coefficient is the cause
 
 `actapint.section2.BURGERS_FLUX_COEFFICIENT` therefore defaults to `1.0` so the
 figures reproduce. Pass `flux_coefficient=BURGERS_FLUX_COEFFICIENT_UPSTREAM` to
-`solve_burgers` to run the committed script's variant instead. Whether the
-Section 4 Burgers experiments are affected is still open; they are built on
-`actapint/operators.py`, which was left at the upstream coefficient.
+`solve_burgers` to run the committed script's variant instead.
+
+The Section 4 Burgers experiments turned out to need both coefficients, which is
+why `actapint/section4/common.py` names them separately: Figures 4.5(b) and 4.11
+are reproduced with the doubled flux of this section, while Figures 4.13 and 4.22
+are reproduced with the committed `0.5 (u^2)_x`. See
+[`SECTION4_REPRODUCTION.md`](SECTION4_REPRODUCTION.md).
 
 ## Other corrections to the upstream scripts
 

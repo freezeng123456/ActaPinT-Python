@@ -15,6 +15,7 @@ from actapint.experiments import (
     run_wave_solution,
 )
 from actapint.paper_validation import run_paper_validation
+from actapint.schematics import SCHEMATIC_EXPERIMENTS, run_schematics
 from actapint.section2 import (
     run_figure_2_1,
     run_figure_2_2,
@@ -22,16 +23,22 @@ from actapint.section2 import (
     run_figure_2_4,
     run_section2,
 )
-from actapint.section3 import run_figure_3_1
+from actapint.section3 import SECTION3_EXPERIMENTS, run_section3
+from actapint.section4 import SECTION4_EXPERIMENTS, run_section4
 
 
 EXPERIMENTS = {
+    "schematics": run_schematics,
+    **SCHEMATIC_EXPERIMENTS,
     "section2": run_section2,
     "figure_2_1": run_figure_2_1,
     "figure_2_2": run_figure_2_2,
     "figure_2_3": run_figure_2_3,
     "figure_2_4": run_figure_2_4,
-    "figure_3_1": run_figure_3_1,
+    "section3": run_section3,
+    **SECTION3_EXPERIMENTS,
+    "section4": run_section4,
+    **SECTION4_EXPERIMENTS,
     "solution_heat_ade": run_linear_solution,
     "solution_burgers": run_burgers_solution,
     "solution_wave": run_wave_solution,
