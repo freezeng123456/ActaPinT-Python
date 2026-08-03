@@ -1,0 +1,59 @@
+{
+  "figure": "The Parareal convergence factor of (4.5b) at every eigenvalue of DT A for the advection-diffusion equation; its maximum approaches one as the diffusion parameter shrinks",
+  "artifacts": {
+    "png": "results/section4/figure_4_4_convergence_factor.png",
+    "svg": "results/section4/figure_4_4_convergence_factor.svg"
+  },
+  "parameters": {
+    "equation": "advection diffusion, periodic",
+    "dx": 0.0078125,
+    "coarse_dt": 0.1,
+    "substeps": 32,
+    "coarse_solver": "backward Euler",
+    "fine_solver": "SDIRK22"
+  },
+  "panels": [
+    {
+      "nu": 1.0,
+      "rho_l_max": 0.23000766900653719,
+      "published_rho_l_max": 0.23,
+      "rho_s_base": 0.1838839874499292,
+      "spectrum_real_range": [
+        4.765875737441761e-12,
+        65535.99999999992
+      ],
+      "spectrum_imaginary_range": [
+        -127.99999999999058,
+        127.99999999999058
+      ]
+    },
+    {
+      "nu": 0.1,
+      "rho_l_max": 0.3964912666356709,
+      "published_rho_l_max": 0.39,
+      "rho_s_base": 0.2532752754460768,
+      "spectrum_real_range": [
+        2.957374596587574e-12,
+        6553.600000000022
+      ],
+      "spectrum_imaginary_range": [
+        -127.99999999999996,
+        127.99999999999996
+      ]
+    },
+    {
+      "nu": 0.02,
+      "rho_l_max": 0.7941667577013473,
+      "published_rho_l_max": 0.79,
+      "rho_s_base": 0.45045284948042735,
+      "spectrum_real_range": [
+        3.6078501730153907e-13,
+        1310.7200000000032
+      ],
+      "spectrum_imaginary_range": [
+        -127.99999999999933,
+        127.99999999999933
+      ]
+    }
+  ]
+}

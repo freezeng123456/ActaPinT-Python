@@ -1,0 +1,195 @@
+{
+  "figure": "Error of the Parareal variant (4.26) for the heat equation with three values of alpha and two grid lengths, against the predicted factor rho = alpha",
+  "artifacts": {
+    "png": "results/section4/figure_4_14_diag_coarse_heat.png",
+    "svg": "results/section4/figure_4_14_diag_coarse_heat.svg"
+  },
+  "parameters": {
+    "equation": "heat, Dirichlet, u0 = sin(2 pi x)**2",
+    "dx": 0.01,
+    "coarse_dt": 0.08333333333333333,
+    "substeps": 20,
+    "fine_dt": 0.004166666666666667,
+    "integrator": "trapezoidal rule for F and F*",
+    "initial_iterate": "uniform random on (-1,1), MATLAB rng('default')",
+    "coupling": "v_0 = alpha v_J + u_n, the committed line of the script",
+    "alphas": [
+      0.1,
+      0.01,
+      0.001
+    ],
+    "tolerance": 1e-10
+  },
+  "panels": [
+    {
+      "steps": 36,
+      "t_final": 3.0,
+      "curves": {
+        "alpha_0.1": {
+          "errors": [
+            1.2085819888123266,
+            0.0565950250118567,
+            0.004423636247514494,
+            0.0003492046426393787,
+            3.175852125492936e-05,
+            3.0500455355585396e-06,
+            3.0583805494348446e-07,
+            3.253333116305073e-08,
+            3.5288205726383257e-09,
+            3.8497322258770963e-10,
+            4.2526478161149075e-11
+          ],
+          "predicted_factor": 0.1,
+          "measured_factor": 0.09529750562363208,
+          "published_errors": [
+            1.282,
+            0.05806,
+            0.003871,
+            0.0003408,
+            3.611e-05,
+            3.776e-06,
+            4.03e-07,
+            3.91e-08,
+            3.537e-09,
+            3.467e-10,
+            3.435e-11
+          ],
+          "published_factor": 0.0996648048171291,
+          "tail_factor": 0.09899874971815079,
+          "published_deviation_decades": 0.06561427373930659,
+          "iterations_to_tolerance": 10
+        },
+        "alpha_0.01": {
+          "errors": [
+            1.2085819888123266,
+            0.005209555062947037,
+            3.6616886049756227e-05,
+            2.4905350709930576e-07,
+            2.0087187096277132e-09,
+            1.6138014496734203e-11
+          ],
+          "predicted_factor": 0.01,
+          "measured_factor": 0.007278459961793945,
+          "published_errors": [
+            1.224,
+            0.004911,
+            3.281e-05,
+            2.589e-07,
+            1.929e-09,
+            1.553e-11
+          ],
+          "published_factor": 0.007667662675099603,
+          "tail_factor": 0.0074065994415367575,
+          "published_deviation_decades": 0.025269233027485002,
+          "iterations_to_tolerance": 5
+        },
+        "alpha_0.001": {
+          "errors": [
+            1.2085819888123266,
+            0.0005168952696212548,
+            3.5949122185295745e-07,
+            2.4186861769085146e-10,
+            1.9221779309912508e-13
+          ],
+          "predicted_factor": 0.001,
+          "measured_factor": 0.0006840510004713383,
+          "published_errors": [
+            1.22,
+            0.0004919,
+            3.428e-07,
+            2.607e-10
+          ],
+          "published_factor": 0.0007280012152911158,
+          "tail_factor": 0.0006840510004713397,
+          "published_deviation_decades": 0.022173205281267185,
+          "iterations_to_tolerance": 4
+        }
+      }
+    },
+    {
+      "steps": 72,
+      "t_final": 6.0,
+      "curves": {
+        "alpha_0.1": {
+          "errors": [
+            1.2085819888123266,
+            0.05880493139901288,
+            0.00471082263400001,
+            0.00043193890764044423,
+            4.192331206862548e-05,
+            4.123235427834838e-06,
+            4.2249740025239917e-07,
+            4.413668970994864e-08,
+            4.65726028231183e-09,
+            4.99857278788004e-10,
+            5.614194002102654e-11
+          ],
+          "predicted_factor": 0.1,
+          "measured_factor": 0.09798938548535542,
+          "published_errors": [
+            1.222,
+            0.06337,
+            0.004031,
+            0.0003375,
+            3.441e-05,
+            3.727e-06,
+            4.084e-07,
+            4.524e-08,
+            5.057e-09,
+            5.7e-10,
+            6.464e-11
+          ],
+          "published_factor": 0.10658821061006435,
+          "tail_factor": 0.10116183927907195,
+          "published_deviation_decades": 0.056433224050675024,
+          "iterations_to_tolerance": 10
+        },
+        "alpha_0.01": {
+          "errors": [
+            1.2085819888123266,
+            0.00531481021538216,
+            3.6994579310761104e-05,
+            2.994515391871102e-07,
+            2.4801021316401663e-09,
+            2.1390796989339637e-11
+          ],
+          "predicted_factor": 0.01,
+          "measured_factor": 0.00775640721228819,
+          "published_errors": [
+            1.3,
+            0.005075,
+            3.418e-05,
+            2.709e-07,
+            2.161e-09,
+            1.892e-11
+          ],
+          "published_factor": 0.007951358856528926,
+          "tail_factor": 0.008187771918368298,
+          "published_deviation_decades": 0.04262043350526607,
+          "iterations_to_tolerance": 5
+        },
+        "alpha_0.001": {
+          "errors": [
+            1.2085819888123266,
+            0.0005263924548036814,
+            3.6162933310094135e-07,
+            2.891861434417555e-10,
+            2.366124879146559e-13
+          ],
+          "predicted_factor": 0.001,
+          "measured_factor": 0.0007411974423231855,
+          "published_errors": [
+            1.274,
+            0.0006774,
+            4.382e-07,
+            3.276e-10
+          ],
+          "published_factor": 0.0006954234807206645,
+          "tail_factor": 0.0007411974423231866,
+          "published_deviation_decades": 0.07485511479490761,
+          "iterations_to_tolerance": 4
+        }
+      }
+    }
+  ]
+}

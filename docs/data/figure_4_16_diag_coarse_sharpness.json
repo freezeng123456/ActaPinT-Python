@@ -1,0 +1,88 @@
+{
+  "figure": "The predicted convergence factor of the Parareal variant (4.26) for the wave equation against the measured error, for three pairs (alpha, N_t)",
+  "artifacts": {
+    "png": "results/section4/figure_4_16_diag_coarse_sharpness.png",
+    "svg": "results/section4/figure_4_16_diag_coarse_sharpness.svg"
+  },
+  "parameters": {
+    "equation": "wave, periodic, u0 = sin(2 pi x)**2, v0 = 0",
+    "dx": 0.01,
+    "coarse_dt": 0.08333333333333333,
+    "substeps": 10,
+    "fine_dt": 0.008333333333333333,
+    "integrator": "trapezoidal rule for F and F*",
+    "initial_iterate": "u0 in every window, as the committed script",
+    "coupling": "v_0 = alpha v_J + u_n, as the committed script",
+    "alphas": [
+      0.0001,
+      0.01
+    ],
+    "tolerance": 1e-10
+  },
+  "panels": [
+    {
+      "curves": {
+        "alpha_0.01_steps_24": {
+          "errors": [
+            6.271920598022743,
+            1.3422624301662704,
+            0.16804344360946621,
+            0.010249940907638866,
+            0.0005897752927515043,
+            2.217939350357412e-05,
+            4.832156346168404e-07,
+            1.787034320521741e-08,
+            3.091200628801971e-10,
+            3.4088287748090806e-12
+          ],
+          "predicted_factor": 0.4752475247524752,
+          "measured_factor": 0.0419937106255482,
+          "iterations_to_tolerance": 9
+        },
+        "alpha_0.0001_steps_24": {
+          "errors": [
+            6.271920598022743,
+            0.013218941727481948,
+            1.6404696524530138e-05,
+            1.0075343226390032e-08,
+            4.891420601893515e-12
+          ],
+          "predicted_factor": 0.004799520047995201,
+          "measured_factor": 0.0008730348509974836,
+          "iterations_to_tolerance": 4
+        }
+      }
+    },
+    {
+      "curves": {
+        "alpha_0.0001_steps_960": {
+          "errors": [
+            6.502723796409202,
+            0.6136027762481686,
+            0.028904657330268257,
+            0.0009064555192610513,
+            2.1466937757841364e-05,
+            4.048991719685091e-07,
+            6.340972191765104e-09,
+            8.606138024447318e-11
+          ],
+          "predicted_factor": 0.19198080191980801,
+          "measured_factor": 0.025284461379420496,
+          "iterations_to_tolerance": 7
+        },
+        "alpha_0.0001_steps_24": {
+          "errors": [
+            6.271920598022743,
+            0.013218941727481948,
+            1.6404696524530138e-05,
+            1.0075343226390032e-08,
+            4.891420601893515e-12
+          ],
+          "predicted_factor": 0.004799520047995201,
+          "measured_factor": 0.0008730348509974836,
+          "iterations_to_tolerance": 4
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "figure": "Regions of the left half-plane where one MGRiT iteration with FCF-relaxation, and two Parareal iterations, contract by at least a given factor, with backward Euler for G and the exact propagator for F",
+  "artifacts": {
+    "png": "results/section4/figure_4_8_regions.png",
+    "svg": "results/section4/figure_4_8_regions.svg"
+  },
+  "parameters": {
+    "coarse_solver": "backward Euler, R_g = 1/(1-z)",
+    "fine_solver": "exact, R_f = exp(z)",
+    "real_range": [
+      -5.0,
+      0.0
+    ],
+    "imaginary_range": [
+      -10.0,
+      10.0
+    ],
+    "resolution": 480,
+    "bounds": [
+      0.2,
+      0.4,
+      0.6
+    ]
+  },
+  "published_theorem_4_6": {
+    "backward_euler": {
+      "parareal": 0.2984,
+      "mgrit": 0.1115
+    },
+    "lobatto_iiic_2": {
+      "parareal": 0.0817,
+      "mgrit": 0.0197
+    }
+  },
+  "panels": [
+    {
+      "method": "mgrit",
+      "bound": 0.2,
+      "fraction_of_window_inside": 0.8155555555555556,
+      "widest_excluded_real_part": 0.0
+    },
+    {
+      "method": "mgrit",
+      "bound": 0.4,
+      "fraction_of_window_inside": 0.8874305555555555,
+      "widest_excluded_real_part": 0.0
+    },
+    {
+      "method": "mgrit",
+      "bound": 0.6,
+      "fraction_of_window_inside": 0.9271614583333333,
+      "widest_excluded_real_part": 0.0
+    },
+    {
+      "method": "parareal",
+      "bound": 0.2,
+      "fraction_of_window_inside": 0.7645572916666666,
+      "widest_excluded_real_part": 0.0
+    },
+    {
+      "method": "parareal",
+      "bound": 0.4,
+      "fraction_of_window_inside": 0.8519791666666666,
+      "widest_excluded_real_part": 0.0
+    },
+    {
+      "method": "parareal",
+      "bound": 0.6,
+      "fraction_of_window_inside": 0.8962934027777778,
+      "widest_excluded_real_part": 0.0
+    }
+  ]
+}

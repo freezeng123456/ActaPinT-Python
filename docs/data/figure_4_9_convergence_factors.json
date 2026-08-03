@@ -1,0 +1,66 @@
+{
+  "figure": "Convergence factors of MGRiT with FCF-relaxation and of Parareal at every eigenvalue of DT A, for the heat equation and for the advection-diffusion equation with two diffusion parameters",
+  "artifacts": {
+    "png": "results/section4/figure_4_9_convergence_factors.png",
+    "svg": "results/section4/figure_4_9_convergence_factors.svg"
+  },
+  "parameters": {
+    "dx": 0.00625,
+    "coarse_dt": 0.125,
+    "substeps": 20,
+    "coarse_solver": "backward Euler",
+    "fine_solver": "SDIRK22",
+    "boundary_condition": "Dirichlet for heat, periodic for ADE"
+  },
+  "panels": [
+    {
+      "method": "mgrit",
+      "equation": "heat",
+      "nu": -1.0,
+      "rho_max": 0.08350604328608253,
+      "published_rho_max": 0.08375
+    },
+    {
+      "method": "mgrit",
+      "equation": "ade",
+      "nu": 0.1,
+      "rho_max": 0.2718725001849932,
+      "published_rho_max": 0.2718
+    },
+    {
+      "method": "mgrit",
+      "equation": "ade",
+      "nu": 0.01,
+      "rho_max": 0.9020662632965983,
+      "published_rho_max": 0.9021
+    },
+    {
+      "method": "parareal",
+      "equation": "heat",
+      "nu": -1.0,
+      "rho_max": 0.282445875223545,
+      "published_rho_max": 0.2822
+    },
+    {
+      "method": "parareal",
+      "equation": "ade",
+      "nu": 0.1,
+      "rho_max": 0.4452650327392144,
+      "published_rho_max": 0.4453
+    },
+    {
+      "method": "parareal",
+      "equation": "ade",
+      "nu": 0.01,
+      "rho_max": 1.0501123957198908,
+      "published_rho_max": 0.9986
+    }
+  ],
+  "divergent_case": {
+    "nu": 0.002,
+    "parareal": 1.4210820361344592,
+    "mgrit": 1.2812004969757436,
+    "published_parareal": 1.4211,
+    "published_mgrit": 1.2812
+  }
+}
