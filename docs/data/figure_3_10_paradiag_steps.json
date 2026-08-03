@@ -1,0 +1,175 @@
+{
+  "figure": "Error of backward Euler on the uniform mesh and of ParaDiag I on the geometric mesh with mu = 1 + rho_num, against the number of steps; the third curve holds the ratio fixed at rho = 0.136, which is what makes the error increase rapidly past N_t = 100",
+  "artifacts": {
+    "png": "results/section3/figure_3_10_paradiag_steps.png",
+    "svg": "results/section3/figure_3_10_paradiag_steps.svg"
+  },
+  "panels": [
+    {
+      "panel": "a",
+      "problem": "heat equation",
+      "rows": [
+        {
+          "steps": 16,
+          "rho_num": 0.3,
+          "paradiag_error": 0.04089781190307214,
+          "condition_number": 1135.0487643141353,
+          "rho_opt_theory": 0.18136539965713594,
+          "paradiag_error_at_rho_opt": 0.05378069234660526,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.06756629452438584,
+          "sequential_error": 0.15135510664093793
+        },
+        {
+          "steps": 32,
+          "rho_num": 0.15,
+          "paradiag_error": 0.0217923670432206,
+          "condition_number": 2998307.33391111,
+          "rho_opt_theory": 0.13805407842755868,
+          "paradiag_error_at_rho_opt": 0.021800922322398414,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.021781346130424595,
+          "sequential_error": 0.08792345498768972
+        },
+        {
+          "steps": 64,
+          "rho_num": 0.14,
+          "paradiag_error": 0.017764268940427513,
+          "condition_number": 13928901.316163503,
+          "rho_opt_theory": 0.08054019415139041,
+          "paradiag_error_at_rho_opt": 1777119.770007896,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.020747324649814047,
+          "sequential_error": 0.047964748231899224
+        },
+        {
+          "steps": 128,
+          "rho_num": 0.16,
+          "paradiag_error": 0.018767632525931915,
+          "condition_number": 1809438.6533475688,
+          "rho_opt_theory": 0.04229540001303817,
+          "paradiag_error_at_rho_opt": 5.478616637373378e+30,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.05945445033727884,
+          "sequential_error": 0.025451906682527392
+        },
+        {
+          "steps": 256,
+          "rho_num": 0.16,
+          "paradiag_error": 0.019045369980552646,
+          "condition_number": 1842092.687443229,
+          "rho_opt_theory": 0.02140569508759531,
+          "paradiag_error_at_rho_opt": 8.185040071431249e+113,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.1996872746871683,
+          "sequential_error": 0.013078655657100535
+        },
+        {
+          "steps": 512,
+          "rho_num": 0.16,
+          "paradiag_error": 0.019591811058340514,
+          "condition_number": 1849947.9269944243,
+          "rho_opt_theory": 0.01071019908498631,
+          "paradiag_error_at_rho_opt": NaN,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.2541758031793644,
+          "sequential_error": 0.007526687056573118
+        },
+        {
+          "steps": 1024,
+          "rho_num": 0.16,
+          "paradiag_error": 0.019200681840188888,
+          "condition_number": 1851865.0969315304,
+          "rho_opt_theory": 0.005344079154748741,
+          "paradiag_error_at_rho_opt": NaN,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.4162435672684217,
+          "sequential_error": 0.008751252168253586
+        }
+      ]
+    },
+    {
+      "panel": "b",
+      "problem": "advection diffusion equation with $\\nu=0.01$",
+      "rows": [
+        {
+          "steps": 16,
+          "rho_num": 0.07,
+          "paradiag_error": 0.06551428112483404,
+          "condition_number": 12754626538.2941,
+          "rho_opt_theory": 0.09101264995776671,
+          "paradiag_error_at_rho_opt": 0.06888245692019745,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.07793292589517287,
+          "sequential_error": 0.060228779521752096
+        },
+        {
+          "steps": 32,
+          "rho_num": 0.12,
+          "paradiag_error": 0.058606833210876896,
+          "condition_number": 112948049.4846123,
+          "rho_opt_theory": 0.09222283212824123,
+          "paradiag_error_at_rho_opt": 4.951468429882041,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.06291017488484085,
+          "sequential_error": 0.030895767880385727
+        },
+        {
+          "steps": 64,
+          "rho_num": 0.14,
+          "paradiag_error": 0.062260539417663074,
+          "condition_number": 13928901.316163503,
+          "rho_opt_theory": 0.06461259053803994,
+          "paradiag_error_at_rho_opt": 81658424196.72531,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.06487178843469432,
+          "sequential_error": 0.015639841291505308
+        },
+        {
+          "steps": 128,
+          "rho_num": 0.14,
+          "paradiag_error": 0.062012448856405444,
+          "condition_number": 15485671.31234259,
+          "rho_opt_theory": 0.03773005021347821,
+          "paradiag_error_at_rho_opt": 2.2000655252764622e+35,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.08306992310009065,
+          "sequential_error": 0.007867339511831384
+        },
+        {
+          "steps": 256,
+          "rho_num": 0.14,
+          "paradiag_error": 0.06251392897665853,
+          "condition_number": 15858211.403464226,
+          "rho_opt_theory": 0.020215616702048526,
+          "paradiag_error_at_rho_opt": 1.0840882313802325e+120,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.20092504236890996,
+          "sequential_error": 0.003945443523514114
+        },
+        {
+          "steps": 512,
+          "rho_num": 0.15,
+          "paradiag_error": 0.06934536227380506,
+          "condition_number": 5050720.993650285,
+          "rho_opt_theory": 0.010413736926719874,
+          "paradiag_error_at_rho_opt": NaN,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.25417580498676606,
+          "sequential_error": 0.0019756544693101397
+        },
+        {
+          "steps": 1024,
+          "rho_num": 0.15,
+          "paradiag_error": 0.06791887599364799,
+          "condition_number": 5056661.526156836,
+          "rho_opt_theory": 0.005271704703149041,
+          "paradiag_error_at_rho_opt": NaN,
+          "rho_fixed": 0.136,
+          "paradiag_error_at_rho_fixed": 0.41624550521590997,
+          "sequential_error": 0.000988559030787317
+        }
+      ]
+    }
+  ]
+}

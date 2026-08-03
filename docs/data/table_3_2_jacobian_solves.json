@@ -1,0 +1,75 @@
+{
+  "figure": "Number of total Jacobian solves for the sequential trapezoidal rule and for ParaDiag I with the BVM discretization in parallel; a missing entry means the iteration diverged",
+  "artifacts": {
+    "png": "results/section3/table_3_2_jacobian_solves.png",
+    "svg": "results/section3/table_3_2_jacobian_solves.svg"
+  },
+  "parameters": {
+    "dx": 0.01,
+    "steps": 200
+  },
+  "rows": [
+    {
+      "nu": 0.1,
+      "horizons": [
+        0.1,
+        0.2,
+        0.4,
+        0.8,
+        1.6
+      ],
+      "trapezoidal_rule": [
+        401,
+        401,
+        403,
+        419,
+        443
+      ],
+      "paradiag_i": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "paradiag_i_from_initial_condition": [
+        5,
+        6,
+        7,
+        8,
+        8
+      ]
+    },
+    {
+      "nu": 0.002,
+      "horizons": [
+        0.1,
+        0.2,
+        0.4,
+        0.8,
+        1.6
+      ],
+      "trapezoidal_rule": [
+        400,
+        446,
+        476,
+        460,
+        526
+      ],
+      "paradiag_i": [
+        8,
+        14,
+        27,
+        null,
+        null
+      ],
+      "paradiag_i_from_initial_condition": [
+        7,
+        13,
+        18,
+        22,
+        null
+      ]
+    }
+  ]
+}

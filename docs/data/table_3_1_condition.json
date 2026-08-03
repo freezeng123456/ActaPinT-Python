@@ -1,0 +1,125 @@
+{
+  "figure": "Cond(V) for B (backward Euler) and Btilde^{-1}B (trapezoidal rule) with mu = 1 + rho_num",
+  "artifacts": {
+    "png": "results/section3/table_3_1_condition.png",
+    "svg": "results/section3/table_3_1_condition.svg"
+  },
+  "steps": [
+    5,
+    10,
+    20,
+    30,
+    60,
+    100
+  ],
+  "rows": [
+    {
+      "matrix": "B",
+      "rho_num": 0.15,
+      "condition_numbers": [
+        1667.6450993873927,
+        83672.61633428326,
+        1284505.9114063683,
+        2775489.5487317424,
+        4421946.3597746305,
+        4834936.409745157
+      ]
+    },
+    {
+      "matrix": "Btilde_inv_B",
+      "rho_num": 0.26,
+      "condition_numbers": [
+        4674.637587701334,
+        792189.4199410924,
+        68571665.12823094,
+        377195863.01927906,
+        1913179433.9554255,
+        4069214837.0313096
+      ]
+    }
+  ],
+  "per_step_minimizers": [
+    {
+      "matrix": "B",
+      "entries": [
+        {
+          "steps": 5,
+          "rho_num": 0.67,
+          "error_at_rho_num": 0.0885958305713726,
+          "condition_number": 12.199144874677806
+        },
+        {
+          "steps": 10,
+          "rho_num": 0.34,
+          "error_at_rho_num": 0.05005265058459321,
+          "condition_number": 318.6823961831678
+        },
+        {
+          "steps": 20,
+          "rho_num": 0.17,
+          "error_at_rho_num": 0.026832454536852096,
+          "condition_number": 278029.7120687727
+        },
+        {
+          "steps": 30,
+          "rho_num": 0.11,
+          "error_at_rho_num": 0.018359700896346337,
+          "condition_number": 469047163.7502591
+        },
+        {
+          "steps": 60,
+          "rho_num": 0.14,
+          "error_at_rho_num": 0.017768036739708247,
+          "condition_number": 13644333.435827063
+        },
+        {
+          "steps": 100,
+          "rho_num": 0.15,
+          "error_at_rho_num": 0.018158625919970195,
+          "condition_number": 4834936.409745157
+        }
+      ]
+    },
+    {
+      "matrix": "Btilde_inv_B",
+      "entries": [
+        {
+          "steps": 5,
+          "rho_num": 0.43392649629802077,
+          "error_at_rho_num": 0.06846770645094521,
+          "condition_number": 869.3694180920381
+        },
+        {
+          "steps": 10,
+          "rho_num": 0.2575142555078576,
+          "error_at_rho_num": 0.02555277376623377,
+          "condition_number": 849869.2394472284
+        },
+        {
+          "steps": 20,
+          "rho_num": 0.2090043466503186,
+          "error_at_rho_num": 0.013656857655422405,
+          "condition_number": 1276320434.3221562
+        },
+        {
+          "steps": 30,
+          "rho_num": 0.285840823613722,
+          "error_at_rho_num": 0.01766068116915298,
+          "condition_number": 93206626.9156528
+        },
+        {
+          "steps": 60,
+          "rho_num": 0.43392649629802077,
+          "error_at_rho_num": 0.17081094786653953,
+          "condition_number": 1831543.719891526
+        },
+        {
+          "steps": 100,
+          "rho_num": 0.43392649629802077,
+          "error_at_rho_num": 158167.86723482085,
+          "condition_number": 3434112.245809588
+        }
+      ]
+    }
+  ]
+}

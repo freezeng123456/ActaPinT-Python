@@ -1,0 +1,84 @@
+{
+  "figure": "Eigenvalues of the iteration matrix M of (3.67) for the wave equation with gamma = 1/120 (a-c) and gamma = 1/120.01 (d-f); the dashed line is the circle of radius alpha/(1 - alpha)",
+  "artifacts": {
+    "png": "results/section3/figure_3_17_iteration_matrix.png",
+    "svg": "results/section3/figure_3_17_iteration_matrix.svg"
+  },
+  "parameters": {
+    "dx": 0.0078125,
+    "dt": 0.0625,
+    "alpha": 0.02,
+    "gammas": [
+      0.008333333333333333,
+      0.008332638946754437
+    ],
+    "horizons": [
+      0.5,
+      10.0,
+      20.0
+    ],
+    "boundary_condition": "Dirichlet"
+  },
+  "panels": [
+    {
+      "gamma": 0.008333333333333333,
+      "t_final": 0.5,
+      "steps": 7,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.02040815469249018,
+      "inside_fraction": 1.0,
+      "outside_count": 0,
+      "most_negative_real": -0.019584871268836013
+    },
+    {
+      "gamma": 0.008333333333333333,
+      "t_final": 10.0,
+      "steps": 159,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.020408141622634185,
+      "inside_fraction": 1.0,
+      "outside_count": 0,
+      "most_negative_real": -0.01959737515390869
+    },
+    {
+      "gamma": 0.008333333333333333,
+      "t_final": 20.0,
+      "steps": 319,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.020408158310737855,
+      "inside_fraction": 1.0,
+      "outside_count": 0,
+      "most_negative_real": -0.019607562759489272
+    },
+    {
+      "gamma": 0.008332638946754437,
+      "t_final": 0.5,
+      "steps": 7,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.020408153969636602,
+      "inside_fraction": 1.0,
+      "outside_count": 0,
+      "most_negative_real": -0.020142237701199495
+    },
+    {
+      "gamma": 0.008332638946754437,
+      "t_final": 10.0,
+      "steps": 159,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.03595512294701697,
+      "inside_fraction": 0.99609375,
+      "outside_count": 1,
+      "most_negative_real": -0.03595512294694159
+    },
+    {
+      "gamma": 0.008332638946754437,
+      "t_final": 20.0,
+      "steps": 319,
+      "bound": 0.020408163265306124,
+      "spectral_radius": 0.06526602801386705,
+      "inside_fraction": 0.99609375,
+      "outside_count": 1,
+      "most_negative_real": -0.06526602801390957
+    }
+  ]
+}

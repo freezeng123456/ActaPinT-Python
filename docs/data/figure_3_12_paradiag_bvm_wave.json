@@ -1,0 +1,94 @@
+{
+  "figure": "(a) Measured error for the wave equation using ParaDiag I with the trapezoidal rule on geometric step sizes and with the BVM discretization on a uniform step; (b) the condition number of the eigenvector matrix of the two time-stepping matrices",
+  "artifacts": {
+    "png": "results/section3/figure_3_12_paradiag_bvm_wave.png",
+    "svg": "results/section3/figure_3_12_paradiag_bvm_wave.svg"
+  },
+  "parameters": {
+    "dx": 0.025,
+    "t_final": 0.4,
+    "error_panel_steps": [
+      5,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ]
+  },
+  "rows": [
+    {
+      "steps": 5,
+      "rho": 0.095,
+      "geometric_error": 0.25504078497154087,
+      "geometric_condition": 185758.3306228938,
+      "bvm_error": 0.2663051747110735,
+      "bvm_condition": 7.548760353297956,
+      "trapezoidal_error": 0.09585652545238554
+    },
+    {
+      "steps": 8,
+      "rho": 0.16,
+      "geometric_error": 0.15621647118497423,
+      "geometric_condition": 2912527.333819344,
+      "bvm_error": 0.09855488989198274,
+      "bvm_condition": 13.965374359068402,
+      "trapezoidal_error": 0.08661199923460522
+    },
+    {
+      "steps": 16,
+      "rho": 0.244,
+      "geometric_error": 0.09309671918679219,
+      "geometric_condition": 39531541.95584657,
+      "bvm_error": 0.06718144357012906,
+      "bvm_condition": 37.003061150669055,
+      "trapezoidal_error": 0.053782757703747706
+    },
+    {
+      "steps": 32,
+      "rho": 0.283,
+      "geometric_error": 0.11311506113642622,
+      "geometric_condition": 128998948.33402178,
+      "bvm_error": 0.04997492789996383,
+      "bvm_condition": 104.37873723273385,
+      "trapezoidal_error": 0.021502370485657174
+    },
+    {
+      "steps": 64,
+      "rho": 0.295,
+      "geometric_error": 133.3782794459502,
+      "geometric_condition": 268223697.52640283,
+      "bvm_error": 0.01384649970435714,
+      "bvm_condition": 308.56604477919274,
+      "trapezoidal_error": 0.005986614655107747
+    },
+    {
+      "steps": 128,
+      "rho": 0.303,
+      "geometric_error": 964286278.8355416,
+      "geometric_condition": 444370231.5175745,
+      "bvm_error": 0.003349473779213019,
+      "bvm_condition": 945.9119454032823,
+      "trapezoidal_error": 0.001541848070273133
+    },
+    {
+      "steps": 256,
+      "rho": 0.303,
+      "geometric_error": 4.349332105437405e+23,
+      "geometric_condition": 985963137.8213024,
+      "bvm_error": 0.000828896077461061,
+      "bvm_condition": 2984.360037382735,
+      "trapezoidal_error": 0.00038729987885477435
+    },
+    {
+      "steps": 512,
+      "rho": 0.303,
+      "geometric_error": 6.437855477677565e+52,
+      "geometric_condition": 2083843413.899872,
+      "bvm_error": 0.0002071753020987943,
+      "bvm_condition": 9637.148517674656,
+      "trapezoidal_error": 9.69933005625645e-05
+    }
+  ]
+}
