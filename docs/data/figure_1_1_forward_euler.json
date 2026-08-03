@@ -1,0 +1,26 @@
+{
+  "figure": "Sequential nature of time integration using forward Euler",
+  "artifacts": {
+    "png": "results/schematics/figure_1_1_forward_euler.png",
+    "svg": "results/schematics/figure_1_1_forward_euler.svg"
+  },
+  "parameters": {
+    "steps": 12,
+    "source": "the marker heights of the published page, in units of the grid they sit on"
+  },
+  "values": [
+    10.0,
+    12.0,
+    15.0,
+    17.0,
+    17.0,
+    15.0,
+    14.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0,
+    16.0
+  ]
+}

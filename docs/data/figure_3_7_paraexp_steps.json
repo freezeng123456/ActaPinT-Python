@@ -1,0 +1,36 @@
+{
+  "figure": "Two steps in the ParaExp solver",
+  "artifacts": {
+    "png": "results/schematics/figure_3_7_paraexp_steps.png",
+    "svg": "results/schematics/figure_3_7_paraexp_steps.svg"
+  },
+  "parameters": {
+    "problem": "u' = a u + g(t) with a rough source",
+    "growth": 0.45,
+    "windows": 4,
+    "horizon": 4.0,
+    "initial_value": 1.0,
+    "seed": 20240501
+  },
+  "window_edges": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "particular_at_window_end": [
+    1.093518569323124,
+    1.1495366347330898,
+    1.1371439152299052,
+    1.3447163718485446
+  ],
+  "homogeneous_at_horizon": [
+    6.049648612901439,
+    4.218167048193005,
+    2.8274041515610318,
+    1.783396743552793
+  ],
+  "solution_at_horizon": 16.223332928056813,
+  "decomposition_error": 3.019806626980426e-14
+}

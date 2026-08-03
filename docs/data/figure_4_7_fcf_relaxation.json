@@ -1,0 +1,38 @@
+{
+  "figure": "Geometric representation of MGRiT with FCF-relaxation as an overlapping variant of Parareal",
+  "artifacts": {
+    "png": "results/schematics/figure_4_7_fcf_relaxation.png",
+    "svg": "results/schematics/figure_4_7_fcf_relaxation.svg"
+  },
+  "parameters": {
+    "coarse_points": 8,
+    "fine_solve_span_in_coarse_intervals": 2,
+    "drawn_points": "every one of the eight is a coarse point; the published page draws them all alike and does not draw the fine grid"
+  },
+  "fine_solves": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      7
+    ]
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "figure": "Parareal uses two time grids, where each large time-step size Delta T contains J small time-step sizes Delta t",
+  "artifacts": {
+    "png": "results/schematics/figure_4_1_two_grids.png",
+    "svg": "results/schematics/figure_4_1_two_grids.svg"
+  },
+  "parameters": {
+    "coarse_intervals": 2,
+    "coarsening_factor": 4
+  },
+  "coarse_points": [
+    0.0,
+    1.0,
+    2.0
+  ],
+  "fine_points": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0
+  ]
+}
