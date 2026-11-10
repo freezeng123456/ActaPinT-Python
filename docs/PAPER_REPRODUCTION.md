@@ -10,7 +10,7 @@ experiments have their own reports, and this one does not repeat them:
 * [`SECTION4_REPRODUCTION.md`](SECTION4_REPRODUCTION.md) — PinT for parabolic problems
 
 The article is M. J. Gander, S.-L. Wu and T. Zhou, *Time parallelization for
-hyperbolic and parabolic problems*, Acta Numerica 34 (2025), 385–482,
+hyperbolic and parabolic problems*, Acta Numerica 34 (2025), 385–489,
 [doi:10.1017/S0962492924000072](https://doi.org/10.1017/S0962492924000072). Its
 companion code is <https://github.com/wushulin/ActaPinT>, pinned here at commit
 `68431b7`: 24 MATLAB scripts, all ported.
@@ -26,17 +26,19 @@ under [`data`](data) so the comparisons can be redone without rerunning anything
 ## Coverage
 
 The article has 45 figures and 3 tables. Thirty-nine figures carry measurements
-and are reproduced; the six schematics carry none and are redrawn, three of them
+and have runnable implementations; Figure 3.14 remains a partial numerical
+match. The six schematics carry none and are redrawn, three of them
 from a computation rather than by hand ([below](#the-six-schematics)). Of the
-three tables, two are reproduced and one reports a supercomputer measurement
-quoted from another paper.
+three tables, two are reproduced. The third now has an original-size spatial
+numerical baseline; its supercomputer scaling measurements are separate. See
+[the 2026-11-10 checks](REPRODUCTION_CHECKS_2026-11-10.md).
 
 | Chapter | Figures | Schematic | Numerical | Tables | Reproduced |
 |---|---:|---:|---:|---:|---:|
 | 1 Introduction | 1 | 1 | 0 | 0 | 1 figure |
 | 2 Model problems | 4 | 0 | 4 | 0 | 4 of 4 |
-| 3 Hyperbolic problems | 18 | 3 | 15 | 2 | 18 figures, 2 tables |
-| 4 Parabolic problems | 22 | 2 | 20 | 1 | 22 figures, table quoted |
+| 3 Hyperbolic problems | 18 | 3 | 15 | 2 | 18 implemented figures (3.14 partial), 2 tables |
+| 4 Parabolic problems | 22 | 2 | 20 | 1 | 22 figures, Table 4.1 local baseline |
 | 5 Conclusions | 0 | 0 | 0 | 0 | prose only |
 
 ### Chapter 1 — Introduction
@@ -76,7 +78,7 @@ better in every figure.
 | Table 3.1 | condition number of the eigenvector matrix | `Direct_ParaDiag_Wave.m` | reproduced, all twelve entries |
 | Figure 3.12 | geometric steps against the BVM discretization, 2 panels | text only | reproduced, both panels marker for marker |
 | Figure 3.13 | BVM ParaDiag I for Burgers | `Direct_ParaDiag_Burgers.m` | reproduced to one iteration |
-| Figure 3.14 | two quasi-Newton variants for Burgers | text only | averaged variant on the published curve, NKA speed-up at `nu = 0.02` not reproducible |
+| Figure 3.14 | two quasi-Newton variants for Burgers | text only | averaged trend matched; NKA acceleration at `nu = 0.02` remains unmatched |
 | Table 3.2 | Jacobian solves, sequential against parallel | `Direct_ParaDiag_Burgers.m` | reproduced, sequential column exactly |
 | Figure 3.15 | preconditioned spectra and GMRES, 6 panels | `Iterative_ParaDiag_ADE.m`, `Iterative_ParaDiag_Wave.m` | reproduced, spectra to 3 digits |
 | Figure 3.16 | head–tail coupled waveform relaxation, 2 panels | `Iterative_ParaDiag_ADE.m` | reproduced, every marker |
@@ -109,7 +111,7 @@ better in every figure.
 | Figure 4.20 | STMG with one and three smoothing steps, 2 panels | `STMG_Heat_ADE.m` | reproduced, every marker |
 | Figure 4.21 | the same sweep with the trapezoidal rule, 6 panels | `STMG_Heat_ADE.m` | reproduced |
 | Figure 4.22 | STMG for Burgers | `STMG_Bergers.m` | reproduced, every marker |
-| Table 4.1 | weak and strong scaling to 262 144 cores | — | quoted from Gander and Neumüller (2016) |
+| Table 4.1 | weak and strong scaling to 262 144 cores | — | 3D P1/dG(3) numerical baseline added; historical scaling not rerun |
 
 ### Chapter 5 — Conclusions
 
@@ -237,9 +239,9 @@ recorded in the corresponding experiment's `parameters` block in
 | Figures 3.9, 3.10 | the advection coefficient of the ADE panels | `1/2` | the only value that puts the curves on the published ones |
 | Figures 3.10, 3.11(b), Table 3.1 | the mesh ratio `rho_num` | one ratio shared by all step counts | with the per-`N_t` minimizer neither the error growth nor the condition numbers appear |
 | Figure 3.12 | the BVM matrix | (3.39b), centred in time closed by one backward Euler step | stated in the text, no script |
-| Figure 3.14 | what the panels plot | `|U^k - U*|_inf` against the solution of the all-at-once system, not the increment the scripts plot | the two variants of a panel share their first value exactly, so it was measured before either did anything |
-| Figure 3.14 | the starting iterate of the `nu = 0.02` panel | uniform random on `(-1,1)` | the published panel starts at `1 + max|U| = 1.992` and only that range reproduces the averaged curves |
-| Figure 3.14 | the reduced model behind the `nu = 0.02` panel | not recoverable | no diagonal weighting reaches the published contraction factor; the best found by direct optimization is 39% above it |
+| Figure 3.14 | what the panels plot | `|U^k - U*|_inf` is the current comparison convention | shared first markers support an initial-error interpretation but do not identify its norm; the independent audit also records spatial L2, scaled L2, RMS and increments |
+| Figure 3.14 | the starting iterate of the `nu = 0.02` panel | uniform random on `(-1,1)` is the closest tested start | this choice gives a similar initial max-norm error and averaged trajectory; the source does not specify the random stream |
+| Figure 3.14 | the reduced model behind the `nu = 0.02` panel | source configuration still needed | the tested reduced models and finite weight optimizations do not reach the published contraction factor |
 | Figure 4.2 | the coarsening factor `J` | `4`, against the `10` in the text | at `J = 10` the curve sits a factor three low at every iteration |
 | Figure 4.2 | the starting iterate | the sequential coarse solution | the script's committed alternative starts elsewhere |
 | Figure 4.5(a) | the initial condition | `sin(2 pi x)^2`, against `sin(2 pi x)` in the text | the script's value, and the only one that reproduces the panel |
@@ -337,20 +339,18 @@ These are not corrected, because the published figures depend on them:
 
 ## What is not reproduced
 
-* Table 4.1, weak and strong scaling of a full space–time multigrid method for a
-  three-dimensional heat equation from 1 to 262 144 cores. It is quoted from
-  Gander and Neumüller (2016) rather than produced by this paper's code, and
-  reproducing it needs that machine. The two-level cycles of Figures 4.19 to 4.21
-  do not stand in for it: with `T` fixed and both directions refined together their
-  factor degrades from 0.08 at `N_x = N_t = 63` to 0.36 at `511`, because
-  `dt / dx^2` grows with the refinement.
-* The nearest-Kronecker-product curves of Figure 3.14 at `nu = 0.02`. The averaged
-  curves of that panel are reproduced point by point, and the published NKA
-  contraction factors, 0.280 and 0.161 against 0.410 and 0.272 for averaging, are
-  out of reach of *any* diagonal weighting on the stated mesh: at
-  `dx = 1/200` the diffusion part of the Jacobian is 19.6 times the advective part
-  in Frobenius norm, the weights (3.48) come out within `6e-4` of one, and
-  optimizing all 26 of them directly against the spectral radius stops at 0.389.
+* Table 4.1's historical weak/strong scaling measurements on up to 262,144 cores.
+  The new `stmg_fem_3d` experiment reconstructs its P1/dG(3) discretization with
+  49,152 tetrahedra and 7,471 spatial degrees of freedom. At 2, 4 and 8 time steps
+  it needs seven cycles and agrees with a direct sequential solve to relative
+  error below `5e-9`. Distributed execution and machine-specific timings still
+  require a parallel backend and a scaling campaign.
+* Figure 3.14 at `nu = 0.02`: the specified coarse-model weights produce only a
+  small acceleration. Independent residual-form and global sparse updates agree
+  with the existing diagonalized implementation to about `1e-14`; the 24-case
+  audit records alternative starts and error norms. The earlier finite scans
+  do not establish impossibility for all diagonal weights. The original run
+  configuration is needed to identify the difference. See the dated report.
 
 Differences remain open inside experiments that are otherwise reproduced, each
 bounded and discussed in its section report:

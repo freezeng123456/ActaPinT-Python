@@ -40,7 +40,7 @@ involved are `SWR_for_ADE.m`, `UTP_DD_Method.m` with `RedBlackSubdomains.m`,
 | Table 3.1 | 3.5 ParaDiag I | condition number of the eigenvector matrix | `Direct_ParaDiag_Wave.m` | reproduced, all twelve entries |
 | Figure 3.12 | 3.5 ParaDiag I | geometric steps versus the BVM discretization, 2 panels | text only | reproduced, both panels marker for marker |
 | Figure 3.13 | 3.5 ParaDiag I | BVM ParaDiag I for Burgers | `Direct_ParaDiag_Burgers.m` | reproduced to one iteration |
-| Figure 3.14 | 3.5 ParaDiag I | two quasi-Newton variants for Burgers | text only | averaged variant on the published curve, NKA speed-up at `nu = 0.02` not reproducible |
+| Figure 3.14 | 3.5 ParaDiag I | two quasi-Newton variants for Burgers | text only | averaged trend matched; NKA acceleration at `nu = 0.02` remains unmatched |
 | Table 3.2 | 3.5 ParaDiag I | Jacobian solves, sequential versus parallel | `Direct_ParaDiag_Burgers.m` | reproduced, sequential column exactly |
 | Figure 3.15 | 3.5 ParaDiag II | preconditioned spectra and GMRES, 6 panels | `Iterative_ParaDiag_ADE.m`, `Iterative_ParaDiag_Wave.m` | reproduced, spectra to 3 digits |
 | Figure 3.16 | 3.5 ParaDiag II | head–tail coupled waveform relaxation, 2 panels | `Iterative_ParaDiag_ADE.m` | reproduced, every marker |
@@ -618,10 +618,11 @@ and the last two do not converge, as in the published panel.
 Figure 3.14 replaces the single averaged Jacobian by the tensor structure
 `Phi_k (x) A_k` of (3.47), with the scaling factors given in closed form by the
 nearest Kronecker product approximation (3.48). They are computed once, before
-the iteration, from a reduced model on a twenty times coarser space mesh, as the
-text prescribes: `dx = 1/200`, `DX = 1/20`, `dt = 0.01`, `T` in `{0.7, 1.3}`.
+the iteration, from a reduced model on a ten times coarser space mesh, as the
+text prescribes for space: `dx = 1/200`, `DX = 1/20`, `T` in `{0.7, 1.3}`.
+The reproduction uses `dt = 0.01`; the Figure 3.14 paragraph does not specify it.
 
-The claim of the figure is reproduced at `nu = 0.002`, where it matters. The
+At `nu = 0.002`, the qualitative stabilization at `T = 1.3` is reproduced. The
 averaged variant *diverges* at `T = 1.3` — the published panel shows it rising
 off the top of the axis by iteration 6, and the reproduction reaches `1.8e8` by
 iteration 11 — while the NKA variant converges, in 70 iterations against the
@@ -633,10 +634,11 @@ reproduction at `0.92`, and the published averaged curve then spends fifteen
 iterations wandering between `0.31` and `0.84` before it contracts at all, which
 the reproduction does not.
 
-At `nu = 0.02` the averaged curves are reproduced point by point and the NKA
-speed-up is not reproduced at all. The rest of this section is what the digitized
-panels pin down, and why the second half is a property of the discretization
-rather than of the port.
+At `nu = 0.02` the averaged curves have similar trajectories, while the large
+NKA acceleration is not reproduced. The following measurements document the
+comparison. The [independent 2026-11-10 audit](REPRODUCTION_CHECKS_2026-11-10.md)
+checks the linear update against a global sparse solve and records multiple
+error norms; it does not identify the missing source configuration.
 
 ### Finding: the published panels, read off the vector paths
 
@@ -675,29 +677,27 @@ draws, and it fixes no time-step.
 | NKA, `T = 1.3`, every third | 3.091 0.0747 0.0459 0.0284 0.0165 8.70e-3 4.08e-3 1.71e-3 6.32e-4 2.01e-4 5.45e-5 2.16e-5 1.26e-5 6.77e-6 3.38e-6 1.56e-6 6.58e-7 | 0.792 |
 | NKA, `T = 0.7`, every second | 2.703 0.209 0.0317 6.31e-3 2.69e-3 1.05e-3 3.19e-4 9.22e-5 2.87e-5 8.23e-6 2.39e-6 | 0.544 |
 
-### Finding: the panels plot the distance to the all-at-once solution
+### Comparison convention: distance to the all-at-once solution
 
 The two variants of a panel share their first value to every digit the vector art
 carries — `1.993` at `T = 1.3` and `1.961` at `T = 0.7` in panel (a), `3.091` and
-`2.703` in panel (b) — and a first value that does not depend on the variant can
-only have been measured at the starting iterate, before either variant has done
-anything. What the panels plot is therefore `|U^k - U*|_inf` for `k = 0, 1, ...`
-against the solution `U*` of the all-at-once system (3.42), and not the
-`|U^{k+1} - U^k|_inf` that `Direct_ParaDiag_Burgers.m` plots for Figure 3.13,
-which differs between the two variants already at `k = 0`. `all_at_once_solution`
+`2.703` in panel (b) — which is consistent with an error measured at the common starting iterate.
+This alone does not establish the norm or rule out a manually prepended marker.
+For comparison the reproduction uses `|U^k - U*|_inf`, `k = 0, 1, ...`,
+against the all-at-once solution. The independent audit also saves the increment
+used by `Direct_ParaDiag_Burgers.m` for Figure 3.13, plus spatial L2, scaled L2
+and RMS errors. `all_at_once_solution`
 therefore solves (3.42) by Newton before the sweeps start — its Jacobian is block
 tridiagonal in time, so it is one sparse solve per Newton step and the residual
 comes out at `7e-14` — and `quasi_newton` takes it as its `reference`. The two
 observables have the same factor per iteration, so no count below moves by more
-than one iteration if the script's one is used instead; what they do not share is
-the first value, which is what identifies the starting iterate.
+than one iteration if the script's one is used instead; their first values differ, which helps compare candidate starting iterates.
 
-### Finding: the starting iterate of panel (a) is random on `(-1, 1)`
+### Closest tested starting iterate for panel (a): random on `(-1, 1)`
 
 Every curve of panel (a) starts at `1.99`, and `1 + max|U|` for the solution of
-the all-at-once system at `nu = 0.02` is `1.9921`, so the starting iterate is a
-random one and not the initial condition repeated, which starts the iteration at
-`0.84`. Of the two random ranges, only `(-1, 1)`, the range of the initial
+the all-at-once system at `nu = 0.02` is `1.9921`, making a random start plausible under the max-norm convention. The initial
+condition repeated instead starts at `0.84`. Of the two random ranges, only `(-1, 1)`, the range of the initial
 condition, has the zero mean that makes the averaged Jacobian of the first
 iterate a sensible one. With `start="symmetric"` the averaged curves land on the
 published ones:
@@ -720,8 +720,7 @@ first three iterations between `1.3` and `0.4`, where the published panel is
 already at `0.58`, `0.24` and `0.11`.
 
 The symmetric start at `nu = 0.002` diverges for all four curves, so panel (b)
-keeps the constant start, and the two panels of the published figure therefore
-cannot be produced by one starting iterate. Panel (b) does not settle the question
+keeps the constant start, so a shared start among these tested choices does not reproduce both panels. Panel (b) does not settle the question
 either way: its first values, `3.091` twice and `2.703` twice, are larger than the
 `1 + max|U| = 1.9992` that the max-norm distance to the solution can reach for any
 start inside the range of the initial condition. The increment between the first
@@ -778,19 +777,16 @@ is where the published curves stop, the scan moves `T = 1.3` from the 16
 iterations of the averaged variant to 12 at best, where the published panel goes
 from 18 to 10.
 
-At `nu = 0.002` the reproduction is on the published curve with the text's own
-reduced model, and the sensitivity is the other way round: eight of the eighteen
-constructions diverge at `T = 1.3` where the text's converges, so the panel that
-*is* reproduced is the one where the choice of reduced model matters, and the
-panel that is not is the one where it cannot matter at all.
+At `nu = 0.002`, eight of the eighteen constructions diverge at `T = 1.3`
+where the specified coarse model converges. This reproduces the qualitative
+stabilization, with the iteration-count differences reported above.
 
-### Finding: no diagonal `Phi` can give the published NKA curves at `nu = 0.02`
+### Finite diagonal-weight searches do not recover the published curves
 
 The published panel gains eight iterations from NKA at `T = 1.3`, 18 down to 10,
 and five at `T = 0.7`, 11 down to 6; the asymptotic factor per iteration falls
 from `0.410` to `0.280` and from `0.272` to `0.161`. The reproduction gains one
-iteration at either horizon. This is not a question of which reduced model the
-weights come from, because the weights hardly matter at this viscosity.
+iteration at either horizon. The tested full-Jacobian weights have only a small effect at this viscosity.
 
 The weights (3.48) are Frobenius inner products against the averaged Jacobian
 `A`, and at `dx = 1/200` the diffusion part of `A` has `|A_diff|_F = 27782`
@@ -826,11 +822,13 @@ and 18% of the factor, where the published panel needs 32% and 41%. At
 `nu = 0.002` the coarse weights instead spread over `[0.49, 1.58]`, and there the
 effect is the large one the figure shows.
 
-So the mechanism of the figure is real and is reproduced where the text says it
-matters; what cannot be reproduced is its size at `nu = 0.02`, where a
-diffusion-dominated fine mesh — `nu/dx^2 = 800` against `|u|/(2 dx) = 100` — leaves
-the Kronecker correction almost nothing to correct. Neither the text nor the
-scripts, which do not cover this figure, say what was run there.
+The diffusion-dominated fine mesh explains why the Frobenius-optimal full-Jacobian
+weights are close to one. The coordinate and Powell searches provide local
+empirical results, not a lower bound over all diagonal weights. They therefore
+do not prove the impossibility asserted in the earlier version of this report.
+The source scripts do not include this figure; resolving the quantitative
+difference requires its time step, initialization, precise error observable,
+and reduced-model run settings.
 
 ## Figure 3.15 — the spectrum that decides whether ParaDiag II works
 

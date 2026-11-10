@@ -1,0 +1,136 @@
+{
+  "source": "Gander and Neumueller (2016), doi:10.1137/15M1046605, Example 6.1",
+  "execution": "serial local numerical baseline; no parallel speedup claimed",
+  "mesh": {
+    "tetrahedra": 49152,
+    "interior_vertices": 7471
+  },
+  "configuration": {
+    "degree": 3,
+    "time_step": 0.1,
+    "space_gauss_seidel_damping": 1.285,
+    "pre": 1,
+    "post": 1,
+    "time_damping": 1.0,
+    "time_cycle": "V",
+    "spatial_relaxation": "damped_gs",
+    "spatial_post_smoothing": "forward",
+    "coarsest_time_solver": "direct DG diagonalization"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "macOS-27.0-arm64-arm-64bit"
+  },
+  "rows": [
+    {
+      "time_steps": 2,
+      "spatial_dofs": 7471,
+      "dofs": 59768,
+      "iterations": 7,
+      "relative_residual": 1.2252812611203483e-09,
+      "relative_solution_error": 4.318864550028041e-09,
+      "sequential_difference": 4.318864399056888e-09,
+      "setup_seconds": 6.412207542001852,
+      "solve_seconds": 0.3884990829974413,
+      "sequential_seconds": 0.08022266699845204,
+      "residual_history": [
+        1.0,
+        0.02616998734043012,
+        0.0008311361838770484,
+        3.4233504114176004e-05,
+        2.251514934642132e-06,
+        1.7724708170101916e-07,
+        1.4492192442099486e-08,
+        1.2252812611203483e-09
+      ],
+      "homogeneous_test": {
+        "iterations": 7,
+        "relative_error_history": [
+          1.0,
+          0.0560065397926186,
+          0.001307395118768376,
+          3.7174630546921155e-05,
+          2.507450209949646e-06,
+          1.7770766862364085e-07,
+          1.4005615282703074e-08,
+          1.1694578557806307e-09
+        ],
+        "solve_seconds": 0.3685622909979429
+      }
+    },
+    {
+      "time_steps": 4,
+      "spatial_dofs": 7471,
+      "dofs": 119536,
+      "iterations": 7,
+      "relative_residual": 1.1190070529391732e-09,
+      "relative_solution_error": 4.146354804428646e-09,
+      "sequential_difference": 4.146354722963696e-09,
+      "setup_seconds": 10.092883541998162,
+      "solve_seconds": 0.6666472919969237,
+      "sequential_seconds": 0.14646195900422754,
+      "residual_history": [
+        1.0,
+        0.026251914596348406,
+        0.0008324916090932029,
+        3.266112953267393e-05,
+        1.972856757288844e-06,
+        1.5066882081498026e-07,
+        1.2643919038743606e-08,
+        1.1190070529391732e-09
+      ],
+      "homogeneous_test": {
+        "iterations": 7,
+        "relative_error_history": [
+          1.0,
+          0.04843189948581891,
+          0.001205560140262692,
+          4.5576802641528354e-05,
+          3.5196113767036005e-06,
+          2.9356219433956736e-07,
+          2.5313465668753472e-08,
+          2.287787818135779e-09
+        ],
+        "solve_seconds": 0.6300778749937308
+      }
+    },
+    {
+      "time_steps": 8,
+      "spatial_dofs": 7471,
+      "dofs": 239072,
+      "iterations": 7,
+      "relative_residual": 1.2423668405705235e-09,
+      "relative_solution_error": 4.596241763809984e-09,
+      "sequential_difference": 4.5962417386066065e-09,
+      "setup_seconds": 13.185721916997863,
+      "solve_seconds": 1.1987596250037313,
+      "sequential_seconds": 0.3039154590005637,
+      "residual_history": [
+        1.0,
+        0.026237541131259447,
+        0.0008315310977228464,
+        3.3376265395395825e-05,
+        2.0854629052918357e-06,
+        1.6487424647811478e-07,
+        1.4087385076513553e-08,
+        1.2423668405705235e-09
+      ],
+      "homogeneous_test": {
+        "iterations": 7,
+        "relative_error_history": [
+          1.0,
+          0.04714865470173455,
+          0.0010925854480612973,
+          4.748595334787875e-05,
+          3.432054180753037e-06,
+          2.7191877707838943e-07,
+          2.2207935138690622e-08,
+          1.8096822325075832e-09
+        ],
+        "solve_seconds": 1.1275505000012345
+      }
+    }
+  ]
+}

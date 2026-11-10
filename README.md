@@ -30,9 +30,10 @@ Section 2 is reproduced in full: all 24 space-time panels of Figures 2.1–2.4,
 checked pixel by pixel against the published rasters rather than by eye. See
 [`docs/SECTION2_REPRODUCTION.md`](docs/SECTION2_REPRODUCTION.md).
 
-Section 3 is reproduced in full as well: all fifteen figures that carry numerical
-content, Figures 3.1 through 3.18 except the three schematics, plus Tables 3.1
-and 3.2, compared marker by marker against the published values. The three
+Section 3 has implementations for all fifteen numerical figures and both tables.
+Figure 3.14 remains a partial reproduction: the NKA acceleration at `nu = 0.02`
+does not match the published curves. The other comparisons, including the
+normalization and roundoff differences, are recorded per figure. The three
 schematics are drawn too, each of them from a computation. That covers
 Schwarz waveform relaxation, pipelined and revisionist integral deferred
 correction, ParaExp, and both ParaDiag branches, including the geometric-mesh and
@@ -40,14 +41,16 @@ boundary-value-method variants of ParaDiag I and the quasi-Newton treatment of
 Burgers' equation. See
 [`docs/SECTION3_REPRODUCTION.md`](docs/SECTION3_REPRODUCTION.md).
 
-Section 4 is reproduced in full too: all twenty figures that carry numerical
+Section 4 has implementations for all twenty figures that carry numerical
 content, Figures 4.2 through 4.22, and the two schematics are drawn as well. That covers
 Parareal and its two convergence regimes, PFASST, MGRiT with FCF-relaxation, the
 two ParaDiag-based Parareal variants — one diagonalizing the coarse grid
 correction, one the coarse solver — and space-time multigrid, for the heat
 equation, the advection-diffusion equation, Burgers' equation and the wave
-equation. Table 4.1 is a supercomputer scaling table quoted from another paper and
-is not reproducible here. See
+equation. The 3D P1-FEM / dG(3) multigrid baseline behind Table 4.1 is now
+implemented at the original spatial problem size. The local 2/4/8-step cases
+converge in seven iterations; the historical supercomputer timings remain
+separate from these serial numerical checks. See
 [`docs/SECTION4_REPRODUCTION.md`](docs/SECTION4_REPRODUCTION.md).
 
 The older paper-focused suite validates Figures 3.15, 4.5, 4.9–4.10 and
@@ -65,6 +68,12 @@ figures and 3 tables, the cost of a full reproduction, and the register of
 recovered parameters and corrections are in
 [`docs/PAPER_REPRODUCTION.md`](docs/PAPER_REPRODUCTION.md); the committed plots and
 machine-readable outputs are collected in [`docs/RESULTS.md`](docs/RESULTS.md).
+
+The [2026-11-10 reproduction checks](docs/REPRODUCTION_CHECKS_2026-11-10.md)
+add independent NKA solves, the 3D STMG baseline, and portable numerical tests.
+
+The [2026-11-10 reproduction checks](docs/REPRODUCTION_CHECKS_2026-11-10.md)
+add independent NKA solves, the 3D STMG baseline, and portable numerical tests.
 
 ## Reproduced paper results
 
@@ -87,7 +96,9 @@ conventions.
 
 ## Installation
 
-Python 3.10 or newer is recommended.
+Python 3.10 or newer is supported. The 2026-11-10 numerical stack uses Python
+3.12 with `constraints-reproduction.txt`; use `pip install -c
+constraints-reproduction.txt -e ".[test]"` to select those versions.
 
 ```bash
 python3.11 -m venv .venv
@@ -168,6 +179,24 @@ the causal coarse Parareal sweep and the other paper experiments on the CPU,
 while one GPU batch advances all independent Burgers time slices. See
 [`docs/GPU_ACCELERATION.md`](docs/GPU_ACCELERATION.md) for measured speedups,
 correctness checks, and the remaining optimization opportunities.
+
+Run the original-size 3D STMG baseline and the 24-case independent NKA audit:
+
+```bash
+actapint stmg_fem_3d --output-dir results/checks
+actapint figure_3_14_audit --output-dir results/checks
+```
+
+These checks write JSON; `--quick` selects smaller verification problems.
+
+Run the original-size 3D STMG baseline and the 24-case independent NKA audit:
+
+```bash
+actapint stmg_fem_3d --output-dir results/checks
+actapint figure_3_14_audit --output-dir results/checks
+```
+
+These checks write JSON; `--quick` selects smaller verification problems.
 
 Run every converted experiment:
 
