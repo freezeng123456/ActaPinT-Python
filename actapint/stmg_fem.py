@@ -220,6 +220,7 @@ class TimeMultigrid:
         spatial_solver="vcycle",
         spatial_relaxation="damped_gs",
         post_sweep="forward",
+        build_hierarchy=True,
     ):
         if steps < 1 or steps & (steps - 1):
             raise ValueError("steps must be a positive power of two")
@@ -242,17 +243,11 @@ class TimeMultigrid:
         )
         # The direct block solve is a diagonalization of the small DG time
         # matrix. It avoids a fill-heavy LU on all q*Nx unknowns at once.
-        eig, v = np.linalg.eig(np.linalg.solve(mt, kt))
-        self.v = v
-        self.transform = np.linalg.solve(v, np.linalg.inv(mt))
-        self.factors = [
-            splu((self.space.stiffness + lam * self.space.mass).astype(complex).tocsc())
-            for lam in eig
-        ]
+        self.factors = None
         self.spatial_solver = spatial_solver
         self.coarse = (
             None
-            if steps == 1
+            if steps == 1 or not build_hierarchy
             else TimeMultigrid(
                 levels,
                 steps // 2,
@@ -264,6 +259,20 @@ class TimeMultigrid:
                 post_sweep,
             )
         )
+
+    def prepare_direct(self):
+        """Factor only where a direct solve is actually used."""
+        if self.factors is None:
+            eig, self.v = np.linalg.eig(np.linalg.solve(self.mt, self.kt))
+            self.transform = np.linalg.solve(self.v, np.linalg.inv(self.mt))
+            self.factors = [
+                splu(
+                    (self.space.stiffness + lam * self.space.mass)
+                    .astype(complex)
+                    .tocsc()
+                )
+                for lam in eig
+            ]
 
     def diagonal_apply(self, u):
         mu = (self.space.mass @ u.reshape(-1, self.n).T).T.reshape(u.shape)
@@ -283,6 +292,7 @@ class TimeMultigrid:
 
     def block_solve(self, b, direct=False):
         if direct or self.spatial is None:
+            self.prepare_direct()
             transformed = self.transform @ b
             w = np.array(
                 [
