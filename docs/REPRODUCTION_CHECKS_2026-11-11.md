@@ -15,8 +15,10 @@ check it against a separately assembled global matrix and the serial V-cycle.
 
 The [Acta paper](https://doi.org/10.1017/S0962492924000072) supplies viscosities
 `0.02, 0.002`, horizons `1.3, 0.7`, fine spatial step `1/200`, and coarse spatial
-step `1/20`. We use 200 time steps, the count used in the public neighbouring
-`Direct_ParaDiag_Burgers.m` example. This is an explicit reconstruction choice:
+step `1/20`. We use 200 time steps, the count stated for the preceding Figure 3.13
+and used in the public neighbouring `Direct_ParaDiag_Burgers.m` example.
+The physical initial condition is `sin(2*pi*x)` and the source term is zero,
+as in that script. This is an explicit reconstruction choice:
 Figure 3.14's paragraph does not specify its time step, starting vector or
 plotted error definition.
 
@@ -67,24 +69,28 @@ On the canonical coarse grid, the weight ranges are:
 
 ### What explains the apparent improvement from a coarse initial guess
 
-Each configuration is run with a symmetric random vector (MT19937, seed 5489),
-the initial sine wave repeated in time, and the interpolated coarse trapezoidal
-trajectory. Each starting vector is identical for averaging and NKA. Stopping
+Each configuration is run with the public script's uniform `[0,1]` random
+vector, a symmetric `[-1,1]` random vector (both MT19937, seed 5489), the initial
+sine wave repeated in time, and the interpolated coarse trapezoidal trajectory. Each starting vector is identical for averaging and NKA. Stopping
 uses the true maximum error `<= 1e-6` against a converged all-at-once Newton
 reference, with a separate divergence threshold and a 100-iteration cap.
 
 | nu | T | Start | Averaging iterations | NKA iterations |
 |---:|---:|---|---:|---:|
-| 0.02 | 1.3 | symmetric random | 16 | 15 |
+| 0.02 | 1.3 | uniform [0,1] | 14 | 14 |
+| 0.02 | 1.3 | symmetric [-1,1] | 16 | 15 |
 | 0.02 | 1.3 | repeated initial condition | 12 | 12 |
 | 0.02 | 1.3 | coarse TR | 10 | 10 |
-| 0.02 | 0.7 | symmetric random | 10 | 10 |
+| 0.02 | 0.7 | uniform [0,1] | 11 | 11 |
+| 0.02 | 0.7 | symmetric [-1,1] | 10 | 10 |
 | 0.02 | 0.7 | repeated initial condition | 9 | 9 |
 | 0.02 | 0.7 | coarse TR | 7 | 7 |
-| 0.002 | 1.3 | symmetric random | diverged | diverged |
+| 0.002 | 1.3 | uniform [0,1] | diverged | diverged |
+| 0.002 | 1.3 | symmetric [-1,1] | diverged | diverged |
 | 0.002 | 1.3 | repeated initial condition | diverged | 71 |
 | 0.002 | 1.3 | coarse TR | 50 | 64 |
-| 0.002 | 0.7 | symmetric random | 38 | 42 |
+| 0.002 | 0.7 | uniform [0,1] | diverged | diverged |
+| 0.002 | 0.7 | symmetric [-1,1] | 38 | 42 |
 | 0.002 | 0.7 | repeated initial condition | 21 | 19 |
 | 0.002 | 0.7 | coarse TR | 27 | 23 |
 

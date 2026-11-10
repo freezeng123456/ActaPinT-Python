@@ -67,7 +67,9 @@ def problem(nu, horizon, steps=200, duplicate_endpoint=False):
 def run_case(data, nu, horizon, start, method, maxiter=100):
     a, d, x, time, b, weights, warm, reference, reference_residual = data
     steps = len(time)
-    if start == "symmetric":
+    if start == "uniform":
+        initial = np.random.RandomState(5489).random_sample(b.shape)
+    elif start == "symmetric":
         initial = 2 * np.random.RandomState(5489).random_sample(b.shape) - 1
     elif start == "initial":
         initial = np.tile(np.sin(2 * np.pi * x), (steps, 1))
@@ -129,7 +131,7 @@ def main():
     for nu in (0.02, 0.002):
         for horizon in (1.3, 0.7):
             data = problem(nu, horizon, args.steps, args.duplicate_endpoint)
-            for start in ("symmetric", "initial", "coarse_tr"):
+            for start in ("uniform", "symmetric", "initial", "coarse_tr"):
                 for method in ("average", "nka"):
                     r = run_case(data, nu, horizon, start, method)
                     runs.append(r)
@@ -150,6 +152,8 @@ def main():
             if args.duplicate_endpoint
             else "distinct_periodic_nodes"
         ),
+        initial_condition="sin(2*pi*x)",
+        source_term="zero",
         fine_dx=1 / 200,
         coarse_dx=1 / 20,
         time_steps=args.steps,

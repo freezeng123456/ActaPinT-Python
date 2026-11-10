@@ -18,7 +18,7 @@ def main():
     a = p.parse_args()
     data = json.loads((a.data_dir / "nka_periodic.json").read_text())
     eps = json.loads((a.data_dir / "figure_3_14_eps.json").read_text())
-    fig, axes = plt.subplots(2, 2, figsize=(11, 8), sharex=False, sharey=True)
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8.5), sharex=False, sharey=True)
     for row, nu in enumerate((0.02, 0.002)):
         for col, T in enumerate((1.3, 0.7)):
             ax = axes[row, col]
@@ -26,8 +26,15 @@ def main():
                 if r["nu"] != nu or r["horizon"] != T or r["start"] == "initial":
                     continue
                 color = "#2863ac" if r["method"] == "average" else "#c84536"
-                style = "-" if r["start"] == "symmetric" else "--"
-                label = f"{r['method']}, {'random' if r['start']=='symmetric' else 'coarse TR'}"
+                style = {"symmetric": "-", "uniform": ":", "coarse_tr": "--"}[
+                    r["start"]
+                ]
+                start_label = {
+                    "symmetric": "random [-1,1]",
+                    "uniform": "random [0,1]",
+                    "coarse_tr": "coarse TR",
+                }[r["start"]]
+                label = f"{r['method']}, {start_label}"
                 values = [v["increment"]["linf"] for v in r["records"][1:]]
                 ax.semilogy(
                     range(len(values)), values, style, color=color, lw=1.6, label=label
@@ -52,7 +59,7 @@ def main():
             )
             ax.grid(alpha=0.2)
     handles, labels = axes[0, 0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False)
+    fig.legend(handles, labels, loc="lower center", ncol=4, frameon=False, fontsize=8)
     fig.suptitle(
         "NKA reconstruction: both methods use the same starting vector\n200 distinct periodic nodes, 200 time steps; paper Error definition unspecified",
         fontsize=12,

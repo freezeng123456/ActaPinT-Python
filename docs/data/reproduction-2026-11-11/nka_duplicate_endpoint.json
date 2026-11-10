@@ -1,5 +1,7 @@
 {
   "spatial_grid": "duplicate_endpoint",
+  "initial_condition": "sin(2*pi*x)",
+  "source_term": "zero",
   "fine_dx": 0.005,
   "coarse_dx": 0.05,
   "time_steps": 200,
@@ -8,6 +10,556 @@
   "stop": "true max-norm error against converged all-at-once Newton reference",
   "plot_indices": "error at k=0 is the initial error; increment at index k-1 is update k",
   "runs": [
+    {
+      "nu": 0.02,
+      "horizon": 1.3,
+      "steps": 200,
+      "dt": 0.006500000000000001,
+      "nx": 201,
+      "start": "uniform",
+      "method": "average",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 1.0,
+      "weights_max": 1.0,
+      "reference_residual": 6.443734434924409e-13,
+      "termination": "solution_error_tolerance",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9726521224363633,
+            "max_spatial_l2": 12.909210089047184,
+            "max_spatial_l2_scaled": 0.9128189993727058,
+            "rms": 0.6886326102968529
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.1482264789457322,
+            "max_spatial_l2": 8.435577418524389,
+            "max_spatial_l2_scaled": 0.5964853995862707,
+            "rms": 0.4910932876438533
+          },
+          "increment": {
+            "linf": 1.975599455533632,
+            "max_spatial_l2": 12.89175532731758,
+            "max_spatial_l2_scaled": 0.9115847613344059,
+            "rms": 0.7387572032704506
+          },
+          "residual_linf": 25.550850905033556
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 0.8651037978625633,
+            "max_spatial_l2": 5.517430848015396,
+            "max_spatial_l2_scaled": 0.390141276735953,
+            "rms": 0.27170733940763847
+          },
+          "increment": {
+            "linf": 1.3523453147148239,
+            "max_spatial_l2": 9.368238033355466,
+            "max_spatial_l2_scaled": 0.6624344641155375,
+            "rms": 0.5542541566383943
+          },
+          "residual_linf": 13.768297845929014
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 0.4321018535483767,
+            "max_spatial_l2": 1.8411541191322451,
+            "max_spatial_l2_scaled": 0.13018925628479552,
+            "rms": 0.08960857531990372
+          },
+          "increment": {
+            "linf": 0.9337109126604687,
+            "max_spatial_l2": 5.614909844294499,
+            "max_spatial_l2_scaled": 0.3970340826651742,
+            "rms": 0.24737799847508246
+          },
+          "residual_linf": 13.987860644004911
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 0.17024995923567665,
+            "max_spatial_l2": 0.7245297471018215,
+            "max_spatial_l2_scaled": 0.05123198973470723,
+            "rms": 0.03023461110009006
+          },
+          "increment": {
+            "linf": 0.5397319958453479,
+            "max_spatial_l2": 2.245645863305548,
+            "max_spatial_l2_scaled": 0.15879114180868717,
+            "rms": 0.09792053169458702
+          },
+          "residual_linf": 8.200112791389742
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 0.06962518585357647,
+            "max_spatial_l2": 0.24271721695578247,
+            "max_spatial_l2_scaled": 0.017162699002016026,
+            "rms": 0.008931015453553416
+          },
+          "increment": {
+            "linf": 0.21148403637282223,
+            "max_spatial_l2": 0.8354657227621101,
+            "max_spatial_l2_scaled": 0.059076347801400815,
+            "rms": 0.0316832924846898
+          },
+          "residual_linf": 2.303964366767828
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 0.019507733955284157,
+            "max_spatial_l2": 0.08044483965104655,
+            "max_spatial_l2_scaled": 0.005688309162871948,
+            "rms": 0.002705573489256302
+          },
+          "increment": {
+            "linf": 0.07991473816299548,
+            "max_spatial_l2": 0.2792848908773611,
+            "max_spatial_l2_scaled": 0.019748424022232695,
+            "rms": 0.009512912616344217
+          },
+          "residual_linf": 0.7454906420265901
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 0.005995790996855738,
+            "max_spatial_l2": 0.027085651598630966,
+            "max_spatial_l2_scaled": 0.0019152447918248207,
+            "rms": 0.0008149210081490881
+          },
+          "increment": {
+            "linf": 0.021219504980881813,
+            "max_spatial_l2": 0.07963711691529875,
+            "max_spatial_l2_scaled": 0.0056311945404953654,
+            "rms": 0.0028786351175991436
+          },
+          "residual_linf": 0.24063993752576374
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 0.0019734714874628523,
+            "max_spatial_l2": 0.00789281448096724,
+            "max_spatial_l2_scaled": 0.0005581062642139316,
+            "rms": 0.0002354182114874877
+          },
+          "increment": {
+            "linf": 0.006796157123935727,
+            "max_spatial_l2": 0.02551026534449667,
+            "max_spatial_l2_scaled": 0.0018038481614961774,
+            "rms": 0.0008510579503013322
+          },
+          "residual_linf": 0.06465841803605987
+        },
+        {
+          "iteration": 9,
+          "error": {
+            "linf": 0.0005854039508232933,
+            "max_spatial_l2": 0.0023372121113163858,
+            "max_spatial_l2_scaled": 0.00016526585329831444,
+            "rms": 7.186729955533734e-05
+          },
+          "increment": {
+            "linf": 0.002154031536717663,
+            "max_spatial_l2": 0.007500353513885894,
+            "max_spatial_l2_scaled": 0.0005303550830965066,
+            "rms": 0.00025187978065208946
+          },
+          "residual_linf": 0.022884616550314485
+        },
+        {
+          "iteration": 10,
+          "error": {
+            "linf": 0.0001776922725282848,
+            "max_spatial_l2": 0.0006223604836171438,
+            "max_spatial_l2_scaled": 4.400753183082216e-05,
+            "rms": 2.1464469984888172e-05
+          },
+          "increment": {
+            "linf": 0.0005806487228752025,
+            "max_spatial_l2": 0.002295202065251844,
+            "max_spatial_l2_scaled": 0.00016229529445329474,
+            "rms": 7.71677092444762e-05
+          },
+          "residual_linf": 0.006173338282324581
+        },
+        {
+          "iteration": 11,
+          "error": {
+            "linf": 5.239713396443246e-05,
+            "max_spatial_l2": 0.00023004147640329296,
+            "max_spatial_l2_scaled": 1.626638879189336e-05,
+            "rms": 7.377367385578171e-06
+          },
+          "increment": {
+            "linf": 0.0002019840303125657,
+            "max_spatial_l2": 0.0007044445368886408,
+            "max_spatial_l2_scaled": 4.981175090037749e-05,
+            "rms": 2.3622068184536676e-05
+          },
+          "residual_linf": 0.002028657660124944
+        },
+        {
+          "iteration": 12,
+          "error": {
+            "linf": 1.5694413250333383e-05,
+            "max_spatial_l2": 7.948902064962038e-05,
+            "max_spatial_l2_scaled": 5.6207225531224075e-06,
+            "rms": 2.7751533512493796e-06
+          },
+          "increment": {
+            "linf": 5.812137763582931e-05,
+            "max_spatial_l2": 0.00026083944506473806,
+            "max_spatial_l2_scaled": 1.844413404062122e-05,
+            "rms": 8.403231753984627e-06
+          },
+          "residual_linf": 0.0006267587682111664
+        },
+        {
+          "iteration": 13,
+          "error": {
+            "linf": 7.297703239816933e-06,
+            "max_spatial_l2": 3.550272538315692e-05,
+            "max_spatial_l2_scaled": 2.5104217869034027e-06,
+            "rms": 1.1110060068030067e-06
+          },
+          "increment": {
+            "linf": 2.0106091835299646e-05,
+            "max_spatial_l2": 9.237795626378298e-05,
+            "max_spatial_l2_scaled": 6.532107930627525e-06,
+            "rms": 3.152402206404502e-06
+          },
+          "residual_linf": 0.00019142826958107317
+        },
+        {
+          "iteration": 14,
+          "error": {
+            "linf": 2.7076501308842538e-06,
+            "max_spatial_l2": 1.3963116505212036e-05,
+            "max_spatial_l2_scaled": 9.873414367333237e-07,
+            "rms": 4.663214104466494e-07
+          },
+          "increment": {
+            "linf": 8.643080937236241e-06,
+            "max_spatial_l2": 4.047589005296414e-05,
+            "max_spatial_l2_scaled": 2.862077633101207e-06,
+            "rms": 1.2761608847820623e-06
+          },
+          "residual_linf": 7.840093133182346e-05
+        },
+        {
+          "iteration": 15,
+          "error": {
+            "linf": 1.1959284144102966e-06,
+            "max_spatial_l2": 6.116132869920924e-06,
+            "max_spatial_l2_scaled": 4.324759026959026e-07,
+            "rms": 1.8854219318411093e-07
+          },
+          "increment": {
+            "linf": 2.917420579788861e-06,
+            "max_spatial_l2": 1.5921932997562962e-05,
+            "max_spatial_l2_scaled": 1.1258506792174624e-06,
+            "rms": 5.287363848939687e-07
+          },
+          "residual_linf": 2.9022021931890407e-05
+        },
+        {
+          "iteration": 16,
+          "error": {
+            "linf": 4.779820534928092e-07,
+            "max_spatial_l2": 2.341243530023979e-06,
+            "max_spatial_l2_scaled": 1.6555091764890857e-07,
+            "rms": 7.537635883654136e-08
+          },
+          "increment": {
+            "linf": 1.4155600703739916e-06,
+            "max_spatial_l2": 6.8783680793153716e-06,
+            "max_spatial_l2_scaled": 4.863740712380987e-07,
+            "rms": 2.1181439597554936e-07
+          },
+          "residual_linf": 1.2656559846391247e-05
+        }
+      ]
+    },
+    {
+      "nu": 0.02,
+      "horizon": 1.3,
+      "steps": 200,
+      "dt": 0.006500000000000001,
+      "nx": 201,
+      "start": "uniform",
+      "method": "nka",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 0.9679686206362277,
+      "weights_max": 1.0520299351317508,
+      "reference_residual": 6.443734434924409e-13,
+      "termination": "solution_error_tolerance",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9726521224363633,
+            "max_spatial_l2": 12.909210089047184,
+            "max_spatial_l2_scaled": 0.9128189993727058,
+            "rms": 0.6886326102968529
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.161527786170856,
+            "max_spatial_l2": 8.501846845190366,
+            "max_spatial_l2_scaled": 0.6011713556843563,
+            "rms": 0.49473457766155504
+          },
+          "increment": {
+            "linf": 1.9461268654792487,
+            "max_spatial_l2": 12.83695624973246,
+            "max_spatial_l2_scaled": 0.9077098813980854,
+            "rms": 0.7366839699303752
+          },
+          "residual_linf": 83.53946986027181
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 0.8621023762739606,
+            "max_spatial_l2": 5.533447742311967,
+            "max_spatial_l2_scaled": 0.39127384219301836,
+            "rms": 0.27324043767579675
+          },
+          "increment": {
+            "linf": 1.351126586302122,
+            "max_spatial_l2": 9.439998270402523,
+            "max_spatial_l2_scaled": 0.6675086791390904,
+            "rms": 0.5590993483264903
+          },
+          "residual_linf": 14.2515206889615
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 0.4141191734463898,
+            "max_spatial_l2": 1.802490409409249,
+            "max_spatial_l2_scaled": 0.12745531915169964,
+            "rms": 0.08927397071783195
+          },
+          "increment": {
+            "linf": 0.9083834345509914,
+            "max_spatial_l2": 5.528104067795892,
+            "max_spatial_l2_scaled": 0.39089598734434133,
+            "rms": 0.24635931292152793
+          },
+          "residual_linf": 13.199448906159592
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 0.161065540655268,
+            "max_spatial_l2": 0.6787047989855528,
+            "max_spatial_l2_scaled": 0.0479916765786537,
+            "rms": 0.02836549905366896
+          },
+          "increment": {
+            "linf": 0.5017467372793564,
+            "max_spatial_l2": 2.1349112482073296,
+            "max_spatial_l2_scaled": 0.15096102208388393,
+            "rms": 0.09625005881726549
+          },
+          "residual_linf": 7.457965020363909
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 0.06013890986711745,
+            "max_spatial_l2": 0.2247977163145064,
+            "max_spatial_l2_scaled": 0.015895598960123727,
+            "rms": 0.007965112991520282
+          },
+          "increment": {
+            "linf": 0.19443911377353776,
+            "max_spatial_l2": 0.7446438562197126,
+            "max_spatial_l2_scaled": 0.05265427203018593,
+            "rms": 0.02936734793896603
+          },
+          "residual_linf": 1.993257245863711
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 0.016413047645279233,
+            "max_spatial_l2": 0.07469386110272681,
+            "max_spatial_l2_scaled": 0.005281653569874422,
+            "rms": 0.002288279668491582
+          },
+          "increment": {
+            "linf": 0.0672252783845412,
+            "max_spatial_l2": 0.23494501077113547,
+            "max_spatial_l2_scaled": 0.016613121032221633,
+            "rms": 0.008359682399667709
+          },
+          "residual_linf": 0.6224802854383659
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 0.005104011400514502,
+            "max_spatial_l2": 0.023629584742633568,
+            "max_spatial_l2_scaled": 0.0016708639608138376,
+            "rms": 0.0006393668007449841
+          },
+          "increment": {
+            "linf": 0.01602514421779093,
+            "max_spatial_l2": 0.0690444895894169,
+            "max_spatial_l2_scaled": 0.004882182679224068,
+            "rms": 0.0023814844026693593
+          },
+          "residual_linf": 0.1781639467020888
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 0.001597865637080087,
+            "max_spatial_l2": 0.0067416124150497785,
+            "max_spatial_l2_scaled": 0.0004767039854813116,
+            "rms": 0.00017716993336797058
+          },
+          "increment": {
+            "linf": 0.005034338163731687,
+            "max_spatial_l2": 0.022755846960618522,
+            "max_spatial_l2_scaled": 0.0016090813697496643,
+            "rms": 0.0006580945069348509
+          },
+          "residual_linf": 0.047745882118093164
+        },
+        {
+          "iteration": 9,
+          "error": {
+            "linf": 0.0004669257166567964,
+            "max_spatial_l2": 0.0019088881198884055,
+            "max_spatial_l2_scaled": 0.00013497877340995309,
+            "rms": 4.980893561455513e-05
+          },
+          "increment": {
+            "linf": 0.001505758351711795,
+            "max_spatial_l2": 0.006485638628687721,
+            "max_spatial_l2_scaled": 0.00045860390546705087,
+            "rms": 0.0001848571477743302
+          },
+          "residual_linf": 0.014667270508321506
+        },
+        {
+          "iteration": 10,
+          "error": {
+            "linf": 0.00012006698369038116,
+            "max_spatial_l2": 0.0004953991571265199,
+            "max_spatial_l2_scaled": 3.503001033982622e-05,
+            "rms": 1.4067413828743047e-05
+          },
+          "increment": {
+            "linf": 0.00046727015204052697,
+            "max_spatial_l2": 0.0018676118432257242,
+            "max_spatial_l2_scaled": 0.0001320600998969217,
+            "rms": 5.1969140139385485e-05
+          },
+          "residual_linf": 0.003863433872582367
+        },
+        {
+          "iteration": 11,
+          "error": {
+            "linf": 3.415165221246075e-05,
+            "max_spatial_l2": 0.00013160051479993448,
+            "max_spatial_l2_scaled": 9.305561642267428e-06,
+            "rms": 4.430440930903916e-06
+          },
+          "increment": {
+            "linf": 0.00011339738925731347,
+            "max_spatial_l2": 0.00048621126209871834,
+            "max_spatial_l2_scaled": 3.438032805192735e-05,
+            "rms": 1.4937596362062866e-05
+          },
+          "residual_linf": 0.0010896832238003196
+        },
+        {
+          "iteration": 12,
+          "error": {
+            "linf": 8.54007834594217e-06,
+            "max_spatial_l2": 4.3454214091054476e-05,
+            "max_spatial_l2_scaled": 3.072676945491665e-06,
+            "rms": 1.512173886595379e-06
+          },
+          "increment": {
+            "linf": 3.426236511108422e-05,
+            "max_spatial_l2": 0.00014247954342377537,
+            "max_spatial_l2_scaled": 1.0074825133531472e-05,
+            "rms": 4.801782089529348e-06
+          },
+          "residual_linf": 0.00029726598635562707
+        },
+        {
+          "iteration": 13,
+          "error": {
+            "linf": 3.2723393597056116e-06,
+            "max_spatial_l2": 1.7719895852322278e-05,
+            "max_spatial_l2_scaled": 1.252985851909646e-06,
+            "rms": 5.594463846080045e-07
+          },
+          "increment": {
+            "linf": 9.552368759692018e-06,
+            "max_spatial_l2": 4.8250473088009706e-05,
+            "max_spatial_l2_scaled": 3.411823671599068e-06,
+            "rms": 1.6349044031489994e-06
+          },
+          "residual_linf": 9.451959775652607e-05
+        },
+        {
+          "iteration": 14,
+          "error": {
+            "linf": 1.1994330104680984e-06,
+            "max_spatial_l2": 6.478616784993451e-06,
+            "max_spatial_l2_scaled": 4.581073861377858e-07,
+            "rms": 2.1542313164246508e-07
+          },
+          "increment": {
+            "linf": 3.7279884757780234e-06,
+            "max_spatial_l2": 1.9052394886292932e-05,
+            "max_spatial_l2_scaled": 1.3472077621941632e-06,
+            "rms": 6.120347139212007e-07
+          },
+          "residual_linf": 3.0424904085002424e-05
+        },
+        {
+          "iteration": 15,
+          "error": {
+            "linf": 5.143445694910653e-07,
+            "max_spatial_l2": 2.633341506148075e-06,
+            "max_spatial_l2_scaled": 1.8620536361773005e-07,
+            "rms": 8.139897553579686e-08
+          },
+          "increment": {
+            "linf": 1.227175689341314e-06,
+            "max_spatial_l2": 7.095212188201638e-06,
+            "max_spatial_l2_scaled": 5.01707265223482e-07,
+            "rms": 2.326956646519054e-07
+          },
+          "residual_linf": 1.2865857229371613e-05
+        }
+      ]
+    },
     {
       "nu": 0.02,
       "horizon": 1.3,
@@ -1360,6 +1912,412 @@
       "steps": 200,
       "dt": 0.0034999999999999996,
       "nx": 201,
+      "start": "uniform",
+      "method": "average",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 1.0,
+      "weights_max": 1.0,
+      "reference_residual": 5.879741138414829e-13,
+      "termination": "solution_error_tolerance",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.982917459158314,
+            "max_spatial_l2": 13.031440117702228,
+            "max_spatial_l2_scaled": 0.9214619675853667,
+            "rms": 0.7529223029686931
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.1445227403907088,
+            "max_spatial_l2": 8.441446354226187,
+            "max_spatial_l2_scaled": 0.5969003960095796,
+            "rms": 0.4943057691475877
+          },
+          "increment": {
+            "linf": 1.9809020518183362,
+            "max_spatial_l2": 13.053547252575326,
+            "max_spatial_l2_scaled": 0.9230251780835039,
+            "rms": 0.7981420035918338
+          },
+          "residual_linf": 26.711513477257277
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 0.8248570979922772,
+            "max_spatial_l2": 4.350967429429405,
+            "max_spatial_l2_scaled": 0.3076598574071333,
+            "rms": 0.23537017712559447
+          },
+          "increment": {
+            "linf": 1.3907752599671008,
+            "max_spatial_l2": 8.036156954686435,
+            "max_spatial_l2_scaled": 0.5682421077338213,
+            "rms": 0.4884547039945925
+          },
+          "residual_linf": 12.361211558283596
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 0.2534973845445555,
+            "max_spatial_l2": 1.0353752791055773,
+            "max_spatial_l2_scaled": 0.0732120880928468,
+            "rms": 0.05469534860101481
+          },
+          "increment": {
+            "linf": 0.8259084722775523,
+            "max_spatial_l2": 4.179127654885909,
+            "max_spatial_l2_scaled": 0.295508950421406,
+            "rms": 0.2173614363507413
+          },
+          "residual_linf": 9.571919396313323
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 0.04309769847045858,
+            "max_spatial_l2": 0.23587937809740495,
+            "max_spatial_l2_scaled": 0.01667919077947406,
+            "rms": 0.00821793766747048
+          },
+          "increment": {
+            "linf": 0.27454285654068133,
+            "max_spatial_l2": 1.1149000252373595,
+            "max_spatial_l2_scaled": 0.078835336819039,
+            "rms": 0.05554908037723831
+          },
+          "residual_linf": 2.37262294136973
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 0.01421174470467823,
+            "max_spatial_l2": 0.06409462925856431,
+            "max_spatial_l2_scaled": 0.004532174698636852,
+            "rms": 0.0015416255831224239
+          },
+          "increment": {
+            "linf": 0.04653202168887369,
+            "max_spatial_l2": 0.21646122150073513,
+            "max_spatial_l2_scaled": 0.01530611975870931,
+            "rms": 0.008131697738025056
+          },
+          "residual_linf": 0.3662702709944685
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 0.0031093673902781727,
+            "max_spatial_l2": 0.014697384804435894,
+            "max_spatial_l2_scaled": 0.001039262046092474,
+            "rms": 0.00029429371788886424
+          },
+          "increment": {
+            "linf": 0.013150072611174167,
+            "max_spatial_l2": 0.06040832954828829,
+            "max_spatial_l2_scaled": 0.004271513946374634,
+            "rms": 0.0015091911195168459
+          },
+          "residual_linf": 0.07218507106519251
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 0.0007336369915011964,
+            "max_spatial_l2": 0.003175181127772357,
+            "max_spatial_l2_scaled": 0.00022451921069433832,
+            "rms": 5.494860660469714e-05
+          },
+          "increment": {
+            "linf": 0.003029793533372447,
+            "max_spatial_l2": 0.013997354720627719,
+            "max_spatial_l2_scaled": 0.0009897624441629392,
+            "rms": 0.00028771781126660863
+          },
+          "residual_linf": 0.02132998359485372
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 0.00014387438574658962,
+            "max_spatial_l2": 0.0006132185574723616,
+            "max_spatial_l2_scaled": 4.336110003381395e-05,
+            "rms": 9.74857885856031e-06
+          },
+          "increment": {
+            "linf": 0.00069640482692155,
+            "max_spatial_l2": 0.003054091907899117,
+            "max_spatial_l2_scaled": 0.00021595690984424265,
+            "rms": 5.36583947584358e-05
+          },
+          "residual_linf": 0.004785181697230301
+        },
+        {
+          "iteration": 9,
+          "error": {
+            "linf": 2.637493624746412e-05,
+            "max_spatial_l2": 0.00011274993541119757,
+            "max_spatial_l2_scaled": 7.972624390760305e-06,
+            "rms": 1.7379319973073726e-06
+          },
+          "increment": {
+            "linf": 0.00014076150655193616,
+            "max_spatial_l2": 0.0005937178721792697,
+            "max_spatial_l2_scaled": 4.198219335296094e-05,
+            "rms": 9.605712510013221e-06
+          },
+          "residual_linf": 0.0010494350141524444
+        },
+        {
+          "iteration": 10,
+          "error": {
+            "linf": 4.779622717887566e-06,
+            "max_spatial_l2": 1.931165644876547e-05,
+            "max_spatial_l2_scaled": 1.3655403230866984e-06,
+            "rms": 3.091666354142864e-07
+          },
+          "increment": {
+            "linf": 2.545731166071404e-05,
+            "max_spatial_l2": 0.00010964482947868882,
+            "max_spatial_l2_scaled": 7.753060244642352e-06,
+            "rms": 1.731340352383165e-06
+          },
+          "residual_linf": 0.00020930680203601337
+        },
+        {
+          "iteration": 11,
+          "error": {
+            "linf": 7.35448697275487e-07,
+            "max_spatial_l2": 3.1603590079638146e-06,
+            "max_spatial_l2_scaled": 2.2347112855152035e-07,
+            "rms": 6.135103975737136e-08
+          },
+          "increment": {
+            "linf": 4.6924327439814605e-06,
+            "max_spatial_l2": 1.885907707356802e-05,
+            "max_spatial_l2_scaled": 1.3335381285639698e-06,
+            "rms": 3.138970014849291e-07
+          },
+          "residual_linf": 3.854049634466339e-05
+        }
+      ]
+    },
+    {
+      "nu": 0.02,
+      "horizon": 0.7,
+      "steps": 200,
+      "dt": 0.0034999999999999996,
+      "nx": 201,
+      "start": "uniform",
+      "method": "nka",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 0.9587082692393823,
+      "weights_max": 1.04157224729048,
+      "reference_residual": 5.879741138414829e-13,
+      "termination": "solution_error_tolerance",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.982917459158314,
+            "max_spatial_l2": 13.031440117702228,
+            "max_spatial_l2_scaled": 0.9214619675853667,
+            "rms": 0.7529223029686931
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.1570025108460131,
+            "max_spatial_l2": 8.461266079191555,
+            "max_spatial_l2_scaled": 0.598301862202006,
+            "rms": 0.4987467304023587
+          },
+          "increment": {
+            "linf": 1.9641364232202103,
+            "max_spatial_l2": 13.001561354434774,
+            "max_spatial_l2_scaled": 0.9193492199733782,
+            "rms": 0.7966217580612751
+          },
+          "residual_linf": 70.3366092834323
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 0.8359725934889275,
+            "max_spatial_l2": 4.394033721081089,
+            "max_spatial_l2_scaled": 0.3107051040938797,
+            "rms": 0.23818515278286073
+          },
+          "increment": {
+            "linf": 1.3994535479504018,
+            "max_spatial_l2": 8.085994107698884,
+            "max_spatial_l2_scaled": 0.5717661266188347,
+            "rms": 0.49241074932547374
+          },
+          "residual_linf": 12.375383314271616
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 0.2585859478350248,
+            "max_spatial_l2": 1.0603909995153822,
+            "max_spatial_l2_scaled": 0.07498096664665077,
+            "rms": 0.055590532310230555
+          },
+          "increment": {
+            "linf": 0.8333101754523742,
+            "max_spatial_l2": 4.172962257557523,
+            "max_spatial_l2_scaled": 0.2950729909954449,
+            "rms": 0.21925444920574916
+          },
+          "residual_linf": 9.436447457904166
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 0.04199729447700995,
+            "max_spatial_l2": 0.2146625419169169,
+            "max_spatial_l2_scaled": 0.015178933905619344,
+            "rms": 0.007547918913735338
+          },
+          "increment": {
+            "linf": 0.2643988079701781,
+            "max_spatial_l2": 1.121365508467714,
+            "max_spatial_l2_scaled": 0.07929251552262215,
+            "rms": 0.0563125392389283
+          },
+          "residual_linf": 2.2351151189651564
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 0.011826147725603586,
+            "max_spatial_l2": 0.052690386070145125,
+            "max_spatial_l2_scaled": 0.003725772929353682,
+            "rms": 0.0012869210812974565
+          },
+          "increment": {
+            "linf": 0.04460283907390628,
+            "max_spatial_l2": 0.20065709986854482,
+            "max_spatial_l2_scaled": 0.014188599601027434,
+            "rms": 0.0074911232653555385
+          },
+          "residual_linf": 0.31648141598675844
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 0.0023516829777806003,
+            "max_spatial_l2": 0.011273260294056576,
+            "max_spatial_l2_scaled": 0.0007971398800008457,
+            "rms": 0.00022814616931450475
+          },
+          "increment": {
+            "linf": 0.011236028631321272,
+            "max_spatial_l2": 0.05061444786996394,
+            "max_spatial_l2_scaled": 0.0035789819314864506,
+            "rms": 0.0012731732359217772
+          },
+          "residual_linf": 0.05495049919328454
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 0.0005214359309966832,
+            "max_spatial_l2": 0.0022497622861785906,
+            "max_spatial_l2_scaled": 0.00015908221686146315,
+            "rms": 3.909071204893119e-05
+          },
+          "increment": {
+            "linf": 0.0023368518261845956,
+            "max_spatial_l2": 0.010912526525263437,
+            "max_spatial_l2_scaled": 0.000771632150589185,
+            "rms": 0.00022511877544967163
+          },
+          "residual_linf": 0.0155322515446501
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 9.445808279689993e-05,
+            "max_spatial_l2": 0.0004095985077537919,
+            "max_spatial_l2_scaled": 2.8962988239659693e-05,
+            "rms": 6.5251083824023725e-06
+          },
+          "increment": {
+            "linf": 0.0005033026093266331,
+            "max_spatial_l2": 0.002204096891639377,
+            "max_spatial_l2_scaled": 0.00015585318584703943,
+            "rms": 3.8579726349641374e-05
+          },
+          "residual_linf": 0.0031486572023011195
+        },
+        {
+          "iteration": 9,
+          "error": {
+            "linf": 1.6451477661050262e-05,
+            "max_spatial_l2": 7.055301428051033e-05,
+            "max_spatial_l2_scaled": 4.988851483090018e-06,
+            "rms": 1.0701598650658847e-06
+          },
+          "increment": {
+            "linf": 9.423047347892897e-05,
+            "max_spatial_l2": 0.00040330162063571687,
+            "max_spatial_l2_scaled": 2.8517731081503985e-05,
+            "rms": 6.4843378953877165e-06
+          },
+          "residual_linf": 0.0006388091574544008
+        },
+        {
+          "iteration": 10,
+          "error": {
+            "linf": 2.7724168046860953e-06,
+            "max_spatial_l2": 1.1438189668651632e-05,
+            "max_spatial_l2_scaled": 8.088021479201478e-07,
+            "rms": 1.7355340458596165e-07
+          },
+          "increment": {
+            "linf": 1.614821124617369e-05,
+            "max_spatial_l2": 6.988530535587702e-05,
+            "max_spatial_l2_scaled": 4.941637332243318e-06,
+            "rms": 1.0682750876147724e-06
+          },
+          "residual_linf": 0.00011984000259135374
+        },
+        {
+          "iteration": 11,
+          "error": {
+            "linf": 4.1653451027245936e-07,
+            "max_spatial_l2": 1.76715545384889e-06,
+            "max_spatial_l2_scaled": 1.249567604827341e-07,
+            "rms": 2.993752872950106e-08
+          },
+          "increment": {
+            "linf": 2.7734533454254776e-06,
+            "max_spatial_l2": 1.1368656909523785e-05,
+            "max_spatial_l2_scaled": 8.038854393707567e-07,
+            "rms": 1.7505257159140455e-07
+          },
+          "residual_linf": 2.0436070669260786e-05
+        }
+      ]
+    },
+    {
+      "nu": 0.02,
+      "horizon": 0.7,
+      "steps": 200,
+      "dt": 0.0034999999999999996,
+      "nx": 201,
       "start": "symmetric",
       "method": "average",
       "seed": 5489,
@@ -2345,6 +3303,300 @@
             "rms": 2.6960670766838905e-07
           },
           "residual_linf": 1.059054889129829e-05
+        }
+      ]
+    },
+    {
+      "nu": 0.002,
+      "horizon": 1.3,
+      "steps": 200,
+      "dt": 0.006500000000000001,
+      "nx": 201,
+      "start": "uniform",
+      "method": "average",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 1.0,
+      "weights_max": 1.0,
+      "reference_residual": 7.616129948928574e-14,
+      "termination": "divergence_limit",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9867522046907493,
+            "max_spatial_l2": 13.187580584986693,
+            "max_spatial_l2_scaled": 0.9325027659088148,
+            "rms": 0.7259839969508336
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.7493455464430359,
+            "max_spatial_l2": 12.478551512857985,
+            "max_spatial_l2_scaled": 0.8823668394127533,
+            "rms": 0.7521245639448643
+          },
+          "increment": {
+            "linf": 2.0618011373732834,
+            "max_spatial_l2": 13.411596635830257,
+            "max_spatial_l2_scaled": 0.9483430927734262,
+            "rms": 0.8854480366012918
+          },
+          "residual_linf": 44.35511180149365
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 5.501404034625542,
+            "max_spatial_l2": 19.59714894863145,
+            "max_spatial_l2_scaled": 1.3857276913500118,
+            "rms": 1.0709253161420558
+          },
+          "increment": {
+            "linf": 6.432175093084487,
+            "max_spatial_l2": 21.190513462173456,
+            "max_spatial_l2_scaled": 1.4983955765927675,
+            "rms": 1.2154260022973413
+          },
+          "residual_linf": 682.8825094529757
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 9.522604269293053,
+            "max_spatial_l2": 27.189697397182847,
+            "max_spatial_l2_scaled": 1.9226019407958213,
+            "rms": 1.0783967420239382
+          },
+          "increment": {
+            "linf": 9.773754369626804,
+            "max_spatial_l2": 31.134165935555007,
+            "max_spatial_l2_scaled": 2.2015179859618157,
+            "rms": 1.3602757531824932
+          },
+          "residual_linf": 3310.2116401289563
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 19.514053664075202,
+            "max_spatial_l2": 36.46117608076898,
+            "max_spatial_l2_scaled": 2.578194485674849,
+            "rms": 1.5385175886364986
+          },
+          "increment": {
+            "linf": 18.893268744225978,
+            "max_spatial_l2": 38.09767504900342,
+            "max_spatial_l2_scaled": 2.6939124374591854,
+            "rms": 1.8013454435720386
+          },
+          "residual_linf": 18126.121350192356
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 245.70848302475528,
+            "max_spatial_l2": 485.261456792666,
+            "max_spatial_l2_scaled": 34.3131666746557,
+            "rms": 22.63950496778248
+          },
+          "increment": {
+            "linf": 245.427981457935,
+            "max_spatial_l2": 491.99083412674406,
+            "max_spatial_l2_scaled": 34.78900550926466,
+            "rms": 22.76294844247794
+          },
+          "residual_linf": 2956286.848940607
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 279.15561931290955,
+            "max_spatial_l2": 487.231753232065,
+            "max_spatial_l2_scaled": 34.45248767198037,
+            "rms": 13.65912014750029
+          },
+          "increment": {
+            "linf": 278.6594598020465,
+            "max_spatial_l2": 595.5059824266629,
+            "max_spatial_l2_scaled": 42.10863184110503,
+            "rms": 19.928922305867935
+          },
+          "residual_linf": 3882775.4151445935
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 6146.706611891339,
+            "max_spatial_l2": 8837.379449654443,
+            "max_spatial_l2_scaled": 624.8970936769297,
+            "rms": 203.29296296003574
+          },
+          "increment": {
+            "linf": 6147.816247818302,
+            "max_spatial_l2": 8980.29423692318,
+            "max_spatial_l2_scaled": 635.0026951978853,
+            "rms": 204.85111346908025
+          },
+          "residual_linf": 1889460550.074499
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 1345767.085826297,
+            "max_spatial_l2": 3202134.091207953,
+            "max_spatial_l2_scaled": 226425.07301617664,
+            "rms": 24812.42233674128
+          },
+          "increment": {
+            "linf": 1345761.7301673978,
+            "max_spatial_l2": 3201623.830136976,
+            "max_spatial_l2_scaled": 226388.9921098303,
+            "rms": 24818.616244462242
+          },
+          "residual_linf": 90553787527444.69
+        }
+      ]
+    },
+    {
+      "nu": 0.002,
+      "horizon": 1.3,
+      "steps": 200,
+      "dt": 0.006500000000000001,
+      "nx": 201,
+      "start": "uniform",
+      "method": "nka",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 0.49087208471759886,
+      "weights_max": 1.579171824560063,
+      "reference_residual": 7.616129948928574e-14,
+      "termination": "divergence_limit",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9867522046907493,
+            "max_spatial_l2": 13.187580584986693,
+            "max_spatial_l2_scaled": 0.9325027659088148,
+            "rms": 0.7259839969508336
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 2.151432412743088,
+            "max_spatial_l2": 13.587308477055007,
+            "max_spatial_l2_scaled": 0.9607677962199057,
+            "rms": 0.8296293681597845
+          },
+          "increment": {
+            "linf": 2.549253471708237,
+            "max_spatial_l2": 13.564893699250325,
+            "max_spatial_l2_scaled": 0.9591828320814576,
+            "rms": 0.8944359287770525
+          },
+          "residual_linf": 204.75466443196422
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 6.257214715809553,
+            "max_spatial_l2": 21.75266828320366,
+            "max_spatial_l2_scaled": 1.5381459251954843,
+            "rms": 1.2195765994327283
+          },
+          "increment": {
+            "linf": 7.092175618180902,
+            "max_spatial_l2": 23.721038815338666,
+            "max_spatial_l2_scaled": 1.6773307403115278,
+            "rms": 1.3971509162342508
+          },
+          "residual_linf": 1049.6540172609723
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 9.361692402569144,
+            "max_spatial_l2": 29.470116633765134,
+            "max_spatial_l2_scaled": 2.0838519314093795,
+            "rms": 1.5342484492134432
+          },
+          "increment": {
+            "linf": 9.959183871884303,
+            "max_spatial_l2": 35.94883780031922,
+            "max_spatial_l2_scaled": 2.541966698438101,
+            "rms": 1.9744307505159633
+          },
+          "residual_linf": 2477.7013375921983
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 22.323827097020736,
+            "max_spatial_l2": 65.72273378093561,
+            "max_spatial_l2_scaled": 4.647299073461776,
+            "rms": 2.419428542181851
+          },
+          "increment": {
+            "linf": 23.68328449653608,
+            "max_spatial_l2": 77.80215011360796,
+            "max_spatial_l2_scaled": 5.501442793622591,
+            "rms": 2.872661230416207
+          },
+          "residual_linf": 23342.439978510778
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 156.29449556113642,
+            "max_spatial_l2": 452.574440654819,
+            "max_spatial_l2_scaled": 32.00184559787312,
+            "rms": 15.240892125037561
+          },
+          "increment": {
+            "linf": 157.0283863856555,
+            "max_spatial_l2": 457.40897804613024,
+            "max_spatial_l2_scaled": 32.34369901520273,
+            "rms": 15.515831751828419
+          },
+          "residual_linf": 1039564.7381818776
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 25204.532073570575,
+            "max_spatial_l2": 52309.28981048782,
+            "max_spatial_l2_scaled": 3698.825354404831,
+            "rms": 2344.2685540843836
+          },
+          "increment": {
+            "linf": 25229.449199674156,
+            "max_spatial_l2": 52338.649446152594,
+            "max_spatial_l2_scaled": 3700.901394152004,
+            "rms": 2344.193737205023
+          },
+          "residual_linf": 31605700741.298824
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 17224774.191236213,
+            "max_spatial_l2": 28137079.76502249,
+            "max_spatial_l2_scaled": 1989591.9904634191,
+            "rms": 452578.35586805455
+          },
+          "increment": {
+            "linf": 17224800.246472612,
+            "max_spatial_l2": 28137420.369321425,
+            "max_spatial_l2_scaled": 1989616.074824367,
+            "rms": 452589.79583574913
+          },
+          "residual_linf": 1.4832203138348446e+16
         }
       ]
     },
@@ -5787,6 +7039,332 @@
             "rms": 1.3210819799095142e-07
           },
           "residual_linf": 0.00027659447895045375
+        }
+      ]
+    },
+    {
+      "nu": 0.002,
+      "horizon": 0.7,
+      "steps": 200,
+      "dt": 0.0034999999999999996,
+      "nx": 201,
+      "start": "uniform",
+      "method": "average",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 1.0,
+      "weights_max": 1.0,
+      "reference_residual": 9.270362255620057e-14,
+      "termination": "divergence_limit",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9927060868027262,
+            "max_spatial_l2": 13.267089532962807,
+            "max_spatial_l2_scaled": 0.9381248975367066,
+            "rms": 0.8003787436729778
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.817409395219193,
+            "max_spatial_l2": 12.318879958701093,
+            "max_spatial_l2_scaled": 0.8710763555420599,
+            "rms": 0.6664184649753745
+          },
+          "increment": {
+            "linf": 2.1029695631048977,
+            "max_spatial_l2": 13.490051727259774,
+            "max_spatial_l2_scaled": 0.9538907054902684,
+            "rms": 0.8991091350032901
+          },
+          "residual_linf": 44.361228376415475
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 4.292331692180756,
+            "max_spatial_l2": 14.502049991042869,
+            "max_spatial_l2_scaled": 1.0254497889772722,
+            "rms": 0.766110023582677
+          },
+          "increment": {
+            "linf": 5.397044551681689,
+            "max_spatial_l2": 15.732328389485353,
+            "max_spatial_l2_scaled": 1.112443608805873,
+            "rms": 0.8695270772650369
+          },
+          "residual_linf": 562.5007286650142
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 6.323927949695599,
+            "max_spatial_l2": 13.921600022601627,
+            "max_spatial_l2_scaled": 0.9844057780948403,
+            "rms": 0.6405504910739254
+          },
+          "increment": {
+            "linf": 6.949991899839482,
+            "max_spatial_l2": 15.533690841869507,
+            "max_spatial_l2_scaled": 1.0983978131141299,
+            "rms": 0.8252935253731376
+          },
+          "residual_linf": 2038.7238230280116
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 5.277518151474009,
+            "max_spatial_l2": 10.932635866831962,
+            "max_spatial_l2_scaled": 0.773054095768015,
+            "rms": 0.5308785983459227
+          },
+          "increment": {
+            "linf": 6.701614956179016,
+            "max_spatial_l2": 16.04644407630563,
+            "max_spatial_l2_scaled": 1.1346549420286416,
+            "rms": 0.7464652910445324
+          },
+          "residual_linf": 1604.9360814650238
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 18.98265572289942,
+            "max_spatial_l2": 26.681761778576156,
+            "max_spatial_l2_scaled": 1.8866854687635237,
+            "rms": 0.7536799848966256
+          },
+          "increment": {
+            "linf": 15.37079634474564,
+            "max_spatial_l2": 24.481510213609326,
+            "max_spatial_l2_scaled": 1.7311041885730878,
+            "rms": 0.8567091082849504
+          },
+          "residual_linf": 16929.54324944673
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 116.31737508764945,
+            "max_spatial_l2": 146.13816104515107,
+            "max_spatial_l2_scaled": 10.333528466515808,
+            "rms": 2.399728103126696
+          },
+          "increment": {
+            "linf": 114.25273557510057,
+            "max_spatial_l2": 148.31521202397442,
+            "max_spatial_l2_scaled": 10.487469217527288,
+            "rms": 2.461426750342335
+          },
+          "residual_linf": 675524.8121987445
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 623.8540464506724,
+            "max_spatial_l2": 997.2847796301119,
+            "max_spatial_l2_scaled": 70.51868304505838,
+            "rms": 13.4617042572306
+          },
+          "increment": {
+            "linf": 669.3172693231271,
+            "max_spatial_l2": 1100.396113483159,
+            "max_spatial_l2_scaled": 77.80975538352635,
+            "rms": 14.780937105478216
+          },
+          "residual_linf": 19243811.900914364
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 8146.9964751020725,
+            "max_spatial_l2": 17450.373913017505,
+            "max_spatial_l2_scaled": 1233.9277728135505,
+            "rms": 154.2421173361567
+          },
+          "increment": {
+            "linf": 8175.286555630297,
+            "max_spatial_l2": 18002.744665528062,
+            "max_spatial_l2_scaled": 1272.9862832964836,
+            "rms": 163.29530555832199
+          },
+          "residual_linf": 3319411131.066091
+        },
+        {
+          "iteration": 9,
+          "error": {
+            "linf": 187086.2613735562,
+            "max_spatial_l2": 435598.1571825937,
+            "max_spatial_l2_scaled": 30801.441081617562,
+            "rms": 8019.395693381296
+          },
+          "increment": {
+            "linf": 194489.68567904428,
+            "max_spatial_l2": 450153.58456153644,
+            "max_spatial_l2_scaled": 31830.665221889438,
+            "rms": 8064.956555492846
+          },
+          "residual_linf": 1634953029492.1975
+        }
+      ]
+    },
+    {
+      "nu": 0.002,
+      "horizon": 0.7,
+      "steps": 200,
+      "dt": 0.0034999999999999996,
+      "nx": 201,
+      "start": "uniform",
+      "method": "nka",
+      "seed": 5489,
+      "rng": "MT19937",
+      "initial_linf": 0.9999707491937565,
+      "weights_min": 0.6206982390594827,
+      "weights_max": 1.2346468789849225,
+      "reference_residual": 9.270362255620057e-14,
+      "termination": "divergence_limit",
+      "records": [
+        {
+          "iteration": 0,
+          "error": {
+            "linf": 1.9927060868027262,
+            "max_spatial_l2": 13.267089532962807,
+            "max_spatial_l2_scaled": 0.9381248975367066,
+            "rms": 0.8003787436729778
+          }
+        },
+        {
+          "iteration": 1,
+          "error": {
+            "linf": 1.9079711610274193,
+            "max_spatial_l2": 12.426544614069027,
+            "max_spatial_l2_scaled": 0.8786893963325377,
+            "rms": 0.7102820117236932
+          },
+          "increment": {
+            "linf": 2.2313082080914,
+            "max_spatial_l2": 13.384339769953062,
+            "max_spatial_l2_scaled": 0.9464157413038605,
+            "rms": 0.8997219865411797
+          },
+          "residual_linf": 115.04679409973642
+        },
+        {
+          "iteration": 2,
+          "error": {
+            "linf": 4.768344172511307,
+            "max_spatial_l2": 15.128832436929036,
+            "max_spatial_l2_scaled": 1.0697700007587523,
+            "rms": 0.8196776479348113
+          },
+          "increment": {
+            "linf": 5.812148686720565,
+            "max_spatial_l2": 16.23768951495118,
+            "max_spatial_l2_scaled": 1.1481780366823682,
+            "rms": 0.918012708684911
+          },
+          "residual_linf": 738.1972861101825
+        },
+        {
+          "iteration": 3,
+          "error": {
+            "linf": 6.869502530974853,
+            "max_spatial_l2": 14.621524091046327,
+            "max_spatial_l2_scaled": 1.0338978836061328,
+            "rms": 0.7164463589405614
+          },
+          "increment": {
+            "linf": 8.576068506857883,
+            "max_spatial_l2": 20.183258231163386,
+            "max_spatial_l2_scaled": 1.4271718761694832,
+            "rms": 0.97040342184458
+          },
+          "residual_linf": 2604.1090228872213
+        },
+        {
+          "iteration": 4,
+          "error": {
+            "linf": 6.231051469428011,
+            "max_spatial_l2": 15.888299275934155,
+            "max_spatial_l2_scaled": 1.1234724159534355,
+            "rms": 0.6234464904617164
+          },
+          "increment": {
+            "linf": 10.383654775297199,
+            "max_spatial_l2": 23.587891751250897,
+            "max_spatial_l2_scaled": 1.6679158211203737,
+            "rms": 0.8965624431274175
+          },
+          "residual_linf": 2127.8195887389243
+        },
+        {
+          "iteration": 5,
+          "error": {
+            "linf": 18.339371547042656,
+            "max_spatial_l2": 42.75961062479311,
+            "max_spatial_l2_scaled": 3.0235610633687555,
+            "rms": 0.8648276890153959
+          },
+          "increment": {
+            "linf": 19.31813272002735,
+            "max_spatial_l2": 46.974737896225584,
+            "max_spatial_l2_scaled": 3.3216155710881807,
+            "rms": 1.0006097480570317
+          },
+          "residual_linf": 15757.664671047136
+        },
+        {
+          "iteration": 6,
+          "error": {
+            "linf": 445.5437488293704,
+            "max_spatial_l2": 707.1756878288567,
+            "max_spatial_l2_scaled": 50.00487243540456,
+            "rms": 22.837079475517108
+          },
+          "increment": {
+            "linf": 441.4654024826379,
+            "max_spatial_l2": 700.5272968019159,
+            "max_spatial_l2_scaled": 49.5347601974916,
+            "rms": 22.761419530548437
+          },
+          "residual_linf": 9932319.36598584
+        },
+        {
+          "iteration": 7,
+          "error": {
+            "linf": 1063.80110387833,
+            "max_spatial_l2": 2027.9931914093668,
+            "max_spatial_l2_scaled": 143.40077378457113,
+            "rms": 26.617125310453154
+          },
+          "increment": {
+            "linf": 1065.1045836991384,
+            "max_spatial_l2": 2392.4538693160125,
+            "max_spatial_l2_scaled": 169.17203546693466,
+            "rms": 36.8374950148496
+          },
+          "residual_linf": 56583006.19371648
+        },
+        {
+          "iteration": 8,
+          "error": {
+            "linf": 117348.42820217651,
+            "max_spatial_l2": 210335.1731827821,
+            "max_spatial_l2_scaled": 14872.94272795921,
+            "rms": 1758.161836273163
+          },
+          "increment": {
+            "linf": 117330.57024081648,
+            "max_spatial_l2": 210516.0436172124,
+            "max_spatial_l2_scaled": 14885.73219902939,
+            "rms": 1759.1792272136765
+          },
+          "residual_linf": 688475919392.7955
         }
       ]
     },
