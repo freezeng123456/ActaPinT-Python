@@ -174,39 +174,103 @@ mpiexec -n 4 python -m scripts.benchmark_stmg_mpi --steps 512 --output results/s
 The MPI implementation follows the direct NumPy-buffer communication interface
 in the [mpi4py tutorial](https://mpi4py.readthedocs.io/en/stable/tutorial.html).
 
+
 <!-- ACTUAL_SCALING_RESULTS -->
-## First completed scaling measurements
+## Measured scaling results
 
-The full local MPI matrix has completed on an Apple M3 Pro (12 physical cores,
-36 GiB, one host). Each cell has one warm-up and three measured solves; all
-measured and homogeneous checks take seven cycles. These are single-host
-measurements, separate from the SCNet two-node campaign.
+All 18 MPI configurations (eight on the Mac, ten on SCNet), each with three
+measured solves, converged in **7 cycles**. Across these solves the maximum
+relative residual was `1.353e-09` and maximum relative solution error was
+`5.132e-09`. The independent homogeneous checks also converged in seven cycles.
 
-| Ranks | Weak median (s) | Strong 512-slab median (s) |
-|---:|---:|---:|
-| 1 | 0.545 | 95.540 |
-| 2 | 0.551 | 58.898 |
-| 4 | 0.919 | 45.525 |
-| 8 | 1.159 | 39.953 |
+### SCNet: two compute nodes
 
-On SCNet XiongHeng, job 25558592 passed the two-node 4-rank independent global
-solve comparison (maximum solution difference `8.42e-12`). Job 25558675 has
-completed the five weak-scaling cells below, all in seven cycles. P=1 uses one
-host; P>=2 uses both Hygon C86 7185 nodes. The full 512-slab strong matrix and
-the iterative forward-substitution comparison are still running under the
-protocol in `run-plan.json`; their final measured results will be appended.
+The run used the XiongHeng `xhhctdnormal` partition, nodes `b02r06n03` and
+`b02r06n04`, with Hygon C86 7185 32-core processors (64 physical cores per node).
+The allocation requested eight ranks per node, one CPU per rank, and 2,000 MB
+per CPU. It was shared-node, not exclusive. Every rank was bound to one physical
+CPU, recorded in the raw files. The P=1 case used the first node; every P>=2
+case used both nodes. NumPy/BLAS thread counts were one.
 
-| Ranks | Weak median (s) | Actual hosts |
-|---:|---:|---:|
-| 1 | 1.479 | 1 |
-| 2 | 1.892 | 2 |
-| 4 | 2.315 | 2 |
-| 8 | 2.775 | 2 |
-| 16 | 3.162 | 2 |
+The runtime was Python 3.10.18, NumPy 1.26.4, SciPy 1.14.1, mpi4py 4.1.2 and
+HPC-X Open MPI 4.1.4rc1. Source commit `1d48220fb8cd3c708bacef291cc6bcda5e804783`
+was frozen for the MPI campaign; the exact three numerical source hashes are in
+every result. Slurm job 25558675 ran all ten scaling cells sequentially.
 
-Full local tests: **116 passed, one CUDA skip**. Python 3.10/3.12 and MPI
-1/2/4-rank CI checks passed in
-[run 42887337131](https://github.com/freezeng123456/ActaPinT-Python/actions/runs/42887337131).
-CI-only `UCX_TLS=tcp,self,sm` avoids an unusable hosted-runner RDMA adapter;
-cluster jobs keep their native transport configuration. The setting follows
-the [UCX documentation](https://openucx.readthedocs.io/en/master/faq.html).
+Strong scaling fixes 512 slabs and 15,300,608 unknowns:
+
+| Ranks | Hosts | Median (s) | Min–max (s) | Speedup vs P=1 STMG | Efficiency |
+|---|---|---|---|---|---|
+| 1 | 1 | 446.911 | 446.516–447.005 | 1.00 | 100.0% |
+| 2 | 2 | 216.078 | 215.918–216.106 | 2.07 | 103.4% |
+| 4 | 2 | 106.017 | 105.944–106.110 | 4.22 | 105.4% |
+| 8 | 2 | 55.253 | 55.225–55.275 | 8.09 | 101.1% |
+| 16 | 2 | 29.108 | 29.095–29.212 | 15.35 | 96.0% |
+
+Speedup in this table means `time(P=1 STMG) / time(P)`. It is separate from the
+forward-substitution baseline. The latter applies the same spatial V-cycle
+iteratively at each time step until local relative residual is at most `1e-8`,
+then independently checks global relative residual and solution error. It uses
+no direct LU fine-block shortcut. It ran after the MPI job on the same first
+node, under job 25559001, with source commit
+`4e5536516cc4a488d9b61d4697d2322cdd24295e`. The 512-slab sequential median was
+**212.180 s**, giving a 16-rank speedup of
+**7.29** relative to sequential stepping.
+
+Weak scaling fixes two slabs per rank; sequential timings use the corresponding
+whole problem size on one CPU:
+
+| Ranks | Slabs | MPI median (s) | Sequential MG (s) | Speedup vs sequential | Weak efficiency |
+|---|---|---|---|---|---|
+| 1 | 2 | 1.479 | 0.792 | 0.54 | 100.0% |
+| 2 | 4 | 1.892 | 1.670 | 0.88 | 78.2% |
+| 4 | 8 | 2.315 | 3.367 | 1.45 | 63.9% |
+| 8 | 16 | 2.775 | 6.017 | 2.17 | 53.3% |
+| 16 | 32 | 3.162 | 13.389 | 4.23 | 46.8% |
+
+The iteration count is independent of rank count in these runs, while weak
+scaling time grows with rank count. This is the measured Python/MPI baseline
+for subsequent implementation improvements. The runs extend Table 4.1's
+experiment to current hardware and 16 ranks; its historical BlueGene/Q timings
+and 262,144-core range are not extrapolated from these results.
+
+### Mac: multiple MPI processes on one host
+
+The local machine is an Apple M3 Pro with 12 physical cores and 36 GiB memory;
+MPICH 5.0.2 runs every rank on the same host. Its timing distribution reflects
+shared CPU and memory resources. All timing samples are retained.
+
+| Ranks | Weak median (s) | Strong median (s) | Strong speedup |
+|---|---|---|---|
+| 1 | 0.545 | 95.540 | 1.00 |
+| 2 | 0.551 | 58.898 | 1.62 |
+| 4 | 0.919 | 45.525 | 2.10 |
+| 8 | 1.159 | 39.953 | 2.39 |
+
+![Measured strong and weak scaling](figures/stmg_scaling_2026-11-11.svg)
+
+### Validation and recorded artifacts
+
+- Full local suite: **116 passed, 1 CUDA skip**, in 41.90 seconds.
+- [CI validation](https://github.com/freezeng123456/ActaPinT-Python/actions/runs/42891886705):
+  Python 3.10 and 3.12 pass, plus 1/2/4-rank MPI checks on Python 3.12.
+- The two-node 4-rank check compares the distributed V-cycle to serial MG and
+  the solution to a separately assembled global sparse solve; maximum solution
+  difference is `8.42e-12`.
+- The CI runner exposed an unusable `mana_0` RDMA adapter on one attempt. Only
+  CI now sets `UCX_TLS=tcp,self,sm`, following the
+  [UCX transport selection documentation](https://openucx.readthedocs.io/en/master/faq.html).
+  Cluster runs retain their native MPI transport configuration.
+- `docs/data/reproduction-2026-11-11/` contains both full NKA controls, EPS
+  coordinates, 18 MPI configurations, six sequential configurations, all
+  timing samples and residual/error histories, Slurm scripts and completion
+  records, source hashes and dependency/affinity metadata.
+
+To regenerate the scaling plot from the archived results:
+
+```bash
+python -m scripts.plot_stmg_scaling \
+  --local docs/data/reproduction-2026-11-11/local-mpi \
+  --cluster docs/data/reproduction-2026-11-11/scnet-scaling \
+  --output-prefix docs/figures/stmg_scaling_2026-11-11
+```

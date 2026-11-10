@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "method": "sequential forward substitution with iterative spatial V-cycles",
+  "steps": 4,
+  "spatial_dofs": 7471,
+  "dofs": 119536,
+  "dt": 0.1,
+  "degree": 3,
+  "setup_seconds": 0.6306230649352074,
+  "warmups": 1,
+  "samples": [
+    {
+      "repeat": 0,
+      "seconds": 1.6636705696582794,
+      "relative_residual": 5.564504276240729e-09,
+      "relative_error": 1.7705101154761358e-08,
+      "spatial_iterations": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "block_relative_residuals": [
+        4.518924086794538e-09,
+        6.43225883633641e-09,
+        5.051313047989392e-09,
+        6.054925753679837e-09
+      ]
+    },
+    {
+      "repeat": 1,
+      "seconds": 1.669727586209774,
+      "relative_residual": 5.564504276240729e-09,
+      "relative_error": 1.7705101154761358e-08,
+      "spatial_iterations": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "block_relative_residuals": [
+        4.518924086794538e-09,
+        6.43225883633641e-09,
+        5.051313047989392e-09,
+        6.054925753679837e-09
+      ]
+    },
+    {
+      "repeat": 2,
+      "seconds": 1.6753757819533348,
+      "relative_residual": 5.564504276240729e-09,
+      "relative_error": 1.7705101154761358e-08,
+      "spatial_iterations": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "block_relative_residuals": [
+        4.518924086794538e-09,
+        6.43225883633641e-09,
+        5.051313047989392e-09,
+        6.054925753679837e-09
+      ]
+    }
+  ],
+  "median_seconds": 1.669727586209774,
+  "seed": 20261111,
+  "host": "b02r06n03",
+  "tolerance": "1e-8 relative residual for each spatial solve; independently accept global residual <= 1e-8 and relative solution error <= 1e-7",
+  "source_sha256": {
+    "actapint/stmg_fem.py": "8978c03ef5a01dfa76de902834dde85d563a63336a03e009f5bc6ccdc33250c3",
+    "actapint/stmg_sequential.py": "ed7fa55267784658439cfdd4f245a2edeb31fc55d3d0b4e3bf99f34c287d2477",
+    "/work/home/zenghang/actapint_20261111/code-sequential/scripts/benchmark_stmg_sequential.py": "cb87e1184ae1b59aa12c4321a41b109e86f256fecffd39ebd7fad7fb617e2bc1"
+  },
+  "environment": {
+    "python": "3.10.18",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "slurm_job_id": "25559001",
+    "affinity": [
+      0
+    ],
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  }
+}
