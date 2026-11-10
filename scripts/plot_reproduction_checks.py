@@ -64,7 +64,10 @@ def plot(data_dir, output):
         ax.set_xlabel("Iteration")
         style_axis(ax)
         ax.legend(fontsize=8)
-    return save_figure(fig, output)
+    paths = save_figure(fig, output)
+    svg = Path(paths["svg"])
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
+    return paths
 
 
 if __name__ == "__main__":
