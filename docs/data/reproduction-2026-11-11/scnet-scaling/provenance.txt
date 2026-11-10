@@ -1,0 +1,66 @@
+Tue Nov 10 19:23:22 UTC 2026
+JobId=25558675 JobName=actapint_scaling_20261111
+   UserId=zenghang(26608) GroupId=acu722p2q8(3794) MCS_label=N/A
+   Priority=1256 Nice=0 Account=acu722p2q8 QOS=user_zenghang
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:01 TimeLimit=01:20:00 TimeMin=00:20:00
+   SubmitTime=2026-11-11T03:23:19 EligibleTime=2026-11-11T03:23:19
+   AccrueTime=2026-11-11T03:23:19
+   StartTime=2026-11-11T03:23:21 EndTime=2026-11-11T03:43:21 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-11T03:23:21 Scheduler=Main
+   Partition=xhhctdnormal AllocNode:Sid=login03:38858
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=b02r06n[03-04]
+   BatchHost=b02r06n03
+   NumNodes=2 NumCPUs=16 NumTasks=16 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=16,mem=32000M,node=2,billing=16
+   Socks/Node=* NtasksPerN:B:S:C=8:0:*:* CoreSpec=*
+   MinCPUsNode=8 MinMemoryCPU=2000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/work/home/zenghang/actapint_20261111/scaling.sh
+   WorkDir=/work/home/zenghang
+   StdErr=/work/home/zenghang/actapint_20261111/scaling.err
+   StdIn=/dev/null
+   StdOut=/work/home/zenghang/actapint_20261111/scaling.out
+   Power=
+   GresEnforceBind=Yes
+   
+
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                64
+On-line CPU(s) list:   0-63
+Thread(s) per core:    1
+Core(s) per socket:    32
+Socket(s):             2
+NUMA node(s):          8
+Vendor ID:             HygonGenuine
+CPU family:            24
+Model:                 1
+Model name:            Hygon C86 7185 32-core Processor
+Stepping:              1
+CPU MHz:               1600.000
+CPU max MHz:           2000.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4000.20
+Virtualization:        AMD-V
+L1d cache:             32K
+L1i cache:             64K
+L2 cache:              512K
+L3 cache:              8192K
+NUMA node0 CPU(s):     0-7
+NUMA node1 CPU(s):     8-15
+NUMA node2 CPU(s):     16-23
+NUMA node3 CPU(s):     24-31
+NUMA node4 CPU(s):     32-39
+NUMA node5 CPU(s):     40-47
+NUMA node6 CPU(s):     48-55
+NUMA node7 CPU(s):     56-63
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc art rep_good nopl nonstop_tsc extd_apicid amd_dcm aperfmperf eagerfpu pni monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_l2 hw_pstate retpoline_amd ssbd ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov succor smca
+82cebc6ff0de56d47948deb212998a22220d76d9f10797ed8594dc7ee515ed28  /work/home/zenghang/actapint_20261111/source.tar.gz
+8978c03ef5a01dfa76de902834dde85d563a63336a03e009f5bc6ccdc33250c3  actapint/stmg_fem.py
+d25dd3693b3beced8c0d8b5e3fc549060423b1448b9708aa38892b9c31e2cfd1  actapint/stmg_mpi.py
+ee17b7a0ef06d77b88351189c4312d1a7d2e8ac24aef1b00b5fa81ff8f9f3ac8  scripts/benchmark_stmg_mpi.py

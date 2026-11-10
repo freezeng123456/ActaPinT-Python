@@ -48,9 +48,10 @@ two ParaDiag-based Parareal variants — one diagonalizing the coarse grid
 correction, one the coarse solver — and space-time multigrid, for the heat
 equation, the advection-diffusion equation, Burgers' equation and the wave
 equation. The 3D P1-FEM / dG(3) multigrid baseline behind Table 4.1 is now
-implemented at the original spatial problem size. The local 2/4/8-step cases
-converge in seven iterations; the historical supercomputer timings remain
-separate from these serial numerical checks. See
+implemented at the original spatial problem size, with MPI time-slab ownership,
+neighbour exchange and coarse-grid rank agglomeration. The benchmark measures
+weak scaling with two slabs per rank and strong scaling with 512 slabs. Each
+result records actual host placement, residuals and repeated solve timings. See
 [`docs/SECTION4_REPRODUCTION.md`](docs/SECTION4_REPRODUCTION.md).
 
 The older paper-focused suite validates Figures 3.15, 4.5, 4.9–4.10 and
@@ -72,8 +73,9 @@ machine-readable outputs are collected in [`docs/RESULTS.md`](docs/RESULTS.md).
 The [2026-11-10 reproduction checks](docs/REPRODUCTION_CHECKS_2026-11-10.md)
 add independent NKA solves, the 3D STMG baseline, and portable numerical tests.
 
-The [2026-11-10 reproduction checks](docs/REPRODUCTION_CHECKS_2026-11-10.md)
-add independent NKA solves, the 3D STMG baseline, and portable numerical tests.
+The [2026-11-11 reconstruction and MPI report](docs/REPRODUCTION_CHECKS_2026-11-11.md)
+adds shared-start NKA controls, original EPS coordinates, time-distributed STMG,
+and measured strong/weak scaling at the original spatial problem size.
 
 ## Reproduced paper results
 
@@ -189,14 +191,22 @@ actapint figure_3_14_audit --output-dir results/checks
 
 These checks write JSON; `--quick` selects smaller verification problems.
 
-Run the original-size 3D STMG baseline and the 24-case independent NKA audit:
+Run the controlled NKA reconstruction and distributed STMG benchmark from the
+repository root:
 
 ```bash
-actapint stmg_fem_3d --output-dir results/checks
-actapint figure_3_14_audit --output-dir results/checks
+python -m actapint.nka_reproduction --output results/nka.json
+python -m pip install -e '.[mpi]'
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+mpiexec -n 4 python -m scripts.check_stmg_mpi
+mpiexec -n 4 python -m scripts.benchmark_stmg_mpi --output results/weak-p4.json
+mpiexec -n 4 python -m scripts.benchmark_stmg_mpi --steps 512 --output results/strong-p4.json
+python -m scripts.benchmark_stmg_sequential --steps 512 --output results/sequential.json
 ```
 
-These checks write JSON; `--quick` selects smaller verification problems.
+Use the cluster's MPI implementation with `mpi4py`; the `mpich` wheel is a local
+alternative. A multi-process run on one host is recorded separately from a
+cross-node run. The sequential benchmark uses iterative spatial multigrid.
 
 Run every converted experiment:
 

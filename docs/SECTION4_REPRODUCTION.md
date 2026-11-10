@@ -740,8 +740,12 @@ cases converge in seven cycles to relative residual below `1.3e-9`. A homogeneou
 random-initial-error check also takes seven cycles.
 
 [The implementation report](REPRODUCTION_CHECKS_2026-11-10.md) specifies the
-mesh construction, coarse solve, independent checks and measured results. These
-serial runs establish a numerical baseline for a future distributed campaign.
+mesh construction, coarse solve, independent checks and measured results. The
+[2026-11-11 distributed report](REPRODUCTION_CHECKS_2026-11-11.md) extends this
+baseline to MPI time-slab partitioning with neighbour exchange and pairwise
+rank agglomeration. It includes actual host placement and repeated strong/weak
+scaling measurements. `scripts/benchmark_stmg_sequential.py` supplies a separate
+forward-substitution comparison using iterative spatial V-cycles.
 
 The one claim in it that is method-related rather than machine-related is that the
 iteration count stays at 7 across five orders of magnitude of problem size. That is

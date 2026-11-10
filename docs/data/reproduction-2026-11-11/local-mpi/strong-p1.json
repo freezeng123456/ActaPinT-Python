@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "scaling": "strong",
+  "ranks": 1,
+  "hosts": [
+    "MacBook-Pro.local"
+  ],
+  "unique_hosts": 1,
+  "affinity": [
+    null
+  ],
+  "steps": 512,
+  "local_steps": 512,
+  "spatial_dofs": 7471,
+  "dofs": 15300608,
+  "tetrahedra": 49152,
+  "degree": 3,
+  "dt": 0.1,
+  "refinements": 4,
+  "seed": 20261111,
+  "warmups": 1,
+  "setup_seconds": 4.0427644590017735,
+  "samples": [
+    {
+      "repeat": 0,
+      "seconds": 84.69093629100098,
+      "iterations": 7,
+      "relative_residual": 1.1909637140680775e-09,
+      "relative_error": 4.288042872904122e-09,
+      "residual_history": [
+        1.0,
+        0.026394573753677264,
+        0.0008449492637727488,
+        3.4344492351620745e-05,
+        2.1521656709794993e-06,
+        1.6685296100143658e-07,
+        1.3916394682011907e-08,
+        1.1909637140680775e-09
+      ]
+    },
+    {
+      "repeat": 1,
+      "seconds": 95.53958175000298,
+      "iterations": 7,
+      "relative_residual": 1.1909637140680775e-09,
+      "relative_error": 4.288042872904122e-09,
+      "residual_history": [
+        1.0,
+        0.026394573753677264,
+        0.0008449492637727488,
+        3.4344492351620745e-05,
+        2.1521656709794993e-06,
+        1.6685296100143658e-07,
+        1.3916394682011907e-08,
+        1.1909637140680775e-09
+      ]
+    },
+    {
+      "repeat": 2,
+      "seconds": 109.66414837499906,
+      "iterations": 7,
+      "relative_residual": 1.1909637140680775e-09,
+      "relative_error": 4.288042872904122e-09,
+      "residual_history": [
+        1.0,
+        0.026394573753677264,
+        0.0008449492637727488,
+        3.4344492351620745e-05,
+        2.1521656709794993e-06,
+        1.6685296100143658e-07,
+        1.3916394682011907e-08,
+        1.1909637140680775e-09
+      ]
+    }
+  ],
+  "median_seconds": 95.53958175000298,
+  "homogeneous_iterations": 7,
+  "homogeneous_error_history": [
+    1.0,
+    0.04547945142854107,
+    0.0010509233477024086,
+    4.853264893622835e-05,
+    3.7244690079518723e-06,
+    3.046722214207278e-07,
+    2.5627628506207407e-08,
+    2.173170410553661e-09
+  ],
+  "timing": "maximum rank wall time; includes halo exchange, coarse rank agglomeration and convergence reductions; excludes setup and verification",
+  "source_sha256": {
+    "actapint/stmg_fem.py": "8978c03ef5a01dfa76de902834dde85d563a63336a03e009f5bc6ccdc33250c3",
+    "actapint/stmg_mpi.py": "d25dd3693b3beced8c0d8b5e3fc549060423b1448b9708aa38892b9c31e2cfd1",
+    "/Users/Apple_501/Documents/Codex/2026-11-10/kan-y-2/work/ActaPinT-Python/scripts/benchmark_stmg_mpi.py": "ee17b7a0ef06d77b88351189c4312d1a7d2e8ac24aef1b00b5fa81ff8f9f3ac8"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "mpi4py": "4.1.2",
+    "mpi": "MPICH Version:      5.0.2\nMPICH Release date: Fri Sep 25 20:45:26 UTC 2026\nMPICH ABI:          18:2:6\nMPICH Device:       ch4:ofi\nMPICH configure:    --with-device=ch4:ofi --with-pm=hydra:gforker\nMPICH CC:           cc\nMPICH CXX:          c++\nMPICH F77:          gfortran\nMPICH FC:           gfortran\nMPICH features:     threadcomm\nMPICH Custom Information:\thttps://pypi.org/p/mpich/5.0.2/\n",
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "slurm_job_id": null,
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  }
+}

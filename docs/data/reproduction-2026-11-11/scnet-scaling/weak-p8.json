@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "scaling": "weak",
+  "ranks": 8,
+  "hosts": [
+    "b02r06n03",
+    "b02r06n03",
+    "b02r06n03",
+    "b02r06n03",
+    "b02r06n04",
+    "b02r06n04",
+    "b02r06n04",
+    "b02r06n04"
+  ],
+  "unique_hosts": 2,
+  "affinity": [
+    [
+      0
+    ],
+    [
+      8
+    ],
+    [
+      16
+    ],
+    [
+      24
+    ],
+    [
+      0
+    ],
+    [
+      8
+    ],
+    [
+      16
+    ],
+    [
+      24
+    ]
+  ],
+  "steps": 16,
+  "local_steps": 2,
+  "spatial_dofs": 7471,
+  "dofs": 478144,
+  "tetrahedra": 49152,
+  "degree": 3,
+  "dt": 0.1,
+  "refinements": 4,
+  "seed": 20261111,
+  "warmups": 1,
+  "setup_seconds": 10.903787948191166,
+  "samples": [
+    {
+      "repeat": 0,
+      "seconds": 2.8025227040052414,
+      "iterations": 7,
+      "relative_residual": 1.1927187543825357e-09,
+      "relative_error": 4.245607656692367e-09,
+      "residual_history": [
+        1.0,
+        0.026380359096604373,
+        0.0008438863611987817,
+        3.409096568426473e-05,
+        2.119046152859584e-06,
+        1.6485508693701103e-07,
+        1.3840606009110426e-08,
+        1.1927187543825357e-09
+      ]
+    },
+    {
+      "repeat": 1,
+      "seconds": 2.7754817977547646,
+      "iterations": 7,
+      "relative_residual": 1.1927187543825357e-09,
+      "relative_error": 4.245607656692367e-09,
+      "residual_history": [
+        1.0,
+        0.026380359096604373,
+        0.0008438863611987817,
+        3.409096568426473e-05,
+        2.119046152859584e-06,
+        1.6485508693701103e-07,
+        1.3840606009110426e-08,
+        1.1927187543825357e-09
+      ]
+    },
+    {
+      "repeat": 2,
+      "seconds": 2.75031578540802,
+      "iterations": 7,
+      "relative_residual": 1.1927187543825357e-09,
+      "relative_error": 4.245607656692367e-09,
+      "residual_history": [
+        1.0,
+        0.026380359096604373,
+        0.0008438863611987817,
+        3.409096568426473e-05,
+        2.119046152859584e-06,
+        1.6485508693701103e-07,
+        1.3840606009110426e-08,
+        1.1927187543825357e-09
+      ]
+    }
+  ],
+  "median_seconds": 2.7754817977547646,
+  "homogeneous_iterations": 7,
+  "homogeneous_error_history": [
+    1.0,
+    0.046450837098557164,
+    0.0010725999700282442,
+    4.8495579226893644e-05,
+    3.784489950992923e-06,
+    3.124882706980145e-07,
+    2.6671577241903716e-08,
+    2.302387244465827e-09
+  ],
+  "timing": "maximum rank wall time; includes halo exchange, coarse rank agglomeration and convergence reductions; excludes setup and verification",
+  "source_sha256": {
+    "actapint/stmg_fem.py": "8978c03ef5a01dfa76de902834dde85d563a63336a03e009f5bc6ccdc33250c3",
+    "actapint/stmg_mpi.py": "d25dd3693b3beced8c0d8b5e3fc549060423b1448b9708aa38892b9c31e2cfd1",
+    "/work/home/zenghang/actapint_20261111/code/scripts/benchmark_stmg_mpi.py": "ee17b7a0ef06d77b88351189c4312d1a7d2e8ac24aef1b00b5fa81ff8f9f3ac8"
+  },
+  "environment": {
+    "python": "3.10.18",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "mpi4py": "4.1.2",
+    "mpi": "Open MPI v4.1.4rc1, package: Open MPI root@b01r2n02 Distribution, ident: 4.1.4rc1, repo rev: v4.1.4rc1, Unreleased developer copy\u0000",
+    "platform": "Linux-3.10.0-957.el7.x86_64-x86_64-with-glibc2.17",
+    "slurm_job_id": "25558675",
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  }
+}

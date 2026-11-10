@@ -38,7 +38,7 @@ numerical baseline; its supercomputer scaling measurements are separate. See
 | 1 Introduction | 1 | 1 | 0 | 0 | 1 figure |
 | 2 Model problems | 4 | 0 | 4 | 0 | 4 of 4 |
 | 3 Hyperbolic problems | 18 | 3 | 15 | 2 | 18 implemented figures (3.14 partial), 2 tables |
-| 4 Parabolic problems | 22 | 2 | 20 | 1 | 22 figures, Table 4.1 local baseline |
+| 4 Parabolic problems | 22 | 2 | 20 | 1 | 22 figures, Table 4.1 numerical and MPI baseline |
 | 5 Conclusions | 0 | 0 | 0 | 0 | prose only |
 
 ### Chapter 1 — Introduction
@@ -111,7 +111,7 @@ better in every figure.
 | Figure 4.20 | STMG with one and three smoothing steps, 2 panels | `STMG_Heat_ADE.m` | reproduced, every marker |
 | Figure 4.21 | the same sweep with the trapezoidal rule, 6 panels | `STMG_Heat_ADE.m` | reproduced |
 | Figure 4.22 | STMG for Burgers | `STMG_Bergers.m` | reproduced, every marker |
-| Table 4.1 | weak and strong scaling to 262 144 cores | — | 3D P1/dG(3) numerical baseline added; historical scaling not rerun |
+| Table 4.1 | weak and strong scaling to 262 144 cores | — | 3D P1/dG(3) MPI baseline and current-machine scaling; historical timings retained |
 
 ### Chapter 5 — Conclusions
 
@@ -343,8 +343,9 @@ These are not corrected, because the published figures depend on them:
   The new `stmg_fem_3d` experiment reconstructs its P1/dG(3) discretization with
   49,152 tetrahedra and 7,471 spatial degrees of freedom. At 2, 4 and 8 time steps
   it needs seven cycles and agrees with a direct sequential solve to relative
-  error below `5e-9`. Distributed execution and machine-specific timings still
-  require a parallel backend and a scaling campaign.
+  error below `5e-9`. The [2026-11-11 campaign](REPRODUCTION_CHECKS_2026-11-11.md)
+  adds MPI time-slab distribution, coarse rank agglomeration and measured scaling
+  on current hardware; it does not recreate the historical BlueGene/Q machine.
 * Figure 3.14 at `nu = 0.02`: the specified coarse-model weights produce only a
   small acceleration. Independent residual-form and global sparse updates agree
   with the existing diagonalized implementation to about `1e-14`; the 24-case

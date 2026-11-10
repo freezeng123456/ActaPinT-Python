@@ -1025,3 +1025,20 @@ arithmetic through the rest of the module for.
   `Iterative_ParaDiag_RoundError.m` goes the other way and solves each block of
   `P_alpha`, where the port had inverted them once, which was the decade
   separating Figure 3.18 from the published floors.
+
+
+## 2026-11-11 shared-start reconstruction of Figure 3.14
+
+The [new reconstruction report](REPRODUCTION_CHECKS_2026-11-11.md) derives the
+full-Jacobian Frobenius weights in closed form and runs each initial vector with
+both averaging and NKA. It uses 200 distinct periodic nodes and a separate
+201-node duplicated-endpoint control, 200 time steps, and an independent Newton
+reference. These are explicit protocols, separate from the earlier `dt=0.01`
+audit above. Original EPS coordinates replace raster point estimates.
+
+At `nu=0.02`, the coarse full-Jacobian weights stay close to one (about
+0.96–1.05). Under equal initialization the two methods have similar iteration
+counts: coarse starts reduce both to 10 iterations at `T=1.3` and 7 at `T=0.7`.
+A warm start therefore cannot be credited solely to NKA. The complete data and
+overlay preserve the published curves as comparisons; their large NKA gain has
+not been recovered under a common documented protocol.

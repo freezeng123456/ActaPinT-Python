@@ -1,0 +1,57 @@
+{
+  "run_id": "actapint-20261111",
+  "purpose": "Figure 3.14 controlled reconstruction and Table 4.1 distributed extension",
+  "code_repository": "freezeng123456/ActaPinT-Python",
+  "mpi_source_commit": "1d48220fb8cd3c708bacef291cc6bcda5e804783",
+  "sequential_source_commit": "4e5536516cc4a488d9b61d4697d2322cdd24295e",
+  "cluster": "SCNet XiongHeng",
+  "partition": "xhhctdnormal",
+  "scaling_job": 25558675,
+  "sequential_job": 25559001,
+  "smoke_job": 25558592,
+  "allocation": {
+    "nodes": 2,
+    "ranks_per_node": 8,
+    "cpus_per_rank": 1,
+    "memory_mb_per_cpu": 2000,
+    "exclusive": false
+  },
+  "scaling_cells": 10,
+  "sequential_cells": 6,
+  "ranks": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "weak_steps": "2*ranks",
+  "strong_steps": 512,
+  "warmups": 1,
+  "repeats": 3,
+  "mesh": {
+    "tetrahedra": 49152,
+    "spatial_dofs": 7471,
+    "time_degree": 3,
+    "dt": 0.1
+  },
+  "acceptance": {
+    "relative_residual": 1e-08,
+    "relative_solution_error": 1e-07
+  },
+  "canonical_root": "/work/home/zenghang/actapint_20261111",
+  "python": "/work/home/zenghang/actapint_20261111/venv/bin/python",
+  "mpi": "/opt/hpc/software/mpi/hpcx/v2.11.0/gcc-7.3.1/bin/mpirun",
+  "single_host": {
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "memory_gib": 36,
+    "ranks": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "mpi": "MPICH 5.0.2"
+  }
+}
