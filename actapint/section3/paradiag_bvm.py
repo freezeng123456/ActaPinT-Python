@@ -250,7 +250,7 @@ def quasi_newton(
     matrix to diagonalize becomes B^-1 Phi rather than B.  The reported error is
     the difference between two successive iterates, as in the script, unless a
     ``reference`` solution is given, in which case it is the max-norm distance to
-    it starting at the initial iterate, which is what Figure 3.14 plots.
+    it starting at the initial iterate, the convention used here for Figure 3.14.
 
     `Direct_ParaDiag_Burgers.m` offers two starting iterates, a uniform random
     vector, which is the one its code uses, and the initial condition repeated at
@@ -314,7 +314,7 @@ def all_at_once_solution(advection, diffusion, u0, steps, dt, tolerance=1e-12):
 
     The Jacobian is block tridiagonal in time, so one sparse solve per Newton step
     settles it; the quasi-Newton iterations of Figure 3.14 are measured against
-    this, since that is what the published panels plot.
+    this under the max-norm comparison convention.
     """
     f, df = residual_operator(advection, diffusion)
     matrix = bvm_matrix(steps, dt)
@@ -326,9 +326,12 @@ def all_at_once_solution(advection, diffusion, u0, steps, dt, tolerance=1e-12):
         residual = b - matrix.dot(iterate) - np.array([f(row) for row in iterate])
         if np.abs(residual).max() < tolerance:
             break
-        blocks = sparse.block_diag([df(row) for row in iterate], format="csr")
+        blocks = sparse.block_diag([sparse.csr_matrix(df(row)) for row in iterate], format="csr")
         update = spsolve((time_part + blocks).tocsc(), residual.ravel())
         iterate = iterate + update.reshape(steps, u0.size)
+    # The last Newton update may have exhausted the iteration limit. Always
+    # report the residual of the returned solution, not of its predecessor.
+    residual = b - matrix.dot(iterate) - np.array([f(row) for row in iterate])
     return iterate, float(np.abs(residual).max())
 
 
@@ -337,7 +340,7 @@ def nka_weights(nu, dt, steps, *, coarse_dx=NKA_COARSE_DX, part="jacobian",
     """The weights (3.48) of the reduced model on the coarse space mesh.
 
     The paper computes them once, before the iteration, from a trapezoidal rule
-    solve on a twenty times coarser grid, so they cost almost nothing.  The
+    solve on a ten times coarser grid, so they cost almost nothing.  The
     keywords are the parts of the construction the text leaves open and the scan
     varies: ``part="advective"`` fits only the term the Jacobian varies in,
     ``against="initial"`` measures the blocks against the first one rather than

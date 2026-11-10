@@ -315,11 +315,33 @@ def test_figure_4_14_needs_the_recovered_coarsening_factor():
 
 
 def test_wave_system_has_a_purely_imaginary_spectrum():
-    """Why the second variant is the one that survives a hyperbolic problem."""
-    operator, _ = diagg.wave_system(1 / 20)
-    eigenvalues = np.linalg.eigvals(operator.toarray())
-    assert np.abs(eigenvalues.real).max() < 1e-8
-    assert np.abs(eigenvalues.imag).max() > 1.0
+    """Verify the dispersion relation, including the defective zero mode.
+
+    The periodic constant mode gives [[0,-1],[0,0]], a size-two Jordan
+    block. Its numerical eigenvalues split by O(sqrt(eps)); an absolute
+    1e-8 bound on a general eigensolve is not a stability criterion.
+    """
+    dx = 1 / 20
+    operator, x = diagg.wave_system(dx)
+    a, n = operator.toarray(), len(x)
+    laplacian = a[n:, :n]
+    assert a[:n, n:] == pytest.approx(-np.eye(n))
+    assert a[:n, :n] == pytest.approx(np.zeros((n, n)))
+    assert a[n:, n:] == pytest.approx(np.zeros((n, n)))
+    assert laplacian == pytest.approx(laplacian.T)
+    exact_squared = np.sort(4 * np.sin(np.pi * np.arange(n) / n)**2 / dx**2)
+    assert np.linalg.eigvalsh(laplacian) == pytest.approx(exact_squared, abs=1e-11)
+    # A Fourier mode is an independent analytic eigenvector, without using
+    # the eigensolver that originally caused the platform-dependent failure.
+    for k in range(1, n):
+        mode = np.exp(2j * np.pi * k * np.arange(n) / n)
+        lam = 2j * np.sin(np.pi * k / n) / dx
+        eigenvector = np.concatenate([mode, -lam * mode])
+        assert a @ eigenvector == pytest.approx(lam * eigenvector, rel=1e-12, abs=1e-10)
+    constant = np.concatenate([np.ones(n), np.zeros(n)])
+    generalized = np.concatenate([np.zeros(n), -np.ones(n)])
+    assert a @ constant == pytest.approx(np.zeros(2*n), abs=1e-12)
+    assert a @ generalized == pytest.approx(constant, abs=1e-12)
 
 
 @pytest.mark.parametrize("alpha,steps", sorted(diagg.PUBLISHED_WAVE))

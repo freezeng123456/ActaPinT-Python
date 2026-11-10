@@ -323,7 +323,7 @@ are in [`SECTION4_REPRODUCTION.md`](SECTION4_REPRODUCTION.md).
 | Figures 4.12, 4.13 | Parareal with a diagonalized coarse grid correction | reproduced |
 | Figures 4.14, 4.15, 4.16, 4.17 | Parareal with a diagonalized coarse solver | reproduced, `J = 20` recovered for the heat panels |
 | Figures 4.18, 4.19, 4.20, 4.21, 4.22 | space–time multigrid | reproduced, every marker of 4.20 and 4.22 |
-| Table 4.1 | full STMG on 262 144 cores | quoted from Gander and Neumüller (2016) |
+| Table 4.1 | full STMG on 262 144 cores | historical table from Gander–Neumüller; [current MPI scaling](REPRODUCTION_CHECKS_2026-11-11.md) |
 
 ### Figures 4.9 and 4.10 — Parareal against MGRiT
 

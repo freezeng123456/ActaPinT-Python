@@ -1,0 +1,38 @@
+{
+  "recorded_at_utc": "2026-11-10T15:18:53.618578+00:00",
+  "base_commit": "9bf12930a5fbd0403abf8a436c511a90de4025fd",
+  "upstream_commit": "68431b7aef057008752c939f3fad564393ab1397",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.1.1",
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "thread_limits": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E580B25A44766E6729A65D7AF05B1198/S0962492924000072a.pdf/time_parallelization_for_hyperbolic_and_parabolic_problems.pdf",
+      "sha256": "10984f8288b5c25dc8123f1472f67b00fdd12b8a46f716956886488ef269f7d7"
+    },
+    {
+      "url": "https://www.unige.ch/~gander/Preprints/SpaceTimeMG.pdf",
+      "sha256": "401c5199b82b81553bb0aff0cfcd9c7aaf04a1c84fcf145a1046a0d06ae45d13"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2108.01700",
+      "sha256": "3bdfeaa4ac4a3c32f00605e7342781f87e42074d2e9ebed38b9911f4613ef02a"
+    }
+  ],
+  "sha256": {
+    "figure_3_14_audit.json": "a76d809491446d76dcb0c77d679722bf98fc79ae73e2f369ca986b3f7ead47e4",
+    "stmg_sensitivity.json": "df8fe5e42fa9e8c7d3bd55b19e6452f029b756755980080070b5ff3a7f7ffa9c",
+    "pytest.txt": "1539cb436583e7001033bbf2ab63fd0f22a88d79d0913aaccb6c72fc69920e5f",
+    "stmg_fem_3d.json": "ec02fdc8b7c28ba58bc1252e22a5e3dd88ab8da87d7a1f12418aeb91f073bc9d"
+  }
+}

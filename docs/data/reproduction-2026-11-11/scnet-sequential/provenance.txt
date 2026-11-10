@@ -1,0 +1,34 @@
+Tue Nov 10 20:37:39 UTC 2026
+JobId=25559001 JobName=actapint_seq_20261111
+   UserId=zenghang(26608) GroupId=acu722p2q8(3794) MCS_label=N/A
+   Priority=1255 Nice=0 Account=acu722p2q8 QOS=user_zenghang
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:01 TimeLimit=00:20:00 TimeMin=00:20:00
+   SubmitTime=2026-11-11T03:29:58 EligibleTime=2026-11-11T04:37:38
+   AccrueTime=2026-11-11T04:37:38
+   StartTime=2026-11-11T04:37:38 EndTime=2026-11-11T04:57:38 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-11T04:37:38 Scheduler=Main
+   Partition=xhhctdnormal AllocNode:Sid=login01:48791
+   ReqNodeList=b02r06n03 ExcNodeList=(null)
+   NodeList=b02r06n03
+   BatchHost=b02r06n03
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=2000M,node=1,billing=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=2000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/work/home/zenghang/actapint_20261111/sequential.sh
+   WorkDir=/work/home/zenghang/actapint_20261111
+   StdErr=/work/home/zenghang/actapint_20261111/sequential.err
+   StdIn=/dev/null
+   StdOut=/work/home/zenghang/actapint_20261111/sequential.out
+   Power=
+   GresEnforceBind=Yes
+   
+
+95dbe9e51bb06068b33763424946dd123a0e414b71e7724e16b0ff836c6ac2c1  /work/home/zenghang/actapint_20261111/source-sequential.tar.gz
+8978c03ef5a01dfa76de902834dde85d563a63336a03e009f5bc6ccdc33250c3  actapint/stmg_fem.py
+ed7fa55267784658439cfdd4f245a2edeb31fc55d3d0b4e3bf99f34c287d2477  actapint/stmg_sequential.py
+cb87e1184ae1b59aa12c4321a41b109e86f256fecffd39ebd7fad7fb617e2bc1  scripts/benchmark_stmg_sequential.py

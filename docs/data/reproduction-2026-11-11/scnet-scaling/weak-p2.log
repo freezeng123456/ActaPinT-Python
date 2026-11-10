@@ -1,0 +1,4 @@
+{'ranks': 2, 'steps': 4, 'repeat': -1, 'seconds': 1.897474154829979, 'iterations': 7, 'residual': 1.2497343652072318e-09}
+{'ranks': 2, 'steps': 4, 'repeat': 0, 'seconds': 1.8921143859624863, 'iterations': 7, 'residual': 1.2497343652072318e-09}
+{'ranks': 2, 'steps': 4, 'repeat': 1, 'seconds': 1.870308294892311, 'iterations': 7, 'residual': 1.2497343652072318e-09}
+{'ranks': 2, 'steps': 4, 'repeat': 2, 'seconds': 1.9039060920476913, 'iterations': 7, 'residual': 1.2497343652072318e-09}

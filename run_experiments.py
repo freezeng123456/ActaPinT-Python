@@ -25,9 +25,13 @@ from actapint.section2 import (
 )
 from actapint.section3 import SECTION3_EXPERIMENTS, run_section3
 from actapint.section4 import SECTION4_EXPERIMENTS, run_section4
+from actapint.stmg_fem import run_stmg_fem
+from actapint.nka_audit import run_nka_audit
 
 
 EXPERIMENTS = {
+    "figure_3_14_audit": run_nka_audit,
+    "stmg_fem_3d": run_stmg_fem,
     "schematics": run_schematics,
     **SCHEMATIC_EXPERIMENTS,
     "section2": run_section2,

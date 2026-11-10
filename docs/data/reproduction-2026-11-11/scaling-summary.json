@@ -1,0 +1,338 @@
+{
+  "single_host": {
+    "weak": [
+      {
+        "ranks": 1,
+        "steps": 2,
+        "dofs": 59768,
+        "hosts": 1,
+        "median": 0.5446421250017011,
+        "minimum": 0.4964034999939031,
+        "maximum": 0.9840167500005919,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.3531207788367073e-09,
+        "maximum_error": 5.131773624774397e-09,
+        "speedup": 1.0,
+        "efficiency": 1.0
+      },
+      {
+        "ranks": 2,
+        "steps": 4,
+        "dofs": 119536,
+        "hosts": 1,
+        "median": 0.5509490830008872,
+        "minimum": 0.5422660839976743,
+        "maximum": 0.5584408750000875,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.2497343641474875e-09,
+        "maximum_error": 4.604233949174663e-09,
+        "speedup": 0.9885525574072406,
+        "efficiency": 0.9885525574072406
+      },
+      {
+        "ranks": 4,
+        "steps": 8,
+        "dofs": 239072,
+        "hosts": 1,
+        "median": 0.9192284589953488,
+        "minimum": 0.7322483340030885,
+        "maximum": 1.0246760409936542,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1511446071659585e-09,
+        "maximum_error": 4.235868762115161e-09,
+        "speedup": 0.5924991982917458,
+        "efficiency": 0.5924991982917458
+      },
+      {
+        "ranks": 8,
+        "steps": 16,
+        "dofs": 478144,
+        "hosts": 1,
+        "median": 1.1586155840050196,
+        "minimum": 1.142886499997985,
+        "maximum": 1.2292696250005974,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1927187541031167e-09,
+        "maximum_error": 4.245607646303634e-09,
+        "speedup": 0.4700800960392929,
+        "efficiency": 0.4700800960392929
+      }
+    ],
+    "strong": [
+      {
+        "ranks": 1,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 1,
+        "median": 95.53958175000298,
+        "minimum": 84.69093629100098,
+        "maximum": 109.66414837499906,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1909637140680775e-09,
+        "maximum_error": 4.288042872904122e-09,
+        "speedup": 1.0,
+        "efficiency": 1.0
+      },
+      {
+        "ranks": 2,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 1,
+        "median": 58.89753191600175,
+        "minimum": 51.76567379199696,
+        "maximum": 61.705944332999934,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.190963714303776e-09,
+        "maximum_error": 4.2880428729319965e-09,
+        "speedup": 1.6221321784121487,
+        "efficiency": 0.8110660892060744
+      },
+      {
+        "ranks": 4,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 1,
+        "median": 45.525049417003174,
+        "minimum": 45.07357470799616,
+        "maximum": 46.19677333399886,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1909637142478758e-09,
+        "maximum_error": 4.288042872328653e-09,
+        "speedup": 2.0986156626624077,
+        "efficiency": 0.5246539156656019
+      },
+      {
+        "ranks": 8,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 1,
+        "median": 39.952712708000035,
+        "minimum": 37.182776667003054,
+        "maximum": 40.189802250002685,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1909637143319411e-09,
+        "maximum_error": 4.288042872440997e-09,
+        "speedup": 2.391316515808759,
+        "efficiency": 0.2989145644760949
+      }
+    ]
+  },
+  "two_node_allocation": {
+    "weak": [
+      {
+        "ranks": 1,
+        "steps": 2,
+        "dofs": 59768,
+        "hosts": 1,
+        "median": 1.4794307202100754,
+        "minimum": 1.4770445749163628,
+        "maximum": 1.5191346555948257,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.3531207782639712e-09,
+        "maximum_error": 5.131773670209852e-09,
+        "speedup": 1.0,
+        "efficiency": 1.0
+      },
+      {
+        "ranks": 2,
+        "steps": 4,
+        "dofs": 119536,
+        "hosts": 2,
+        "median": 1.8921143859624863,
+        "minimum": 1.870308294892311,
+        "maximum": 1.9039060920476913,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.2497343652072318e-09,
+        "maximum_error": 4.604233958227367e-09,
+        "speedup": 0.7818928555196806,
+        "efficiency": 0.7818928555196806
+      },
+      {
+        "ranks": 4,
+        "steps": 8,
+        "dofs": 239072,
+        "hosts": 2,
+        "median": 2.315468341112137,
+        "minimum": 2.2977670803666115,
+        "maximum": 2.353860467672348,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1511446085641885e-09,
+        "maximum_error": 4.235868783813873e-09,
+        "speedup": 0.6389336852256393,
+        "efficiency": 0.6389336852256393
+      },
+      {
+        "ranks": 8,
+        "steps": 16,
+        "dofs": 478144,
+        "hosts": 2,
+        "median": 2.7754817977547646,
+        "minimum": 2.75031578540802,
+        "maximum": 2.8025227040052414,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1927187543825357e-09,
+        "maximum_error": 4.245607656692367e-09,
+        "speedup": 0.5330356413819273,
+        "efficiency": 0.5330356413819273
+      },
+      {
+        "ranks": 16,
+        "steps": 32,
+        "dofs": 956288,
+        "hosts": 2,
+        "median": 3.1619462966918945,
+        "minimum": 3.15204868465662,
+        "maximum": 3.1709025874733925,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.2098124336559057e-09,
+        "maximum_error": 4.40317233055504e-09,
+        "speedup": 0.4678860996968519,
+        "efficiency": 0.4678860996968519
+      }
+    ],
+    "strong": [
+      {
+        "ranks": 1,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 1,
+        "median": 446.91146921366453,
+        "minimum": 446.51610551029444,
+        "maximum": 447.004841811955,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.190963714217371e-09,
+        "maximum_error": 4.288042871696612e-09,
+        "speedup": 1.0,
+        "efficiency": 1.0
+      },
+      {
+        "ranks": 2,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 2,
+        "median": 216.07774787396193,
+        "minimum": 215.9181546419859,
+        "maximum": 216.10600508004427,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1909637141562023e-09,
+        "maximum_error": 4.288042870749962e-09,
+        "speedup": 2.0682901113646732,
+        "efficiency": 1.0341450556823366
+      },
+      {
+        "ranks": 4,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 2,
+        "median": 106.01676668226719,
+        "minimum": 105.94436356425285,
+        "maximum": 106.11032398790121,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.190963714233368e-09,
+        "maximum_error": 4.288042871947395e-09,
+        "speedup": 4.2154791473037525,
+        "efficiency": 1.0538697868259381
+      },
+      {
+        "ranks": 8,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 2,
+        "median": 55.25285878777504,
+        "minimum": 55.22544668614864,
+        "maximum": 55.274569287896156,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.1909637140383261e-09,
+        "maximum_error": 4.288042870786568e-09,
+        "speedup": 8.088476850224913,
+        "efficiency": 1.011059606278114
+      },
+      {
+        "ranks": 16,
+        "steps": 512,
+        "dofs": 15300608,
+        "hosts": 2,
+        "median": 29.107612051069736,
+        "minimum": 29.094806499779224,
+        "maximum": 29.212092101573944,
+        "iterations": [
+          7,
+          7,
+          7
+        ],
+        "maximum_residual": 1.190963714197181e-09,
+        "maximum_error": 4.288042871553464e-09,
+        "speedup": 15.353766170496973,
+        "efficiency": 0.9596103856560608
+      }
+    ]
+  }
+}

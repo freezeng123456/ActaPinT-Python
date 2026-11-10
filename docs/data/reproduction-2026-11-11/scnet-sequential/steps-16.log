@@ -1,0 +1,4 @@
+{'steps': 16, 'repeat': -1, 'seconds': 6.090170666575432, 'residual': 6.288404740088112e-09}
+{'steps': 16, 'repeat': 0, 'seconds': 6.012522406876087, 'residual': 6.288404740088112e-09}
+{'steps': 16, 'repeat': 1, 'seconds': 6.017041839659214, 'residual': 6.288404740088112e-09}
+{'steps': 16, 'repeat': 2, 'seconds': 6.019286930561066, 'residual': 6.288404740088112e-09}

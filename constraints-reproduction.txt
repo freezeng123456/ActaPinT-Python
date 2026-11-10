@@ -1,0 +1,6 @@
+# Numerical stack used for the 2026-11-10 Python 3.12 reproduction.
+# Install with: python -m pip install -c constraints-reproduction.txt -e '.[test]'
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
+pytest==9.1.1

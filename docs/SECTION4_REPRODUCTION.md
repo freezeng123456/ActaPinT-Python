@@ -16,8 +16,8 @@ experiments that report numbers. Two are schematics, Figure 4.1 for the two-leve
 time grid and Figure 4.7 for the geometry of MGRiT with FCF-relaxation, and both
 are drawn from their specification, which
 [`PAPER_REPRODUCTION.md`](PAPER_REPRODUCTION.md#the-six-schematics) describes.
-Table 4.1 is a supercomputer scaling table quoted from another paper and is the
-one item of the chapter that stays out of reach.
+Table 4.1 is quoted from another paper. Its 3D P1/dG(3) numerical baseline is
+now implemented; the historical distributed scaling measurements are separate.
 
 Eleven of them have a committed upstream script; four subsections do not, and were
 implemented from the text: PFASST (Figure 4.6), the two analytic figures (4.8 and
@@ -47,7 +47,7 @@ implemented from the text: PFASST (Figure 4.6), the two analytic figures (4.8 an
 | Figure 4.20 | 4.6 STMG | STMG with one and three smoothing steps, 2 panels | `STMG_Heat_ADE.m` | reproduced, every marker |
 | Figure 4.21 | 4.6 STMG | the same sweep with the trapezoidal rule, 6 panels | `STMG_Heat_ADE.m` | reproduced |
 | Figure 4.22 | 4.6 STMG | STMG for Burgers' equation | `STMG_Bergers.m` | reproduced, every marker |
-| Table 4.1 | 4.6 STMG | weak and strong scaling to 262 144 cores | — | quoted from Gander and Neumüller (2016), see below |
+| Table 4.1 | 4.6 STMG | weak and strong scaling to 262 144 cores | — | original-size spatial baseline added, see below |
 
 All twenty experiments run as one group,
 
@@ -727,9 +727,25 @@ caption is the reliable source here.
 Table 4.1 is not an experiment of this paper. It is quoted from Gander and
 Neumüller (2016) and reports weak and strong scaling of a full space–time
 multigrid method for a three-dimensional heat equation from 1 to 262 144 cores,
-against classical time-stepping parallelized in space only. Reproducing it needs
-that machine, so it is out of scope here; the numbers are reprinted in the paper
-itself.
+against sequential forward substitution. The original Example 6.1 explicitly
+states that this comparison uses no spatial parallelization. Its measured
+Vulcan BlueGene/Q timings depend on the machine and distributed implementation.
+
+The new `actapint stmg_fem_3d` experiment reconstructs the 49,152-tetrahedron,
+7,471-interior-node spatial problem, P1 finite elements and degree-three DG in
+time, with `dt = 0.1`. It applies multilevel time coarsening, block Jacobi in
+time, and one spatial V-cycle per block. With damped block Gauss–Seidel
+`omega_x = 1.285`, forward pre/post sweeps, and `omega_t = 1`, all local 2/4/8-step
+cases converge in seven cycles to relative residual below `1.3e-9`. A homogeneous
+random-initial-error check also takes seven cycles.
+
+[The implementation report](REPRODUCTION_CHECKS_2026-11-10.md) specifies the
+mesh construction, coarse solve, independent checks and measured results. The
+[2026-11-11 distributed report](REPRODUCTION_CHECKS_2026-11-11.md) extends this
+baseline to MPI time-slab partitioning with neighbour exchange and pairwise
+rank agglomeration. It includes actual host placement and repeated strong/weak
+scaling measurements. `scripts/benchmark_stmg_sequential.py` supplies a separate
+forward-substitution comparison using iterative spatial V-cycles.
 
 The one claim in it that is method-related rather than machine-related is that the
 iteration count stays at 7 across five orders of magnitude of problem size. That is

@@ -1,0 +1,21 @@
+{
+  "source_commit": "d6c391a8ba8de9fbd3aa162919feac0d53939beb",
+  "url": "https://github.com/freezeng123456/ActaPinT-Python/actions/runs/42891886705",
+  "conclusion": "success",
+  "python_versions": [
+    "3.10",
+    "3.12"
+  ],
+  "pytest": {
+    "passed": 116,
+    "skipped": 1
+  },
+  "mpi_ranks": [
+    1,
+    2,
+    4
+  ],
+  "mpi_checks": "independent global sparse solution, serial V-cycle, zero RHS",
+  "ci_transport": "UCX_TLS=tcp,self,sm",
+  "transport_reference": "https://openucx.readthedocs.io/en/master/faq.html"
+}
